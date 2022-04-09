@@ -55,24 +55,28 @@ struct ContentView_Previews: PreviewProvider {
 struct ListItem: View {
     var body: some View {
         ZStack{
-            Rectangle()
-                .fill(Color.pink)
-                .frame(height: 137)
-                .shadow(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)), radius:4, x:0, y:4)
+            Image("hives")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height:135,alignment: .bottomTrailing)
+                    .cornerRadius(10)
+                    .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.clear, lineWidth: 4))
+                    .shadow(radius: 10)
             VStack(alignment: .leading){
                 Text("21/03/2022")
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(Color.white)
-                    .frame(maxWidth:.infinity, alignment: .topLeading)
+                    .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading)
                     .padding(.top)
                 Text("Tap to see in detail")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundColor(Color.white)
-                    .frame(maxWidth:.infinity, alignment: .topLeading)
+                    .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading)
                 Spacer()
             }
-        }.listRowBackground(Color.clear)
+        }.listRowBackground(Color.clear).clipped()
     }
 }
