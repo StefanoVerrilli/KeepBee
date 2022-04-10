@@ -15,23 +15,17 @@ struct ContentView: View{
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
     }
     var body: some View {
-        NavigationView{
-        ZStack{
-            Color(red: 251/255, green: 230/255, blue: 155/255).edgesIgnoringSafeArea(.top)
-            Image("Background").scaledToFit().edgesIgnoringSafeArea(.top)
-            VStack(alignment:.leading,spacing:3){
-                Spacer()
+       NavigationView{
+            VStack(spacing:0){
                 HStack{
                     Text("Track your hives")
                         .font(.system(size: 32, weight: .bold))
                         .multilineTextAlignment(.leading)
                         .frame(alignment:.leading)
-                    Spacer()
+                        Spacer()
                     NavigationLink(destination: RecordingView()){
-                        VStack{
-                            ButtonView()}
-                    }.buttonStyle(PlainButtonStyle())
-                    }.padding()
+                        Image("customplus").resizable().padding().background(Color(red: 237/255, green: 194/255, blue: 93/255)).cornerRadius(90).frame(width:55,height: 55)}.navigationBarHidden(true)
+                }.padding()
                      HStack{
                 Text("Shake the iPhone to record \nor press the \"+\" button to\ntake notes")
                     .multilineTextAlignment(.leading)
@@ -44,16 +38,24 @@ struct ContentView: View{
                     MaskView()
                     MaskView()
                     MaskView()
-                }.padding(.top,-3).padding(.leading,-10)
-                }.padding()
-        }}
-        
+                }.padding(.leading,-10)
+            }.background(BackgroundView())
+       }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()    }
+}
+
+struct BackgroundView: View{
+    var body: some View{
+        ZStack{
+            Color(red: 251/255, green: 230/255, blue: 155/255)
+            Image("Background").scaledToFit()
+        }
+    }
 }
 
 struct ListItem: View {
@@ -94,11 +96,5 @@ struct MaskView: View {
                 EmptyView()
             }.buttonStyle(PlainButtonStyle())
         }.listRowBackground(Color.clear)
-    }
-}
-
-struct ButtonView: View {
-    var body: some View {
-        Image("customplus").background(Color(red: 237/255, green: 194/255, blue: 93/255).cornerRadius(90).frame(width: 45, height: 45,alignment:.trailing)).padding(.trailing)
     }
 }
