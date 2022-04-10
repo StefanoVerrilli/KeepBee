@@ -79,7 +79,7 @@ struct MaskView: View {
     var body: some View {
         ZStack{
             ListItem()
-            NavigationLink(destination:DetailedHiveView()){
+            NavigationLink(destination:AlternativeHiveDetail()){
                 EmptyView()
             }.buttonStyle(PlainButtonStyle())
         }.listRowBackground(Color.clear)

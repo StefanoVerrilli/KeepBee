@@ -35,7 +35,8 @@ struct DetailedHiveView: View{
                 CustomNumPicker(LoomsInside: LoomsInside)
                 Toggle(isOn: $HiveDiagram){
                     Text("Hive Diagram")
-                }.padding()
+                }.padding().offset(y:-4)
+
             }.background(Color(red: 237/255, green: 194/255, blue: 93/255)).cornerRadius(10)
         }.background(BackgroundView()).navigationTitle(Text("Hive A")).navigationBarTitleDisplayMode(.inline).padding()
         }
@@ -55,7 +56,7 @@ struct CustomNumPicker: View {
                 ForEach(0..<10){
                     Text("\($0)")
                 }
-            }} label:{
+            }.menuStyle(.borderlessButton)} label:{
                 HStack {
                     Text("Looms inside")
                     Spacer()
@@ -63,7 +64,7 @@ struct CustomNumPicker: View {
                     Image(systemName:"chevron.right")}
                 .foregroundColor(.white)
                 .padding()
-                .frame(height:63)
+                .frame(height:64)
                 .background(Color(red: 28/255, green: 28/255, blue: 30/255))
             }
     }
