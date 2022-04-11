@@ -37,7 +37,7 @@ struct RecordingView: View{
                  }
                  Spacer()
                  HStack{
-                     Text("Futura stringa di speech to text")
+                     Text("Futura stringa di speech to text aaaaaaa")
                  }
              }.background(BackgroundView())
     }
