@@ -11,7 +11,7 @@ import SwiftUI
 struct Progratto_Team_GApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Tabbar()
         }
     }
 }

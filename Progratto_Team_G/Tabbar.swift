@@ -6,12 +6,9 @@
 //
 
 import SwiftUI
-struct TabView_WithListScrollBehind: View {
+struct Tabbar: View {
     var body: some View {
         TabView {
-            
-            
-            
             RecordingView()
             .tabItem {
                 Image(systemName: "mic")
@@ -40,8 +37,7 @@ struct TabView_WithListScrollBehind: View {
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-       TabView_WithListScrollBehind()
-        
+       Tabbar()
         
     }
 }
