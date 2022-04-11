@@ -58,7 +58,7 @@ struct ListItem: View {
                         .stroke(Color.clear, lineWidth: 4))
                     .shadow(radius: 10)
             VStack{
-                Text("21/03/2022")
+                Text("Hive n.1")
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(Color.white)
                     .frame(maxWidth:.infinity, alignment: .leading)

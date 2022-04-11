@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFC2802E851003ED7C2 /* backgroundView.swift */; };
+		7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */; };
+		7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FC9762801A64B00178BE4 /* RecordingView.swift */; };
+		7BB1DF6228018DDE0045E3E1 /* DetailedHiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */; };
+		7BC772372800B05700547E6C /* Progratto_Team_GApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */; };
+		7BC772392800B05700547E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772382800B05700547E6C /* ContentView.swift */; };
+		7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723A2800B05800547E6C /* Assets.xcassets */; };
+		7BC7723E2800B05800547E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723D2800B05800547E6C /* Preview Assets.xcassets */; };
+		7BC772482800B05900547E6C /* Progratto_Team_GTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */; };
+		7BC772522800B05900547E6C /* Progratto_Team_GUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */; };
+		7BC772542800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7BC772442800B05900547E6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC7722B2800B05700547E6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BC772322800B05700547E6C;
+			remoteInfo = Progratto_Team_G;
+		};
+		7BC7724E2800B05900547E6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC7722B2800B05700547E6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BC772322800B05700547E6C;
+			remoteInfo = Progratto_Team_G;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B54BAFC2802E851003ED7C2 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
+		7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeHiveDetail.swift; sourceTree = "<group>"; };
+		7B7FC9762801A64B00178BE4 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHiveView.swift; sourceTree = "<group>"; };
+		7BC772332800B05700547E6C /* Progratto_Team_G.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progratto_Team_G.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GApp.swift; sourceTree = "<group>"; };
+		7BC772382800B05700547E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7BC7723A2800B05800547E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BC7723D2800B05800547E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BC772432800B05900547E6C /* Progratto_Team_GTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Progratto_Team_GTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GTests.swift; sourceTree = "<group>"; };
+		7BC7724D2800B05900547E6C /* Progratto_Team_GUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Progratto_Team_GUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITests.swift; sourceTree = "<group>"; };
+		7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BC772302800B05700547E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC772402800B05900547E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC7724A2800B05900547E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7BC7722A2800B05700547E6C = {
+			isa = PBXGroup;
+			children = (
+				7BC772352800B05700547E6C /* Progratto_Team_G */,
+				7BC772462800B05900547E6C /* Progratto_Team_GTests */,
+				7BC772502800B05900547E6C /* Progratto_Team_GUITests */,
+				7BC772342800B05700547E6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7BC772342800B05700547E6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BC772332800B05700547E6C /* Progratto_Team_G.app */,
+				7BC772432800B05900547E6C /* Progratto_Team_GTests.xctest */,
+				7BC7724D2800B05900547E6C /* Progratto_Team_GUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BC772352800B05700547E6C /* Progratto_Team_G */ = {
+			isa = PBXGroup;
+			children = (
+				7B54BAFC2802E851003ED7C2 /* backgroundView.swift */,
+				7B7FC9762801A64B00178BE4 /* RecordingView.swift */,
+				7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */,
+				7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */,
+				7BC772382800B05700547E6C /* ContentView.swift */,
+				7BC7723A2800B05800547E6C /* Assets.xcassets */,
+				7BC7723C2800B05800547E6C /* Preview Content */,
+				7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */,
+			);
+			path = Progratto_Team_G;
+			sourceTree = "<group>";
+		};
+		7BC7723C2800B05800547E6C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7BC7723D2800B05800547E6C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7BC772462800B05900547E6C /* Progratto_Team_GTests */ = {
+			isa = PBXGroup;
+			children = (
+				7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */,
+			);
+			path = Progratto_Team_GTests;
+			sourceTree = "<group>";
+		};
+		7BC772502800B05900547E6C /* Progratto_Team_GUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */,
+				7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */,
+			);
+			path = Progratto_Team_GUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7BC772322800B05700547E6C /* Progratto_Team_G */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC772572800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_G" */;
+			buildPhases = (
+				7BC7722F2800B05700547E6C /* Sources */,
+				7BC772302800B05700547E6C /* Frameworks */,
+				7BC772312800B05700547E6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Progratto_Team_G;
+			productName = Progratto_Team_G;
+			productReference = 7BC772332800B05700547E6C /* Progratto_Team_G.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7BC772422800B05900547E6C /* Progratto_Team_GTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC7725A2800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_GTests" */;
+			buildPhases = (
+				7BC7723F2800B05900547E6C /* Sources */,
+				7BC772402800B05900547E6C /* Frameworks */,
+				7BC772412800B05900547E6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BC772452800B05900547E6C /* PBXTargetDependency */,
+			);
+			name = Progratto_Team_GTests;
+			productName = Progratto_Team_GTests;
+			productReference = 7BC772432800B05900547E6C /* Progratto_Team_GTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7BC7724C2800B05900547E6C /* Progratto_Team_GUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC7725D2800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_GUITests" */;
+			buildPhases = (
+				7BC772492800B05900547E6C /* Sources */,
+				7BC7724A2800B05900547E6C /* Frameworks */,
+				7BC7724B2800B05900547E6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BC7724F2800B05900547E6C /* PBXTargetDependency */,
+			);
+			name = Progratto_Team_GUITests;
+			productName = Progratto_Team_GUITests;
+			productReference = 7BC7724D2800B05900547E6C /* Progratto_Team_GUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BC7722B2800B05700547E6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					7BC772322800B05700547E6C = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					7BC772422800B05900547E6C = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7BC772322800B05700547E6C;
+					};
+					7BC7724C2800B05900547E6C = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7BC772322800B05700547E6C;
+					};
+				};
+			};
+			buildConfigurationList = 7BC7722E2800B05700547E6C /* Build configuration list for PBXProject "Progratto_Team_G" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7BC7722A2800B05700547E6C;
+			productRefGroup = 7BC772342800B05700547E6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BC772322800B05700547E6C /* Progratto_Team_G */,
+				7BC772422800B05900547E6C /* Progratto_Team_GTests */,
+				7BC7724C2800B05900547E6C /* Progratto_Team_GUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BC772312800B05700547E6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC7723E2800B05800547E6C /* Preview Assets.xcassets in Resources */,
+				7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC772412800B05900547E6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC7724B2800B05900547E6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BC7722F2800B05700547E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC772392800B05700547E6C /* ContentView.swift in Sources */,
+				7BC772372800B05700547E6C /* Progratto_Team_GApp.swift in Sources */,
+				7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */,
+				7BB1DF6228018DDE0045E3E1 /* DetailedHiveView.swift in Sources */,
+				7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */,
+				7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC7723F2800B05900547E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC772482800B05900547E6C /* Progratto_Team_GTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC772492800B05900547E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC772542800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift in Sources */,
+				7BC772522800B05900547E6C /* Progratto_Team_GUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7BC772452800B05900547E6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BC772322800B05700547E6C /* Progratto_Team_G */;
+			targetProxy = 7BC772442800B05900547E6C /* PBXContainerItemProxy */;
+		};
+		7BC7724F2800B05900547E6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BC772322800B05700547E6C /* Progratto_Team_G */;
+			targetProxy = 7BC7724E2800B05900547E6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7BC772552800B05900547E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5ML7XF4P82;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7BC772562800B05900547E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5ML7XF4P82;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BC772582800B05900547E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Progratto_Team_G/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-G";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7BC772592800B05900547E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Progratto_Team_G/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-G";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7BC7725B2800B05900547E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Progratto_Team_G.app/Progratto_Team_G";
+			};
+			name = Debug;
+		};
+		7BC7725C2800B05900547E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Progratto_Team_G.app/Progratto_Team_G";
+			};
+			name = Release;
+		};
+		7BC7725E2800B05900547E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Progratto_Team_G;
+			};
+			name = Debug;
+		};
+		7BC7725F2800B05900547E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Progratto_Team_G;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BC7722E2800B05700547E6C /* Build configuration list for PBXProject "Progratto_Team_G" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC772552800B05900547E6C /* Debug */,
+				7BC772562800B05900547E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC772572800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_G" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC772582800B05900547E6C /* Debug */,
+				7BC772592800B05900547E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC7725A2800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_GTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC7725B2800B05900547E6C /* Debug */,
+				7BC7725C2800B05900547E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC7725D2800B05900547E6C /* Build configuration list for PBXNativeTarget "Progratto_Team_GUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC7725E2800B05900547E6C /* Debug */,
+				7BC7725F2800B05900547E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BC7722B2800B05700547E6C /* Project object */;
+}
