@@ -9,45 +9,15 @@ import Foundation
 import SwiftUI
 
 struct AlternativeHiveDetail: View{
-    @State private var Data = Date()
-    @State private var LoomsInside: Int = Int()
-    @State private var HiveDiagram: Bool = false
     init(){
             UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = UIColor.black
         }
     var body: some View{
         Form{
-            Section(header:HStack{
-                Image(systemName: "heart.fill")
-                Text("Hive Health")
-                }){
-                    DatePicker("Last nourished day",selection: $Data,displayedComponents: .date)
-                        .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                        .padding(.vertical)
-                        .datePickerStyle(.compact)
-                    DatePicker("Next nutrition day",selection: $Data,displayedComponents: .date)
-                        .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                        .padding(.vertical)
-                    DatePicker("Swarm picked up",selection: $Data,displayedComponents: .date)
-                        .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                        .padding(.vertical)
-                }
-            Section(header:HStack{
-                Image(systemName: "archivebox.fill")
-                Text("General information")
-            }){
-                Picker("Looms inside", selection: $LoomsInside) {
-                    ForEach(0..<10){
-                        Text("\($0)")
-                    }
-                }.padding(.vertical).listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255)).foregroundColor(Color.black)
-                Toggle(isOn: $HiveDiagram){
-                    Text("Hive Diagram")
-                }
-                .padding(.vertical)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-            }
+            HiveHealthView()
+            GeneralInformationHiveView()
+            QueenBeeDetailsView()
         }.background(BackgroundView())
             .navigationTitle(Text("Hive A"))
             .navigationBarTitleDisplayMode(.inline)
@@ -61,15 +31,75 @@ struct AlternativeHiveDetail_Previews: PreviewProvider{
     }
 }
 
-/*struct CustomDatePicker: View {
-    @State public var GenericDate = Date()
+struct GeneralInformationHiveView: View {
+    @State private var LoomsInside: Int = Int()
+    @State private var HiveDiagram: Bool = false
     var body: some View {
-        DatePicker("Pick a date", selection: $GenericDate, displayedComponents: .date)
-            .padding()
-            .background(Color(red: 28/255, green: 28/255, blue: 30/255))
-            .foregroundColor(Color.white)
-            .accentColor(.orange)
-            .colorScheme(.dark)
-            .background(Color.clear)
+        Section(header:HStack{
+            Image(systemName: "archivebox.fill")
+            Text("General information")
+        }){
+            Picker("Looms inside", selection: $LoomsInside) {
+                ForEach(0..<10){
+                    Text("\($0)")
+                }
+            }.padding(.vertical).listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255)).foregroundColor(Color.black)
+            Toggle(isOn: $HiveDiagram){
+                Text("Hive Diagram")
+            }
+            .padding(.vertical)
+            .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
         }
-}*/
+    }
+}
+
+struct QueenBeeDetailsView: View {
+    @State private var QueenChange = Date()
+    @State private var RoyalCellInserted = Date()
+    @State private var QueenInserted = Date()
+    @State private var OrphanHive: Bool = false
+    var body: some View {
+        Section(header:HStack{
+            Image(systemName: "crown.fill")
+            Text("Queen bee details")
+        }){
+            Toggle(isOn: $OrphanHive){
+                Text("Orphan: ")
+            }.padding(.vertical)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+            DatePicker("Inserted in",selection: $QueenInserted,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+                .datePickerStyle(.compact)
+            DatePicker("Need to be changed in",selection: $QueenChange,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+                .datePickerStyle(.compact)
+            DatePicker("Royal cell inserted in",selection: $RoyalCellInserted,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+                .datePickerStyle(.compact)
+        }
+    }
+}
+
+struct HiveHealthView: View {
+    @State private var Data = Date()
+    var body: some View {
+        Section(header:HStack{
+            Image(systemName: "heart.fill")
+            Text("Hive Health")
+        }){
+            DatePicker("Last nourished day",selection: $Data,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+                .datePickerStyle(.compact)
+            DatePicker("Next nutrition day",selection: $Data,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+            DatePicker("Swarm picked up",selection: $Data,displayedComponents: .date)
+                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .padding(.vertical)
+        }
+    }
+}

@@ -36,7 +36,7 @@ struct ContentView: View{
                     MaskView()
                 }.padding(.leading,-10)
             }.background(BackgroundView())
-       }.accentColor(.black)
+           }.accentColor(.black)
     }
 }
 
