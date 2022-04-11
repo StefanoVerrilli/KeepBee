@@ -10,7 +10,36 @@ import SwiftUI
 
 struct RecordingView: View{
     var body:some View{
-        Text("Also coming soon...")
+             VStack(spacing:0){
+                 HStack{
+                     Text("Track your hives")
+                         .font(.system(size: 32, weight: .bold))
+                         .multilineTextAlignment(.leading)
+                         .frame(alignment:.leading)
+                         Spacer()
+                 }.padding()
+                 
+                 HStack{
+                  Text("Shake the iPhone to record \nor press the mic")
+                      .multilineTextAlignment(.leading)
+                      .frame(maxWidth:.infinity,alignment: .leading)
+                      .font(.system(size:26))
+                 }.padding(.leading)
+                 Spacer()
+                 HStack{
+                     ZStack{
+                            Image(systemName:"circle.fill")
+                             .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: .black, radius: 4, x: 0, y: 0)
+                    
+                         Image(systemName:"mic.fill")
+                             .font(.system(size:110)).foregroundColor(Color.white).shadow(color: .black, radius: 0, x: 0, y: 0)
+                     }
+                 }
+                 Spacer()
+                 HStack{
+                     Text("Futura stringa di speech to text")
+                 }
+             }.background(BackgroundView())
     }
 }
 
