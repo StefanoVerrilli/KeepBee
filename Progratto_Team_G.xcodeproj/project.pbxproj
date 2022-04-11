@@ -18,6 +18,7 @@
 		7BC772482800B05900547E6C /* Progratto_Team_GTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */; };
 		7BC772522800B05900547E6C /* Progratto_Team_GUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */; };
 		7BC772542800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */; };
+		E63051D028049632006A265F /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63051CF28049632006A265F /* Tabbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		7BC7724D2800B05900547E6C /* Progratto_Team_GUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Progratto_Team_GUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITests.swift; sourceTree = "<group>"; };
 		7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E63051CF28049632006A265F /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */,
 				7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */,
 				7BC772382800B05700547E6C /* ContentView.swift */,
+				E63051CF28049632006A265F /* Tabbar.swift */,
 				7BC7723A2800B05800547E6C /* Assets.xcassets */,
 				7BC7723C2800B05800547E6C /* Preview Content */,
 			);
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E63051D028049632006A265F /* Tabbar.swift in Sources */,
 				7BC772392800B05700547E6C /* ContentView.swift in Sources */,
 				7BC772372800B05700547E6C /* Progratto_Team_GApp.swift in Sources */,
 				7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */,
