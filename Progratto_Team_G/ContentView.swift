@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ParthenoKit
 
 struct ContentView: View{
     init() {
