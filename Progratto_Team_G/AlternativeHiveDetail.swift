@@ -13,16 +13,36 @@ struct AlternativeHiveDetail: View{
             UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().separatorColor = UIColor.black
         }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var navigateBack = false
+    @State private var HiveName:String = "Hive"
     var body: some View{
+        NavigationView{
         Form{
             HiveHealthView()
             GeneralInformationHiveView()
             QueenBeeDetailsView()
         }.background(BackgroundView())
-            .navigationTitle(Text("Hive A"))
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button{
+                        self.presentationMode.wrappedValue.dismiss()
+                    }label: {
+                        Label("cancel",systemImage: "xmark").labelStyle(.iconOnly)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button{
+                        navigateBack = true
+                        self.presentationMode.wrappedValue.dismiss()
+                    }label: {
+                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly)
+                    }.disabled(HiveName.isEmpty)
+                }
+            }).navigationTitle("Hive A")
             .navigationBarTitleDisplayMode(.inline)
-    }
-}
+        }
+    }}
 
 
 struct AlternativeHiveDetail_Previews: PreviewProvider{

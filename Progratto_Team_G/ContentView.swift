@@ -14,6 +14,7 @@ struct ContentView: View{
         UITableViewCell.appearance().backgroundColor = UIColor(Color.clear)
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
     }
+    @State private var showDetailedView = false
     var body: some View {
        NavigationView{
             VStack(spacing:0){
@@ -33,10 +34,14 @@ struct ContentView: View{
                     .font(.system(size:26))
                 }.padding(.leading)
                 List{
-                    MaskView()
+                    Button(action: {showDetailedView = true}, label:{ListItem()}).listRowBackground(Color.clear)
                 }.padding(.leading,-10)
             }.background(BackgroundView())
-           }.accentColor(.black)
+       }.navigationViewStyle(.stack)
+            .sheet(isPresented: $showDetailedView){
+                AlternativeHiveDetail()
+            }
+
     }
 }
 
@@ -77,11 +82,12 @@ struct ListItem: View {
 
 struct MaskView: View {
     var body: some View {
-        ZStack{
+        Button(action: {print("button tap")}, label:{ListItem()}).listRowBackground(Color.clear)
+        /*ZStack{
             ListItem()
             NavigationLink(destination:AlternativeHiveDetail()){
                 EmptyView()
-            }.buttonStyle(PlainButtonStyle())
-        }.listRowBackground(Color.clear)
+            }.buttonStyle(PlainButtonStyle()).navigationViewStyle(.stack)
+        }.listRowBackground(Color.clear)*/
     }
 }
