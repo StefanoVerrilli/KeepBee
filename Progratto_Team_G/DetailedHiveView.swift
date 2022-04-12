@@ -37,8 +37,8 @@ struct DetailedHiveView: View{
                     Text("Hive Diagram")
                 }.padding().offset(y:-4)
 
-            }.background(Color(red: 237/255, green: 194/255, blue: 93/255)).cornerRadius(10)
-        }.background(BackgroundView()).navigationTitle(Text("Hive A")).navigationBarTitleDisplayMode(.inline).padding()
+            }.background(Color(red: 237/255, green: 194/255, blue: 93/255)).cornerRadius(10).padding()
+        }.background(BackgroundView()).navigationTitle(Text("Hive A")).navigationBarTitleDisplayMode(.inline)
         }
 }
 
