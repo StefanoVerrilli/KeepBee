@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import ParthenoKit
 
 struct AlternativeHiveDetail: View{
     init(){
