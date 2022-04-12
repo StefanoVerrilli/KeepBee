@@ -74,7 +74,7 @@ struct GeneralInformationHiveView: View {
                 Text("Hive Diagram")
             }
             .padding(.vertical)
-            .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+            .listRowBackground(Color("CustomOrange"))
         }
     }
 }
@@ -106,7 +106,7 @@ struct HiveHealthView: View {
             Text("Hive Health")
         }){
             DatePicker("Last nourished day",selection: $Data,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+                .listRowBackground(Color("CustomOrange"))
                 .padding(.vertical)
                 .datePickerStyle(.compact)
             DatePicker("Next nutrition day",selection: $Data,displayedComponents: .date)

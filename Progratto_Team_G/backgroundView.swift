@@ -15,7 +15,7 @@ struct BackgroundView: View{
 //            Image("Background").scaledToFit().edgesIgnoringSafeArea(.top)
 //        }
         
-        Image("hexagonalBackground")
+        Image("background-1")
             .resizable()
             .scaledToFill()
             .edgesIgnoringSafeArea(.all)

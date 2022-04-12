@@ -30,7 +30,7 @@ struct RecordingView: View{
                              .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: .black, radius: 4, x: 0, y: 0)
                     
                          Image(systemName:"mic.fill")
-                             .font(.system(size:110)).foregroundColor(Color.white).shadow(color: .black, radius: 0, x: 0, y: 0)
+                             .font(.system(size:110)).foregroundColor(Color("CustomWhite")).shadow(color: .black, radius: 0, x: 0, y: 0)
                      }
                  }.padding(.vertical)
                  HStack{

@@ -13,7 +13,7 @@ struct CustomDatePicker: View {
     public var StringToDisplay: String
     var body: some View {
         DatePicker(StringToDisplay,selection: $dateToTrack,displayedComponents: .date)
-            .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+            .listRowBackground(Color("CustomOrange"))
             .padding(.vertical)
             .datePickerStyle(.compact)
     }
@@ -30,7 +30,7 @@ struct CustomToggle: View {
         Toggle(isOn: $toggleVar){
             Text(StringToDisplay)
         }.padding(.vertical)
-            .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
+            .listRowBackground(Color("CustomOrange"))
     }
     func RetriveBool()-> Bool{
         return toggleVar
@@ -45,6 +45,6 @@ struct customPicker: View {
             ForEach(0..<10){
                 Text("\($0)")
             }
-        }.padding(.vertical).listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255)).foregroundColor(Color.black)
+        }.padding(.vertical).listRowBackground(Color("CustomOrange")).foregroundColor(Color.black)
     }
 }
