@@ -93,7 +93,6 @@
 		7B7C60F328058B8700691347 /* DetailedView */ = {
 			isa = PBXGroup;
 			children = (
-				7B7C60F72805985E00691347 /* Model */,
 				7B7C60F428058BCC00691347 /* CustomComponents */,
 				7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */,
 			);

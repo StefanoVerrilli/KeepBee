@@ -25,7 +25,7 @@ struct ContentView: View{
                         .frame(alignment:.leading)
                         Spacer()
                     NavigationLink(destination: RecordingView()){
-                        Image("customplus").resizable().padding().background(Color(red: 237/255, green: 194/255, blue: 93/255)).cornerRadius(90).frame(width:55,height: 55)}.navigationBarHidden(true)
+                        Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}.navigationBarHidden(true)
                 }.padding()
                      HStack{
                 Text("Shake the iPhone to record \nor press the \"+\" button to\ntake notes")
