@@ -31,7 +31,7 @@ struct DetailedHiveView: View{
                     .background(Color(red: 56/255,green:56/255,blue:58/255))
                     .padding(.leading)
                     .listRowInsets(EdgeInsets())
-                CustomDatePicker()
+                //CustomDatePicker(StringToDisplay: "")
                 CustomNumPicker(LoomsInside: LoomsInside)
                 Toggle(isOn: $HiveDiagram){
                     Text("Hive Diagram")
@@ -70,7 +70,7 @@ struct CustomNumPicker: View {
     }
 }
 
-struct CustomDatePicker: View {
+/*struct CustomDatePicker: View {
     @State public var GenericDate = Date()
     var body: some View {
         DatePicker("Pick a date", selection: $GenericDate, displayedComponents: .date)
@@ -81,4 +81,4 @@ struct CustomDatePicker: View {
             .colorScheme(.dark)
             .background(Color.clear)
         }
-}
+}*/

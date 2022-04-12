@@ -10,18 +10,25 @@ import SwiftUI
 
 struct AlternativeHiveDetail: View{
     init(){
-            UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
+        UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
         UITableView.appearance().separatorColor = UIColor.black
         }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var navigateBack = false
     @State private var HiveName:String = "Hive"
+    @State private var QueenChange = Date()
+    @State private var RoyalCellInserted = Date()
+    @State private var QueenInserted = Date()
+    @State private var OrphanHive: Bool = false
+    var MyHide:Hive = Hive()
     var body: some View{
         NavigationView{
         Form{
             HiveHealthView()
             GeneralInformationHiveView()
-            QueenBeeDetailsView()
+            QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted)
         }.background(BackgroundView())
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){
@@ -29,6 +36,7 @@ struct AlternativeHiveDetail: View{
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("cancel",systemImage: "xmark").labelStyle(.iconOnly)
+                            .foregroundColor(Color.black)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
@@ -36,11 +44,12 @@ struct AlternativeHiveDetail: View{
                         navigateBack = true
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly)
+                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).foregroundColor(Color.black)
                     }.disabled(HiveName.isEmpty)
                 }
             }).navigationTitle("Hive A")
             .navigationBarTitleDisplayMode(.inline)
+
         }
     }}
 
@@ -59,11 +68,7 @@ struct GeneralInformationHiveView: View {
             Image(systemName: "archivebox.fill")
             Text("General information")
         }){
-            Picker("Looms inside", selection: $LoomsInside) {
-                ForEach(0..<10){
-                    Text("\($0)")
-                }
-            }.padding(.vertical).listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255)).foregroundColor(Color.black)
+            //CustomPicker()
             Toggle(isOn: $HiveDiagram){
                 Text("Hive Diagram")
             }
@@ -74,33 +79,22 @@ struct GeneralInformationHiveView: View {
 }
 
 struct QueenBeeDetailsView: View {
-    @State private var QueenChange = Date()
-    @State private var RoyalCellInserted = Date()
-    @State private var QueenInserted = Date()
-    @State private var OrphanHive: Bool = false
+    @Binding var QueenChange:Date
+    @Binding var RoyalCellInserted:Date
+    @Binding var QueenInserted:Date
     var body: some View {
         Section(header:HStack{
             Image(systemName: "crown.fill")
             Text("Queen bee details")
         }){
-            Toggle(isOn: $OrphanHive){
-                Text("Orphan: ")
-            }.padding(.vertical)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-            DatePicker("Inserted in",selection: $QueenInserted,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                .padding(.vertical)
-                .datePickerStyle(.compact)
-            DatePicker("Need to be changed in",selection: $QueenChange,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                .padding(.vertical)
-                .datePickerStyle(.compact)
-            DatePicker("Royal cell inserted in",selection: $RoyalCellInserted,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                .padding(.vertical)
-                .datePickerStyle(.compact)
+            let OrphanHiveToggle = CustomToggle(StringToDisplay: "Orphan: ")
+            OrphanHiveToggle
+            CustomDatePicker(dateToTrack: $RoyalCellInserted, StringToDisplay: "Royal cell inserted")
+            CustomDatePicker(dateToTrack: $QueenChange,StringToDisplay: "Need to be changed in")
+            CustomDatePicker(dateToTrack: $QueenInserted,StringToDisplay: "Queen inserted in")
         }
     }
+    
 }
 
 struct HiveHealthView: View {
@@ -123,3 +117,4 @@ struct HiveHealthView: View {
         }
     }
 }
+
