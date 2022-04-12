@@ -24,11 +24,14 @@ struct ContentView: View{
                         .multilineTextAlignment(.leading)
                         .frame(alignment:.leading)
                         Spacer()
-                    NavigationLink(destination: RecordingView()){
-                        Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}.navigationBarHidden(true)
+                    NavigationLink(destination: AlternativeHiveDetail()){
+                            Button(action: {showDetailedView = true}, label:{Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}).listRowBackground(Color.clear)
+                        }.navigationBarHidden(true)
                 }.padding()
+            
+                
                      HStack{
-                Text("Shake the iPhone to record \nor press the \"+\" button to\ntake notes")
+                Text("Press the \"+\" button to\nadd an hive.")
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth:.infinity,alignment: .leading)
                     .font(.system(size:26))
@@ -91,3 +94,4 @@ struct MaskView: View {
         }.listRowBackground(Color.clear)*/
     }
 }
+
