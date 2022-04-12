@@ -44,5 +44,6 @@ struct RecordingView: View{
 struct RecordingView_Previews: PreviewProvider{
     static var previews: some View{
         RecordingView()
+            
     }
 }
