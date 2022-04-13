@@ -17,18 +17,30 @@ struct AlternativeHiveDetail: View{
         UITableView.appearance().separatorColor = UIColor.black
         }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    let defaults = UserDefaults.standard
     @State private var navigateBack = false
     @State private var HiveName:String = "Hive"
     @State private var QueenChange = Date()
     @State private var RoyalCellInserted = Date()
     @State private var QueenInserted = Date()
     @State private var OrphanHive: Bool = false
-    var MyHide:Hive = Hive()
+    @State private var LastNourishedDay:Date = Date()
+    @State private var NextNutritionDay:Date = Date()
+    @State private var SwarmPickedUp:Date = Date()
+    @State private var LoomsInside: Int = 4
+    @State private var HiveDiagram: Bool = false
+    if let savedHive = defaults.object(forKey: "Hive1") as? Data{
+            let decoder = JSONDecoder()
+            if let loadedHive = try? decoder.decode(Hive.self, from: savedHive)
+            {
+                print(loadedHive.name)
+            }
+        }
     var body: some View{
         NavigationView{
         Form{
-            HiveHealthView()
-            GeneralInformationHiveView()
+            HiveHealthView(Data: $LastNourishedDay, Data2: $NextNutritionDay, Data3: $SwarmPickedUp)
+            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram)
             QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted)
         }.background(BackgroundView())
             .toolbar(content: {
@@ -43,6 +55,11 @@ struct AlternativeHiveDetail: View{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
                         navigateBack = true
+                       let myhive=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp)
+                        print(myhive)
+                        let encoder = JSONEncoder();
+                        if let encoded = try? encoder.encode(myhive) { let defaults = UserDefaults.standard
+                            defaults.set(encoded, forKey: "Hive1")}
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).foregroundColor(Color.black)
@@ -50,7 +67,6 @@ struct AlternativeHiveDetail: View{
                 }
             }).navigationTitle("Hive A")
             .navigationBarTitleDisplayMode(.inline)
-
         }
     }}
 
@@ -62,8 +78,8 @@ struct AlternativeHiveDetail_Previews: PreviewProvider{
 }
 
 struct GeneralInformationHiveView: View {
-    @State private var LoomsInside: Int = Int()
-    @State private var HiveDiagram: Bool = false
+    @Binding var LoomsInside: Int
+    @Binding var HiveDiagram: Bool
     var body: some View {
         Section(header:HStack{
             Image(systemName: "archivebox.fill")
@@ -88,8 +104,7 @@ struct QueenBeeDetailsView: View {
             Image(systemName: "crown.fill")
             Text("Queen bee details")
         }){
-            let OrphanHiveToggle = CustomToggle(StringToDisplay: "Orphan: ")
-            OrphanHiveToggle
+            CustomToggle(StringToDisplay: "Orphan: ")
             CustomDatePicker(dateToTrack: $RoyalCellInserted, StringToDisplay: "Royal cell inserted")
             CustomDatePicker(dateToTrack: $QueenChange,StringToDisplay: "Need to be changed in")
             CustomDatePicker(dateToTrack: $QueenInserted,StringToDisplay: "Queen inserted in")
@@ -99,22 +114,17 @@ struct QueenBeeDetailsView: View {
 }
 
 struct HiveHealthView: View {
-    @State private var Data = Date()
+    @Binding var Data:Date
+    @Binding var Data2:Date
+    @Binding var Data3:Date
     var body: some View {
         Section(header:HStack{
             Image(systemName: "heart.fill")
             Text("Hive Health")
         }){
-            DatePicker("Last nourished day",selection: $Data,displayedComponents: .date)
-                .listRowBackground(Color("CustomOrange"))
-                .padding(.vertical)
-                .datePickerStyle(.compact)
-            DatePicker("Next nutrition day",selection: $Data,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                .padding(.vertical)
-            DatePicker("Swarm picked up",selection: $Data,displayedComponents: .date)
-                .listRowBackground(Color(red: 237/255, green: 194/255, blue: 93/255))
-                .padding(.vertical)
+            CustomDatePicker(dateToTrack: $Data, StringToDisplay: "Last nourished day")
+            CustomDatePicker(dateToTrack: $Data2, StringToDisplay: "Next nutrition day")
+            CustomDatePicker(dateToTrack: $Data3, StringToDisplay: "Swarm picked up")
         }
     }
 }
