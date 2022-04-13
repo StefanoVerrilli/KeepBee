@@ -9,7 +9,8 @@ import Foundation
 
 
 
-struct Hive:Identifiable{
+struct Hive:Identifiable, Codable{
+    
 
     let id = UUID()
 
@@ -30,5 +31,54 @@ struct Hive:Identifiable{
     var NextNutritionDay:Date = Date()
 
     var SwarmPickedUp:Date = Date()
+    
+    init(_ QueenChange: Date, _ RoyalCellInserted: Date, _ QueenInserted: Date, _ OrphanHive: Bool, _ LoomInside: Int, _ HiveDiagram: Bool, _ LastNourishedDay: Date, _ NextNutritionDay: Date, _ SwarmPickedUp: Date ){
+
+            self.QueenChange = QueenChange
+
+            self.RoyalCellInserted = RoyalCellInserted
+
+            self.QueenInserted = QueenInserted
+
+            self.OrphanHive = OrphanHive
+
+            self.LoomsInside = LoomInside
+
+            self.HiveDiagram = HiveDiagram
+
+            self.LastNourishedDay = LastNourishedDay
+
+            self.NextNutritionDay = NextNutritionDay
+
+            self.SwarmPickedUp = SwarmPickedUp
+
+        }
 
 }
+
+class HiveData<Hive>: ObservableObject {
+
+    
+
+    @Published var  Hives: [Hive]
+
+
+
+    init(Hives: [Hive]) {
+
+        self.Hives = Hives
+
+    }
+
+    init(repeating value: Hive, count: Int) {
+
+         Hives = Array(repeating: value, count: count)
+
+      }
+
+
+
+    func addHive(MyHive: Hive){
+      Hives.append(MyHive)
+       }
+    }

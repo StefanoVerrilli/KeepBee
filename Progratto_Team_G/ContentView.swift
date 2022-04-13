@@ -37,7 +37,7 @@ struct ContentView: View{
                     .font(.system(size:26))
                 }.padding(.leading)
                 List{
-                    Button(action: {showDetailedView = true}, label:{ListItem()}).listRowBackground(Color.clear)
+                    Button(action: {showDetailedView = true}, label:{ListItem(title: "Hive n.1")}).listRowBackground(Color.clear)
                 }.padding(.leading,-10)
             }.background(BackgroundView())
        }.navigationViewStyle(.stack)
@@ -54,6 +54,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ListItem: View {
+    var title: String
     var body: some View {
         ZStack(alignment:.topLeading){
             Image("hives")
@@ -66,7 +67,7 @@ struct ListItem: View {
                         .stroke(Color.clear, lineWidth: 4))
                     .shadow(radius: 10)
             VStack{
-                Text("Hive n.1")
+                Text(title)
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(Color.white)
                     .frame(maxWidth:.infinity, alignment: .leading)
@@ -85,7 +86,7 @@ struct ListItem: View {
 
 struct MaskView: View {
     var body: some View {
-        Button(action: {print("button tap")}, label:{ListItem()}).listRowBackground(Color.clear)
+        Button(action: {print("button tap")}, label:{ListItem(title: "Hive n.1")}).listRowBackground(Color.clear)
         /*ZStack{
             ListItem()
             NavigationLink(destination:AlternativeHiveDetail()){
