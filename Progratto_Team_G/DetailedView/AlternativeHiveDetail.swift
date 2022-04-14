@@ -9,8 +9,9 @@ import Foundation
 import SwiftUI
 //import ParthenoKit
 
-var myInformations = LoadHives(keyToFind: "MyHives")
-var MyHive = myInformations[0]
+var myInformations = LoadHive(keyToFind: "MyHives")
+var MyHive = myInformations
+var Hives = LoadHivesArray(keyToFind: "HivesArray")
 
 struct AlternativeHiveDetail: View{
     init(){
@@ -21,7 +22,7 @@ struct AlternativeHiveDetail: View{
         }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var navigateBack = false
-    @State private var HiveName:String = "Hive"
+    @State private var HiveName:String = MyHive.HiveName
     @State private var QueenChange = MyHive.QueenChange
     @State private var RoyalCellInserted = MyHive.RoyalCellInserted
     @State private var QueenInserted = MyHive.QueenInserted
@@ -31,11 +32,12 @@ struct AlternativeHiveDetail: View{
     @State private var SwarmPickedUp:Date = MyHive.SwarmPickedUp
     @State private var LoomsInside: Int = MyHive.LoomsInside
     @State private var HiveDiagram: Bool = MyHive.HiveDiagram
+    @State var CurrentHive: Hive? = nil
     var body: some View{
         NavigationView{
         Form{
+            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram,HiveName: $HiveName)
             HiveHealthView(FirstDate: $LastNourishedDay, SecondDate: $NextNutritionDay, ThirdDate: $SwarmPickedUp)
-            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram)
             QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted, isHorphan: $OrphanHive)
         }.background(BackgroundView())
             .toolbar(content: {
@@ -50,22 +52,23 @@ struct AlternativeHiveDetail: View{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
                         navigateBack = true
-                       let myhive=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp)
-                        //let hivesToRemove = LoadHives(keyToFind: "MyHives")
-                        //var newHives = hivesToRemove
-                        //newHives.append(myhive)
-                        MyHive = myhive
+                        var myhive=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName)
+                        myhive.id = MyHive.id
+                        if !Hives.isEmpty{
+                            let index = Hives.firstIndex(where: {$0.id == MyHive.id})
+                            Hives.remove(at:index!)
+                        }
                         RemoveHives(keyToRemove: "MyHives")
-                        let NewArray = [MyHive]
-                        save(Hives: NewArray, InputKey: "MyHives")
-                        print("new print\n")
-                        dump(LoadHives(keyToFind: "MyHives"))
+                        saveHive(myHive: myhive, InputKey: "MyHives")
+                        Hives.append(myhive)
+                        MyHive = myhive
+                        saveHivesArray(myArray: Hives, keyToFind: "HivesArray")
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).foregroundColor(Color.black)
+                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
                     }.disabled(HiveName.isEmpty)
                 }
-            }).navigationTitle("Hive A")
+            }).navigationTitle(MyHive.HiveName)
             .navigationBarTitleDisplayMode(.inline)
         }
     }}
@@ -80,12 +83,14 @@ struct AlternativeHiveDetail_Previews: PreviewProvider{
 struct GeneralInformationHiveView: View {
     @Binding var LoomsInside: Int
     @Binding var HiveDiagram: Bool
+    @Binding var HiveName: String
     var body: some View {
         Section(header:HStack{
             Image(systemName: "archivebox.fill")
             Text("General information")
         }){
-            //CustomPicker()
+            customTextInput(stringToDisplay: "Hive Name", valueNeeded: $HiveName)
+            customPicker(StringToDisplay: "Looms inside", pickerValue: $LoomsInside)
             Toggle(isOn: $HiveDiagram){
                 Text("Hive Diagram")
             }

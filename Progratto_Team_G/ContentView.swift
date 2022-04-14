@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+let HivesArrayInformations = LoadHivesArray(keyToFind: "HivesArray")
+var HivesArray: [Hive] = HivesArrayInformations.isEmpty ? [] : HivesArrayInformations
 
 struct ContentView: View{
     init() {
@@ -15,6 +17,7 @@ struct ContentView: View{
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
     }
     @State private var showDetailedView = false
+    @State private var SelectedHive : Hive? = nil
     var body: some View {
        NavigationView{
             VStack(spacing:0){
@@ -37,8 +40,15 @@ struct ContentView: View{
                     .font(.system(size:26))
                 }.padding(.leading)
                 List{
-                    Button(action: {showDetailedView = true}, label:{ListItem(title: "Hive n.1")}).listRowBackground(Color.clear)
-                }.padding(.leading,-10)
+                    ForEach(HivesArray){ hive in
+                        Button(action: {
+                            showDetailedView = true
+                            self.SelectedHive = hive
+                        }, label:{ListItem(title: hive.HiveName)}).listRowBackground(Color.clear)
+                    }
+                }.padding(.leading,-10).sheet(item: self.$SelectedHive){hive in
+                    AlternativeHiveDetail()
+                }
             }.background(BackgroundView())
        }.navigationViewStyle(.stack)
             .sheet(isPresented: $showDetailedView){
@@ -55,6 +65,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ListItem: View {
     var title: String
+    var hiveToOpen: Hive?
     var body: some View {
         ZStack(alignment:.topLeading){
             Image("hives")
@@ -87,12 +98,6 @@ struct ListItem: View {
 struct MaskView: View {
     var body: some View {
         Button(action: {print("button tap")}, label:{ListItem(title: "Hive n.1")}).listRowBackground(Color.clear)
-        /*ZStack{
-            ListItem()
-            NavigationLink(destination:AlternativeHiveDetail()){
-                EmptyView()
-            }.buttonStyle(PlainButtonStyle()).navigationViewStyle(.stack)
-        }.listRowBackground(Color.clear)*/
     }
 }
 

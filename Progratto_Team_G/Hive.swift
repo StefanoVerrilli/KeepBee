@@ -12,7 +12,9 @@ import Foundation
 struct Hive:Identifiable,Codable{
     
 
-    let id = UUID()
+    var id = UUID()
+    
+    var HiveName:String = "New Hive"
 
     var QueenChange:Date = Date()
 
@@ -32,8 +34,10 @@ struct Hive:Identifiable,Codable{
 
     var SwarmPickedUp:Date = Date()
     
-    init(_ QueenChange: Date, _ RoyalCellInserted: Date, _ QueenInserted: Date, _ OrphanHive: Bool, _ LoomInside: Int, _ HiveDiagram: Bool, _ LastNourishedDay: Date, _ NextNutritionDay: Date, _ SwarmPickedUp: Date ){
+    init(_ QueenChange: Date, _ RoyalCellInserted: Date, _ QueenInserted: Date, _ OrphanHive: Bool, _ LoomInside: Int, _ HiveDiagram: Bool, _ LastNourishedDay: Date, _ NextNutritionDay: Date, _ SwarmPickedUp: Date , _ HiveName: String){
 
+            self.HiveName = HiveName
+        
             self.QueenChange = QueenChange
 
             self.RoyalCellInserted = RoyalCellInserted

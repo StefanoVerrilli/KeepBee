@@ -17,9 +17,6 @@ struct CustomDatePicker: View {
             .padding(.vertical)
             .datePickerStyle(.compact)
     }
-    func RetriveDate()-> Date{
-        return dateToTrack
-    }
 }
 
 
@@ -32,19 +29,27 @@ struct CustomToggle: View {
         }.padding(.vertical)
             .listRowBackground(Color("CustomOrange"))
     }
-    func RetriveBool()-> Bool{
-        return toggleVar
-    }
 }
 
 struct customPicker: View {
-
-    @State private var pickerValue: Int
+    public var StringToDisplay: String
+    @Binding var pickerValue: Int
     var body: some View {
-        Picker("Looms inside", selection: $pickerValue) {
+        Picker(StringToDisplay, selection: $pickerValue) {
             ForEach(0..<10){
                 Text("\($0)")
             }
         }.padding(.vertical).listRowBackground(Color("CustomOrange")).foregroundColor(Color.black)
+    }
+}
+
+struct customTextInput: View{
+    public var stringToDisplay: String
+    @Binding var valueNeeded: String
+    var body: some View{
+        TextField("Insert Hive Name", text: $valueNeeded)
+            .padding(.vertical)
+            .listRowBackground(Color("CustomOrange"))
+            .foregroundColor(Color.black)
     }
 }
