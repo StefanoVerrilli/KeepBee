@@ -11,6 +11,7 @@
 		58D56FDA2805A82B00A65387 /* SwiftUISpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */; };
 		58E864CA2805CCAA0072B5C6 /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E864C92805CCAA0072B5C6 /* Hive.swift */; };
 		7B375BD6280803A000533674 /* LoadFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD5280803A000533674 /* LoadFiles.swift */; };
+		7B375BD828085F7D00533674 /* ObservableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD728085F7D00533674 /* ObservableList.swift */; };
 		7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFC2802E851003ED7C2 /* backgroundView.swift */; };
 		7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */; };
 		7B7C60F628058BF800691347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C60F528058BF800691347 /* Components.swift */; };
@@ -49,6 +50,7 @@
 		58E864C22805C0C90072B5C6 /* Progratto-Team-G-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Progratto-Team-G-Info.plist"; sourceTree = SOURCE_ROOT; };
 		58E864C92805CCAA0072B5C6 /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
 		7B375BD5280803A000533674 /* LoadFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFiles.swift; sourceTree = "<group>"; };
+		7B375BD728085F7D00533674 /* ObservableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableList.swift; sourceTree = "<group>"; };
 		7B54BAFC2802E851003ED7C2 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeHiveDetail.swift; sourceTree = "<group>"; };
 		7B7C60F528058BF800691347 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
 				58E864C92805CCAA0072B5C6 /* Hive.swift */,
 				7B375BD5280803A000533674 /* LoadFiles.swift */,
+				7B375BD728085F7D00533674 /* ObservableList.swift */,
 			);
 			path = Progratto_Team_G;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */,
 				7BB1DF6228018DDE0045E3E1 /* DetailedHiveView.swift in Sources */,
 				7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */,
+				7B375BD828085F7D00533674 /* ObservableList.swift in Sources */,
 				7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */,
 				58D56FDA2805A82B00A65387 /* SwiftUISpeech.swift in Sources */,
 			);

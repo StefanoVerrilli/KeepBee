@@ -9,10 +9,10 @@ import Foundation
 
 //Those functions are made to store and read Hives
 
-func saveHive(myHive: Hive,InputKey: String){
+func saveHive(hiveToSave: Hive,InputKey: String){
     do{
         let encoder = JSONEncoder()
-        let result = try encoder.encode(myHive)
+        let result = try encoder.encode(hiveToSave)
         UserDefaults.standard.set(result,forKey: InputKey)
     }catch{
         print("Error during encoding (\(error))")

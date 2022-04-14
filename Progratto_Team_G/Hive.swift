@@ -57,6 +57,27 @@ struct Hive:Identifiable,Codable{
             self.SwarmPickedUp = SwarmPickedUp
 
         }
+    init(){
+        self.HiveName = ""
+    
+        self.QueenChange = Date()
+
+        self.RoyalCellInserted = Date()
+
+        self.QueenInserted = Date()
+
+        self.OrphanHive = false
+
+        self.LoomsInside = 1
+
+        self.HiveDiagram = false
+
+        self.LastNourishedDay = Date()
+
+        self.NextNutritionDay = Date()
+
+        self.SwarmPickedUp = Date()
+    }
 
 }
 
@@ -82,7 +103,7 @@ class HiveData<Hive>: ObservableObject {
 
 
 
-    func addHive(MyHive: Hive){
-      Hives.append(MyHive)
+    func addHive(oldHive: Hive){
+      Hives.append(oldHive)
        }
     }
