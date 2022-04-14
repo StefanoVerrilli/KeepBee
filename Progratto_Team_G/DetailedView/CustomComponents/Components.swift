@@ -24,7 +24,7 @@ struct CustomDatePicker: View {
 
 
 struct CustomToggle: View {
-    @State var toggleVar:Bool = false
+    @Binding var toggleVar: Bool
     public var StringToDisplay: String
     var body: some View {
         Toggle(isOn: $toggleVar){

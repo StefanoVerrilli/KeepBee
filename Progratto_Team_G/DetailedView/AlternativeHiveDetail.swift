@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 //import ParthenoKit
 
+var myInformations = LoadHives(keyToFind: "MyHives")
+var MyHive = myInformations[0]
+
 struct AlternativeHiveDetail: View{
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -17,31 +20,23 @@ struct AlternativeHiveDetail: View{
         UITableView.appearance().separatorColor = UIColor.black
         }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    let defaults = UserDefaults.standard
     @State private var navigateBack = false
     @State private var HiveName:String = "Hive"
-    @State private var QueenChange = Date()
-    @State private var RoyalCellInserted = Date()
-    @State private var QueenInserted = Date()
-    @State private var OrphanHive: Bool = false
-    @State private var LastNourishedDay:Date = Date()
-    @State private var NextNutritionDay:Date = Date()
-    @State private var SwarmPickedUp:Date = Date()
-    @State private var LoomsInside: Int = 4
-    @State private var HiveDiagram: Bool = false
-    if let savedHive = defaults.object(forKey: "Hive1") as? Data{
-            let decoder = JSONDecoder()
-            if let loadedHive = try? decoder.decode(Hive.self, from: savedHive)
-            {
-                print(loadedHive.name)
-            }
-        }
+    @State private var QueenChange = MyHive.QueenChange
+    @State private var RoyalCellInserted = MyHive.RoyalCellInserted
+    @State private var QueenInserted = MyHive.QueenInserted
+    @State private var OrphanHive: Bool = MyHive.OrphanHive
+    @State private var LastNourishedDay:Date = MyHive.LastNourishedDay
+    @State private var NextNutritionDay:Date = MyHive.NextNutritionDay
+    @State private var SwarmPickedUp:Date = MyHive.SwarmPickedUp
+    @State private var LoomsInside: Int = MyHive.LoomsInside
+    @State private var HiveDiagram: Bool = MyHive.HiveDiagram
     var body: some View{
         NavigationView{
         Form{
-            HiveHealthView(Data: $LastNourishedDay, Data2: $NextNutritionDay, Data3: $SwarmPickedUp)
+            HiveHealthView(FirstDate: $LastNourishedDay, SecondDate: $NextNutritionDay, ThirdDate: $SwarmPickedUp)
             GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram)
-            QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted)
+            QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted, isHorphan: $OrphanHive)
         }.background(BackgroundView())
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){
@@ -56,10 +51,15 @@ struct AlternativeHiveDetail: View{
                     Button{
                         navigateBack = true
                        let myhive=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp)
-                        print(myhive)
-                        let encoder = JSONEncoder();
-                        if let encoded = try? encoder.encode(myhive) { let defaults = UserDefaults.standard
-                            defaults.set(encoded, forKey: "Hive1")}
+                        //let hivesToRemove = LoadHives(keyToFind: "MyHives")
+                        //var newHives = hivesToRemove
+                        //newHives.append(myhive)
+                        MyHive = myhive
+                        RemoveHives(keyToRemove: "MyHives")
+                        let NewArray = [MyHive]
+                        save(Hives: NewArray, InputKey: "MyHives")
+                        print("new print\n")
+                        dump(LoadHives(keyToFind: "MyHives"))
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).foregroundColor(Color.black)
@@ -99,12 +99,13 @@ struct QueenBeeDetailsView: View {
     @Binding var QueenChange:Date
     @Binding var RoyalCellInserted:Date
     @Binding var QueenInserted:Date
+    @Binding var isHorphan:Bool
     var body: some View {
         Section(header:HStack{
             Image(systemName: "crown.fill")
             Text("Queen bee details")
         }){
-            CustomToggle(StringToDisplay: "Orphan: ")
+            CustomToggle(toggleVar: $isHorphan,StringToDisplay: "Orphan: ")
             CustomDatePicker(dateToTrack: $RoyalCellInserted, StringToDisplay: "Royal cell inserted")
             CustomDatePicker(dateToTrack: $QueenChange,StringToDisplay: "Need to be changed in")
             CustomDatePicker(dateToTrack: $QueenInserted,StringToDisplay: "Queen inserted in")
@@ -114,17 +115,17 @@ struct QueenBeeDetailsView: View {
 }
 
 struct HiveHealthView: View {
-    @Binding var Data:Date
-    @Binding var Data2:Date
-    @Binding var Data3:Date
+    @Binding var FirstDate:Date
+    @Binding var SecondDate:Date
+    @Binding var ThirdDate:Date
     var body: some View {
         Section(header:HStack{
             Image(systemName: "heart.fill")
             Text("Hive Health")
         }){
-            CustomDatePicker(dateToTrack: $Data, StringToDisplay: "Last nourished day")
-            CustomDatePicker(dateToTrack: $Data2, StringToDisplay: "Next nutrition day")
-            CustomDatePicker(dateToTrack: $Data3, StringToDisplay: "Swarm picked up")
+            CustomDatePicker(dateToTrack: $FirstDate, StringToDisplay: "Last nourished day")
+            CustomDatePicker(dateToTrack: $SecondDate, StringToDisplay: "Next nutrition day")
+            CustomDatePicker(dateToTrack: $ThirdDate, StringToDisplay: "Swarm picked up")
         }
     }
 }

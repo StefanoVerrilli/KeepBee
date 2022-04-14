@@ -10,6 +10,7 @@
 		58D56FD82805A70900A65387 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D56FD72805A70900A65387 /* ButtonView.swift */; };
 		58D56FDA2805A82B00A65387 /* SwiftUISpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */; };
 		58E864CA2805CCAA0072B5C6 /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E864C92805CCAA0072B5C6 /* Hive.swift */; };
+		7B375BD6280803A000533674 /* LoadFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD5280803A000533674 /* LoadFiles.swift */; };
 		7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFC2802E851003ED7C2 /* backgroundView.swift */; };
 		7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */; };
 		7B7C60F628058BF800691347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C60F528058BF800691347 /* Components.swift */; };
@@ -47,6 +48,7 @@
 		58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISpeech.swift; sourceTree = "<group>"; };
 		58E864C22805C0C90072B5C6 /* Progratto-Team-G-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Progratto-Team-G-Info.plist"; sourceTree = SOURCE_ROOT; };
 		58E864C92805CCAA0072B5C6 /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
+		7B375BD5280803A000533674 /* LoadFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFiles.swift; sourceTree = "<group>"; };
 		7B54BAFC2802E851003ED7C2 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeHiveDetail.swift; sourceTree = "<group>"; };
 		7B7C60F528058BF800691347 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7BC7723C2800B05800547E6C /* Preview Content */,
 				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
 				58E864C92805CCAA0072B5C6 /* Hive.swift */,
+				7B375BD5280803A000533674 /* LoadFiles.swift */,
 			);
 			path = Progratto_Team_G;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63051D028049632006A265F /* Tabbar.swift in Sources */,
+				7B375BD6280803A000533674 /* LoadFiles.swift in Sources */,
 				7B7C60F628058BF800691347 /* Components.swift in Sources */,
 				58D56FD82805A70900A65387 /* ButtonView.swift in Sources */,
 				7BC772392800B05700547E6C /* ContentView.swift in Sources */,

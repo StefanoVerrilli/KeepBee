@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct Hive:Identifiable, Codable{
+struct Hive:Identifiable,Codable{
     
 
     let id = UUID()
