@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 //import ParthenoKit
 
-var MyHive: Hive = Hive()
-
+var CurrentHive: Hive = Hive()
 
 struct AlternativeHiveDetail: View{
-    var CurrentHive:Hive
     @State private var NewView: Bool = false
     @State private var QueenChange: Date
     @State private var RoyalCellInserted: Date
@@ -46,7 +44,6 @@ struct AlternativeHiveDetail: View{
         _LoomsInside = State(initialValue: CurrentHive.LoomsInside)
         _HiveDiagram = State(initialValue: CurrentHive.HiveDiagram)
         
-        MyHive = CurrentHive
         HivesList = MyPersonalList
         }
     init(MyPersonalList: HiveList){
@@ -67,7 +64,6 @@ struct AlternativeHiveDetail: View{
         _LoomsInside = State(initialValue: CurrentHive.LoomsInside)
         _HiveDiagram = State(initialValue: CurrentHive.HiveDiagram)
         
-        MyHive = CurrentHive
         HivesList = MyPersonalList
         NewView = true
         }
@@ -93,24 +89,23 @@ struct AlternativeHiveDetail: View{
                         navigateBack = true
                         //Valorizzo la struttura da andare a sostituire
                         var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName)
-                        hiveToSave.id = MyHive.id
-                        var newArrayHives = LoadHivesArray(keyToFind: "HivesArray")
-                        //
+                        hiveToSave.id = CurrentHive.id
+                        var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
                         if (NewView == false){
                         //Qui entro solo se non è una nuova scheda ma una già esistente che va modificata
-                            let index = HivesList.items.firstIndex(where: {$0.id == MyHive.id})
+                            let index = HivesList.items.firstIndex(where: {$0.id == CurrentHive.id})
                             if(index != nil){HivesList.items.remove(at:index!)}
-                            RemoveHives(keyToRemove: MyHive.id.uuidString)
-                            saveHive(hiveToSave: hiveToSave, InputKey: MyHive.id.uuidString)
+                            RemoveHives(keyToRemove: CurrentHive.id.uuidString)
+                            saveHive(hiveToSave: hiveToSave, InputKey: CurrentHive.id.uuidString)
                         }else{
-                            saveHive(hiveToSave: MyHive, InputKey: MyHive.id.uuidString)}
-                        MyHive = hiveToSave
+                            saveHive(hiveToSave: hiveToSave, InputKey: CurrentHive.id.uuidString)}
+                        CurrentHive = hiveToSave
                         //let whereToPut = HivesList.items.firstIndex(where: {$0.id == MyHive.id})
                         //if(whereToPut != nil){HivesList.items.insert(hiveToSave, at: whereToPut!)}else{HivesList.items.append(hiveToSave)}
                         HivesList.items.append(hiveToSave)
-                        RemoveHives(keyToRemove: "HivesArray")
+                        RemoveHives(keyToRemove: "ArrayOfHives")
                         newArrayHives = HivesList.items
-                        saveHivesArray(myArray: newArrayHives, keyToFind: "HivesArray")
+                        saveArrayOfHives(myArray: newArrayHives, keyToFind: "ArrayOfHives")
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)

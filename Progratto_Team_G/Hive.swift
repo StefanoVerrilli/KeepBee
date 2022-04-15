@@ -81,7 +81,7 @@ struct Hive:Identifiable,Codable{
 
 }
 
-class HiveData<Hive>: ObservableObject {
+/*class HiveData<Hive>: ObservableObject {
 
     
 
@@ -107,3 +107,4 @@ class HiveData<Hive>: ObservableObject {
       Hives.append(oldHive)
        }
     }
+*/

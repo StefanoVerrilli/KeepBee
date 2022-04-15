@@ -9,5 +9,5 @@ import Foundation
 
 
 class HiveList: ObservableObject{
-    @Published var items = LoadHivesArray(keyToFind: "HivesArray")
+    @Published var items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
 }

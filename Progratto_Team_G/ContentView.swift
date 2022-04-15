@@ -13,7 +13,7 @@ struct ContentView: View{
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = UIColor(Color.clear)
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
-        HivesList.items = LoadHivesArray(keyToFind: "HivesArray")
+        HivesList.items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
     }
     @State private var showDetailedView = false
     @State private var SelectedHive : Hive? = nil
@@ -43,7 +43,6 @@ struct ContentView: View{
                 List{
                     ForEach(HivesList.items){ hive in
                         Button(action: {
-                            print(hive)
                             self.SelectedHive = hive
                         }, label:{ListItem(title: hive.HiveName)}).listRowBackground(Color.clear)
                     }

@@ -34,20 +34,42 @@ func LoadHive(keyToFind: String) -> Hive{
 
 //Those functions are made to store Array of hives in UserDefaults
 
-func saveHivesArray(myArray: [Hive],keyToFind: String){
+func saveArrayOfHives(myArray: [Hive],keyToFind: String){
     let date = myArray.map{try? JSONEncoder().encode($0)}
     UserDefaults.standard.set(date, forKey: keyToFind)
 }
 
-func LoadHivesArray(keyToFind: String)-> [Hive]{
+func LoadArrayOfHives(keyToFind: String)-> [Hive]{
     guard let encodedData = UserDefaults.standard.array(forKey: keyToFind)as? [Data] else{
         return []
     }
     return encodedData.map{try! JSONDecoder().decode(Hive.self, from: $0)}
 }
 
-//This function here is made to delete elements from UserDefaults
+func ReloadHive(keyToChange: String,newHive: Hive){
+    var copyOfnewHive = newHive
+    let oldHive = LoadHive(keyToFind: keyToChange)
+    print(keyToChange)
+    RemoveHives(keyToRemove: keyToChange)
+    dump(LoadHive(keyToFind: keyToChange))
+    copyOfnewHive.id = oldHive.id
+    saveHive(hiveToSave: copyOfnewHive, InputKey: keyToChange)
+    print("ci sono")
+    dump(LoadHive(keyToFind: keyToChange))
+    ReloadNewArray(hiveToAppend: copyOfnewHive)
+    dump("New Hive: \(copyOfnewHive)")
+}
 
+func ReloadNewArray(hiveToAppend: Hive){
+    var oldArray = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+    let index = oldArray.firstIndex(where: {$0.id == hiveToAppend.id})
+    if(index != nil){oldArray.remove(at:index!)}
+    oldArray.append(hiveToAppend)
+    RemoveHives(keyToRemove: "ArrayOfHives")
+    saveArrayOfHives(myArray: oldArray, keyToFind: "ArrayOfHives")
+    dump(oldArray)
+}
+//This function here is made to delete elements from UserDefaults
 func RemoveHives(keyToRemove:String){
     UserDefaults.standard.removeObject(forKey: keyToRemove)
 }
