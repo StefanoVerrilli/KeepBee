@@ -61,7 +61,7 @@ struct AlternativeTextInput: View{
         HStack{
             Text(stringToDisplay)
             Spacer()
-            TextField(stringToDisplay,text: $valueNeeded).multilineTextAlignment(.trailing)
+            TextField(stringToDisplay,text: $valueNeeded).multilineTextAlignment(.trailing).autocapitalization(.none)
         }.padding(.vertical)
             .listRowBackground(Color("CustomOrange"))
             .foregroundColor(Color.black)
