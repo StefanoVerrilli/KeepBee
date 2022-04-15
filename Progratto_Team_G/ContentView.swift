@@ -14,7 +14,6 @@ struct ContentView: View{
         UITableViewCell.appearance().backgroundColor = UIColor(Color.clear)
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
         self.HivesArray = ArrayToModify
-        dump(HivesArray.items)
     }
     @State private var showDetailedView = false
     @State private var SelectedHive : Hive? = nil

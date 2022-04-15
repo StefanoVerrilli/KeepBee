@@ -105,8 +105,9 @@ public class SwiftUISpeech: ObservableObject{
         self.audioEngine.inputNode.removeTap(onBus: 0)
         self.recognitionTask?.cancel()
         self.recognitionTask = nil
-        SubmitChanges(StringToSubmit: "Peppina pesa 70 kg",HivesArray: Hives)
-        dump(Hives)
+        dump(outputText)
+        SubmitChanges(StringToSubmit: outputText,HivesArray: Hives)
+        //dump(Hives.items)
     }// restarts the variables
     
     
