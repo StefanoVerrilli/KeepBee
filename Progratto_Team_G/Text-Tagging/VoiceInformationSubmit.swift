@@ -7,10 +7,10 @@
 
 import Foundation
 
-func SubmitChanges(StringToSubmit: String){
+func SubmitChanges(StringToSubmit: String,HivesArray: HiveList){
     let ResultOfTagging = Tagger(stringToCheck: StringToSubmit)
     if ResultOfTagging != nil{
         let HiveSaved = ReloadHive(keyToChange: ResultOfTagging!.id.uuidString, newHive: ResultOfTagging!)
-        ReloadNewArray(hiveToAppend: HiveSaved)
+        ReloadNewArray(hiveToAppend: HiveSaved, GlobalHivesArray: HivesArray)
     }
 }

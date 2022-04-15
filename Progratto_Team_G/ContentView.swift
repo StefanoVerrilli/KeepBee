@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ContentView: View{
-    init() {
+    init(ArrayToModify: HiveList) {
         UINavigationBar.appearance().backgroundColor = .none
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = UIColor(Color.clear)
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
-        HivesList.items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+        self.HivesArray = ArrayToModify
+        dump(HivesArray.items)
     }
     @State private var showDetailedView = false
     @State private var SelectedHive : Hive? = nil
-    @ObservedObject var HivesList = HiveList()
+    @ObservedObject var HivesArray: HiveList
     var body: some View {
        NavigationView{
             VStack(spacing:0){
@@ -27,9 +28,10 @@ struct ContentView: View{
                         .multilineTextAlignment(.leading)
                         .frame(alignment:.leading)
                         Spacer()
-                            Button(action: {showDetailedView = true}, label:{Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}).listRowBackground(Color.clear)
+                            Button(action: {
+                                showDetailedView = true}, label:{Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}).listRowBackground(Color.clear)
                         .navigationBarHidden(true).sheet(isPresented:$showDetailedView,onDismiss: {showDetailedView = false}){
-                        AlternativeHiveDetail(MyPersonalList: HivesList)
+                        AlternativeHiveDetail(MyPersonalList: HivesArray)
                     }
                 }.padding()
             
@@ -41,13 +43,13 @@ struct ContentView: View{
                     .font(.system(size:26))
                 }.padding(.leading)
                 List{
-                    ForEach(HivesList.items){ hive in
+                    ForEach(HivesArray.items){ hive in
                         Button(action: {
                             self.SelectedHive = hive
                         }, label:{ListItem(title: hive.HiveName)}).listRowBackground(Color.clear)
                     }
                 }.padding(.leading,-10).sheet(item: self.$SelectedHive){hive in
-                    AlternativeHiveDetail(InputHive: hive, MyPersonalList: HivesList)
+                    AlternativeHiveDetail(InputHive: hive, MyPersonalList: HivesArray)
                 }
             }.background(BackgroundView())
        }.navigationViewStyle(.stack)
@@ -55,10 +57,6 @@ struct ContentView: View{
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()    }
-}
 
 struct ListItem: View {
     var title: String

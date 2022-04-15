@@ -55,11 +55,12 @@ func ReloadHive(keyToChange: String,newHive: Hive) -> Hive{
     return copyOfnewHive
 }
 
-func ReloadNewArray(hiveToAppend: Hive){
+func ReloadNewArray(hiveToAppend: Hive,GlobalHivesArray : HiveList){
     var oldArray = LoadArrayOfHives(keyToFind: "ArrayOfHives")
     let index = oldArray.firstIndex(where: {$0.id == hiveToAppend.id})
     if(index != nil){oldArray.remove(at:index!)}
     oldArray.append(hiveToAppend)
+    GlobalHivesArray.items = oldArray
     RemoveHives(keyToRemove: "ArrayOfHives")
     saveArrayOfHives(myArray: oldArray, keyToFind: "ArrayOfHives")
 }

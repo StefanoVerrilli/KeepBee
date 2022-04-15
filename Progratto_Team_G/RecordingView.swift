@@ -11,6 +11,7 @@ import Speech
 
 struct RecordingView: View{
     @EnvironmentObject var swiftUISpeech:SwiftUISpeech
+    @ObservedObject var HivesArray: HiveList
     var body:some View{
              VStack(spacing:100){
                  VStack{
@@ -21,7 +22,7 @@ struct RecordingView: View{
                          .frame(alignment:.leading)
                          Spacer()
                      }
-                  Text("Press the mic to ricord")
+                  Text("Press the mic to record")
                       .multilineTextAlignment(.leading)
                       .frame(maxWidth:.infinity,alignment: .leading)
                       .font(.system(size:26))
@@ -39,11 +40,6 @@ struct RecordingView: View{
     }
 }
 
-struct RecordingView_Previews: PreviewProvider{
-    static var previews: some View{
-        RecordingView().environmentObject(SwiftUISpeech())
-            
-    }
-}
+
 
 

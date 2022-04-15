@@ -10,9 +10,9 @@ import SwiftUI
 import Foundation
 
 public class SwiftUISpeech: ObservableObject{
-    init(){
-        
         //Requests auth from User
+    init(ArrayOfHives : HiveList){
+        Hives = ArrayOfHives
         SFSpeechRecognizer.requestAuthorization{ authStatus in
             OperationQueue.main.addOperation {
                 switch authStatus {
@@ -100,14 +100,13 @@ public class SwiftUISpeech: ObservableObject{
     }// end of stop recording
     
     func stopRecording(){// end recording
-        
         audioEngine.stop()
         recognitionRequest?.endAudio()
         self.audioEngine.inputNode.removeTap(onBus: 0)
         self.recognitionTask?.cancel()
         self.recognitionTask = nil
-        print(outputText)
-        SubmitChanges(StringToSubmit: outputText)
+        SubmitChanges(StringToSubmit: "Peppina pesa 70 kg",HivesArray: Hives)
+        dump(Hives)
     }// restarts the variables
     
     
@@ -136,7 +135,8 @@ public class SwiftUISpeech: ObservableObject{
     
     /* Variables **/
     @Published var isRecording:Bool = false
-    @Published var button = SpeechButton()
+    @ObservedObject var Hives: HiveList
+    @Published var button = SpeechButton(Hives: HiveList())
     
     //private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "it-IT"))

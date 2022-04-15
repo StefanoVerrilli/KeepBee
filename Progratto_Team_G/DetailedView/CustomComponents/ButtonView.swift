@@ -10,8 +10,12 @@ import SwiftUI
 import Foundation
 
 struct SpeechButton: View {
+    init(Hives : HiveList){
+        HivesArray = Hives
+    }
     @State var isPressed:Bool = false
     @State var actionPop:Bool = false
+    @ObservedObject var HivesArray: HiveList = HiveList()
     @EnvironmentObject var swiftUISpeech:SwiftUISpeech
     var body: some View {
         Button(action:{// Button
@@ -36,9 +40,9 @@ struct SpeechButton: View {
 }
     
 
-struct ButtonView_Previews: PreviewProvider {
+/*struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         SpeechButton().environmentObject(SwiftUISpeech())
     }
 }
-
+*/
