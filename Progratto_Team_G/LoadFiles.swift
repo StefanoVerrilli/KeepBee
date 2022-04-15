@@ -46,18 +46,13 @@ func LoadArrayOfHives(keyToFind: String)-> [Hive]{
     return encodedData.map{try! JSONDecoder().decode(Hive.self, from: $0)}
 }
 
-func ReloadHive(keyToChange: String,newHive: Hive){
+func ReloadHive(keyToChange: String,newHive: Hive) -> Hive{
     var copyOfnewHive = newHive
     let oldHive = LoadHive(keyToFind: keyToChange)
-    print(keyToChange)
     RemoveHives(keyToRemove: keyToChange)
-    dump(LoadHive(keyToFind: keyToChange))
     copyOfnewHive.id = oldHive.id
     saveHive(hiveToSave: copyOfnewHive, InputKey: keyToChange)
-    print("ci sono")
-    dump(LoadHive(keyToFind: keyToChange))
-    ReloadNewArray(hiveToAppend: copyOfnewHive)
-    dump("New Hive: \(copyOfnewHive)")
+    return copyOfnewHive
 }
 
 func ReloadNewArray(hiveToAppend: Hive){
@@ -67,7 +62,6 @@ func ReloadNewArray(hiveToAppend: Hive){
     oldArray.append(hiveToAppend)
     RemoveHives(keyToRemove: "ArrayOfHives")
     saveArrayOfHives(myArray: oldArray, keyToFind: "ArrayOfHives")
-    dump(oldArray)
 }
 //This function here is made to delete elements from UserDefaults
 func RemoveHives(keyToRemove:String){

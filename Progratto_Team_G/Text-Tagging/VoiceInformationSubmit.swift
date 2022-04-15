@@ -10,7 +10,7 @@ import Foundation
 func SubmitChanges(StringToSubmit: String){
     let ResultOfTagging = Tagger(stringToCheck: StringToSubmit)
     if ResultOfTagging != nil{
-        ReloadHive(keyToChange: ResultOfTagging!.id.uuidString, newHive: ResultOfTagging!)
+        let HiveSaved = ReloadHive(keyToChange: ResultOfTagging!.id.uuidString, newHive: ResultOfTagging!)
+        ReloadNewArray(hiveToAppend: HiveSaved)
     }
-    print("non è entrato")
 }

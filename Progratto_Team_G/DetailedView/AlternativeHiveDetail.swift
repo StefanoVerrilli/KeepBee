@@ -87,12 +87,10 @@ struct AlternativeHiveDetail: View{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
                         navigateBack = true
-                        //Valorizzo la struttura da andare a sostituire
                         var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName)
                         hiveToSave.id = CurrentHive.id
                         var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
                         if (NewView == false){
-                        //Qui entro solo se non è una nuova scheda ma una già esistente che va modificata
                             let index = HivesList.items.firstIndex(where: {$0.id == CurrentHive.id})
                             if(index != nil){HivesList.items.remove(at:index!)}
                             RemoveHives(keyToRemove: CurrentHive.id.uuidString)
@@ -100,8 +98,6 @@ struct AlternativeHiveDetail: View{
                         }else{
                             saveHive(hiveToSave: hiveToSave, InputKey: CurrentHive.id.uuidString)}
                         CurrentHive = hiveToSave
-                        //let whereToPut = HivesList.items.firstIndex(where: {$0.id == MyHive.id})
-                        //if(whereToPut != nil){HivesList.items.insert(hiveToSave, at: whereToPut!)}else{HivesList.items.append(hiveToSave)}
                         HivesList.items.append(hiveToSave)
                         RemoveHives(keyToRemove: "ArrayOfHives")
                         newArrayHives = HivesList.items
