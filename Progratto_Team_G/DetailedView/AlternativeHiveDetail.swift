@@ -22,7 +22,8 @@ struct AlternativeHiveDetail: View{
     @State private var SwarmPickedUp:Date
     @State private var LoomsInside: Int
     @State private var HiveDiagram: Bool
-    @State var HiveName:String
+    @State private var HiveWheight: String
+    @State private var HiveName:String
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var HivesList: HiveList
@@ -35,6 +36,7 @@ struct AlternativeHiveDetail: View{
         
         _QueenChange = State(initialValue: CurrentHive.QueenChange)
         _HiveName = State(initialValue: CurrentHive.HiveName)
+        _HiveWheight = State(initialValue: CurrentHive.HiveWheight)
         _RoyalCellInserted = State(initialValue: CurrentHive.RoyalCellInserted)
         _QueenInserted = State(initialValue: CurrentHive.QueenInserted)
         _OrphanHive = State(initialValue: CurrentHive.OrphanHive)
@@ -55,6 +57,7 @@ struct AlternativeHiveDetail: View{
         
         _QueenChange = State(initialValue: CurrentHive.QueenChange)
         _HiveName = State(initialValue: CurrentHive.HiveName)
+        _HiveWheight = State(initialValue: CurrentHive.HiveWheight)
         _RoyalCellInserted = State(initialValue: CurrentHive.RoyalCellInserted)
         _QueenInserted = State(initialValue: CurrentHive.QueenInserted)
         _OrphanHive = State(initialValue: CurrentHive.OrphanHive)
@@ -71,7 +74,7 @@ struct AlternativeHiveDetail: View{
     var body: some View{
         NavigationView{
         Form{
-            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram,HiveName: $HiveName)
+            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram,HiveName: $HiveName,HiveWheight: $HiveWheight)
             HiveHealthView(FirstDate: $LastNourishedDay, SecondDate: $NextNutritionDay, ThirdDate: $SwarmPickedUp)
             QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted, isHorphan: $OrphanHive)
         }.background(BackgroundView())
@@ -87,7 +90,7 @@ struct AlternativeHiveDetail: View{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
                         navigateBack = true
-                        var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName)
+                        var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName,HiveWheight)
                         hiveToSave.id = CurrentHive.id
                         var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
                         if (NewView == false){
@@ -116,12 +119,14 @@ struct GeneralInformationHiveView: View {
     @Binding var LoomsInside: Int
     @Binding var HiveDiagram: Bool
     @Binding var HiveName: String
+    @Binding var HiveWheight: String
     var body: some View {
         Section(header:HStack{
             Image(systemName: "archivebox.fill")
             Text("General information")
         }){
-            customTextInput(stringToDisplay: "Hive Name", valueNeeded: $HiveName)
+            AlternativeTextInput(stringToDisplay: "Hive Name", valueNeeded: $HiveName)
+            AlternativeTextInput(stringToDisplay: "Hive Wheight", valueNeeded: $HiveWheight)
             customPicker(StringToDisplay: "Looms inside", pickerValue: $LoomsInside)
             Toggle(isOn: $HiveDiagram){
                 Text("Hive Diagram")

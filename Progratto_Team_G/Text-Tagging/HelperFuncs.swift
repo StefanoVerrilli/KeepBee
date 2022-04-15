@@ -63,8 +63,7 @@ func StringToDate(StringToConvert: String)-> Date{
 }
 
 
-func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: String)-> Int?{
-    let regex = "[0-9]{1,2}"
+func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: String,regex: String)-> Int?{
     var Distance: Int = 10000
     var ReversedDistance:Int = 10000
     var substringReversed: Substring = ""
@@ -81,7 +80,6 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
         substringReversed = Mystring[CalcrangeReverse.lowerBound..<CalcrangeReverse.upperBound]
         let index = Mystring.index(Mystring.startIndex, offsetBy: 0)
         ReversedDistance = Mystring.distance(from: index, to: CalcrangeReverse.lowerBound)
-        //ReversedDistance = findDistance(String: String(Mystring), MyRange: CalcrangeReverse)
     }
     if Distance < ReversedDistance{
         return Int(Mysubstring)

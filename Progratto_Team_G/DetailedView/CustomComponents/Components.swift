@@ -53,3 +53,17 @@ struct customTextInput: View{
             .foregroundColor(Color.black)
     }
 }
+
+struct AlternativeTextInput: View{
+    public var stringToDisplay: String
+    @Binding var valueNeeded : String
+    var body: some View{
+        HStack{
+            Text(stringToDisplay)
+            Spacer()
+            TextField(stringToDisplay,text: $valueNeeded).multilineTextAlignment(.trailing)
+        }.padding(.vertical)
+            .listRowBackground(Color("CustomOrange"))
+            .foregroundColor(Color.black)
+    }
+}

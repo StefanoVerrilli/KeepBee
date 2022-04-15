@@ -2,7 +2,7 @@ import Foundation
 import AVFoundation
 var hiveToFill = Hive()
 var hivesNames = LoadArrayOfHives(keyToFind: "ArrayOfHives")
-let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina da sostituire","cella reale"]
+let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina da sostituire","cella reale","chili","peso","pesa"]
 
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.range(of: "(?<![\\w\\d])\($0.HiveName)(?![\\w\\d])",options: .regularExpression) != nil}
@@ -31,7 +31,8 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
     case "telai":
         let range = CompleteString.range(of: ParticularCase,options: .backwards)?.lowerBound
         let substring = CompleteString[range!...]
-        let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase)
+        let regex = "[0-9]{1,2}"
+        let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase,regex: regex)
         if result != nil{hiveToFill.LoomsInside = result!}
     case "nutrita","nutrire":
         let range = CompleteString.range(of: ParticularCase,options: .backwards)?.lowerBound
@@ -48,6 +49,13 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck: String(substring))
         if result != nil{hiveToFill.RoyalCellInserted = result!}
+    case "pesa","peso","chili":
+        let range = CompleteString.range(of: ParticularCase,options: .backwards)?.lowerBound
+        let substring = CompleteString[range!...]
+        print(substring)
+        let regex = "[0-9]{1,3}"
+        let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase,regex: regex)
+        if result != nil{hiveToFill.HiveWheight = String(result!)}
     default:
         print("found some problems")
     }

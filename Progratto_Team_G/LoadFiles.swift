@@ -29,7 +29,7 @@ func LoadHive(keyToFind: String) -> Hive{
             print("Error during decoding (\(error))")
         }
     }
-    return Hive(Date(), Date(), Date(), false, 1, false, Date(), Date(), Date(), "")
+    return Hive(Date(), Date(), Date(), false, 1, false, Date(), Date(), Date(), "","")
 }
 
 //Those functions are made to store Array of hives in UserDefaults
