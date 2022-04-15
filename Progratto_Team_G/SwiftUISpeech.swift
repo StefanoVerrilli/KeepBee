@@ -106,7 +106,8 @@ public class SwiftUISpeech: ObservableObject{
         self.audioEngine.inputNode.removeTap(onBus: 0)
         self.recognitionTask?.cancel()
         self.recognitionTask = nil
-        
+        print(outputText)
+        SubmitChanges(StringToSubmit: outputText)
     }// restarts the variables
     
     
