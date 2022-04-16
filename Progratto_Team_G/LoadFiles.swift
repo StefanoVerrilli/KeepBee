@@ -34,12 +34,12 @@ func LoadHive(keyToFind: String) -> Hive{
 
 //Those functions are made to store Array of hives in UserDefaults
 
-func SaveArrayOfHives(myArray: [Hive],keyToFind: String){
+func SaveHivesKey(myArray: [Hive],keyToFind: String){
     let date = myArray.map{try? JSONEncoder().encode($0)}
     UserDefaults.standard.set(date, forKey: keyToFind)
 }
 
-func LoadArrayOfHives(keyToFind: String)-> [Hive]{
+func LoadHivesKey(keyToFind: String)-> [Hive]{
     guard let encodedData = UserDefaults.standard.array(forKey: keyToFind)as? [Data] else{
         return []
     }
@@ -56,13 +56,13 @@ func ReloadHive(keyToChange: String,newHive: Hive) -> Hive{
 }
 
 func ReloadNewArray(hiveToAppend: Hive,GlobalHivesArray : ObservableList){
-    var oldArray = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+    var oldArray = LoadHivesKey(keyToFind: "HivesKey")
     let index = oldArray.firstIndex(where: {$0.id == hiveToAppend.id})
     if(index != nil){oldArray.remove(at:index!)}
     oldArray.insert(hiveToAppend, at: 0)
     GlobalHivesArray.items = oldArray
-    RemoveHives(keyToRemove: "ArrayOfHives")
-    SaveArrayOfHives(myArray: oldArray, keyToFind: "ArrayOfHives")
+    RemoveHives(keyToRemove: "HivesKey")
+    SaveHivesKey(myArray: oldArray, keyToFind: "HivesKey")
 }
 
 //This function here is made to delete elements from UserDefaults

@@ -10,7 +10,7 @@ import Foundation
 
 class ObservableList: ObservableObject{
     init(){
-        self.items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+        self.items = LoadHivesKey(keyToFind: "HivesKey")
     }
-    @Published var items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+    @Published var items = LoadHivesKey(keyToFind: "HivesKey")
 }

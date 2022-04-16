@@ -1,7 +1,7 @@
 import Foundation
 
 var hiveToFill = Hive()
-var hivesNames = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+var hivesNames = LoadHivesKey(keyToFind: "HivesKey")
 let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina da sostituire","cella reale","kg","peso","pesa","diagramma"]
 
 func StringMatching(stringToCheck: String) -> [String]{

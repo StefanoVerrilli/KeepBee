@@ -10,7 +10,7 @@ struct Tabbar: View {
     @StateObject var hives: ObservableList = ObservableList()
     var body: some View {
         TabView {
-            RecordingView(hivesArray: hives).environmentObject(SwiftUISpeech(ArrayOfHives: hives))
+            RecordingView(hivesArray: hives).environmentObject(SwiftUISpeech(HivesKey: hives))
             .tabItem {
                 Image(systemName: "mic")
                 Text("Record")

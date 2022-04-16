@@ -11,8 +11,8 @@ import Foundation
 
 public class SwiftUISpeech: ObservableObject{
         //Requests auth from User
-    init(ArrayOfHives : ObservableList){
-        Hives = ArrayOfHives
+    init(HivesKey : ObservableList){
+        Hives = HivesKey
         SFSpeechRecognizer.requestAuthorization{ authStatus in
             OperationQueue.main.addOperation {
                 switch authStatus {

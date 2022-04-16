@@ -94,7 +94,7 @@ struct AlternativeHiveDetail: View{
                         navigateBack = true
                         var hiveToSave=Hive(queenChange, royalCellInserted, queenInserted, orphanHive, loomsInside, hiveDiagram, lastNourishedDay, nextNutritionDay, swarmPickedUp, hiveName,hiveWheight)
                         hiveToSave.id = defaultHive.id
-                        var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
+                        var newArrayHives = LoadHivesKey(keyToFind: "HivesKey")
                         if (newView == false){
                             let index = globalList.items.firstIndex(where: {$0.id == defaultHive.id})
                             if(index != nil){globalList.items.remove(at:index!)}
@@ -103,9 +103,9 @@ struct AlternativeHiveDetail: View{
                         }else{
                             saveHive(hiveToSave: hiveToSave, inputKey: defaultHive.id.uuidString)}
                         globalList.items.insert(hiveToSave, at: 0)
-                        RemoveHives(keyToRemove: "ArrayOfHives")
+                        RemoveHives(keyToRemove: "HivesKey")
                         newArrayHives = globalList.items
-                        SaveArrayOfHives(myArray: newArrayHives, keyToFind: "ArrayOfHives")
+                        SaveHivesKey(myArray: newArrayHives, keyToFind: "HivesKey")
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
