@@ -16,9 +16,9 @@ struct DetailedHiveView: View{
         UITableView.appearance().backgroundColor = UIColor(Color.clear)
     }
     
-    @State private var GenericDate = Date()
-    @State private var LoomsInside: Int = Int()
-    @State private var HiveDiagram:Bool = false
+    @State private var genericDate = Date()
+    @State private var loomsInside: Int = Int()
+    @State private var hiveDiagram:Bool = false
     
     var body: some View{
         VStack{
@@ -31,9 +31,8 @@ struct DetailedHiveView: View{
                     .background(Color(red: 56/255,green:56/255,blue:58/255))
                     .padding(.leading)
                     .listRowInsets(EdgeInsets())
-                //CustomDatePicker(StringToDisplay: "")
-                CustomNumPicker(LoomsInside: LoomsInside)
-                Toggle(isOn: $HiveDiagram){
+                CustomNumPicker(loomsInside: loomsInside)
+                Toggle(isOn: $hiveDiagram){
                     Text("Hive Diagram")
                 }.padding().offset(y:-4)
 
@@ -49,10 +48,10 @@ struct DetailedHiveView_Previews: PreviewProvider{
 }
 
 struct CustomNumPicker: View {
-    @State public var LoomsInside: Int
+    @State public var loomsInside: Int
     var body: some View {
         Menu{
-            Picker(selection: $LoomsInside,label: EmptyView()){
+            Picker(selection: $loomsInside,label: EmptyView()){
                 ForEach(0..<10){
                     Text("\($0)")
                 }
@@ -60,7 +59,7 @@ struct CustomNumPicker: View {
                 HStack {
                     Text("Looms inside")
                     Spacer()
-                    Text(String(LoomsInside))
+                    Text(String(loomsInside))
                     Image(systemName:"chevron.right")}
                 .foregroundColor(.white)
                 .padding()
@@ -70,15 +69,3 @@ struct CustomNumPicker: View {
     }
 }
 
-/*struct CustomDatePicker: View {
-    @State public var GenericDate = Date()
-    var body: some View {
-        DatePicker("Pick a date", selection: $GenericDate, displayedComponents: .date)
-            .padding()
-            .background(Color(red: 28/255, green: 28/255, blue: 30/255))
-            .foregroundColor(Color.white)
-            .accentColor(.orange)
-            .colorScheme(.dark)
-            .background(Color.clear)
-        }
-}*/

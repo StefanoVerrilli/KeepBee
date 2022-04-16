@@ -14,101 +14,74 @@ struct Hive:Identifiable,Codable{
 
     var id = UUID()
     
-    var HiveName:String = "New Hive"
+    var hiveName:String = "New Hive"
     
-    var HiveWheight: String = ""
+    var hiveWheight: String = ""
 
-    var QueenChange:Date = Date()
+    var queenChange:Date = Date()
 
-    var RoyalCellInserted:Date = Date()
+    var royalCellInserted:Date = Date()
 
-    var QueenInserted:Date = Date()
+    var queenInserted:Date = Date()
 
-    var OrphanHive:Bool = false
+    var orphanHive:Bool = false
 
-    var LoomsInside: Int = 4
+    var loomsInside: Int = 4
 
-    var HiveDiagram: Bool = false
+    var hiveDiagram: Bool = false
 
-    var LastNourishedDay:Date = Date()
+    var lastNourishedDay:Date = Date()
 
-    var NextNutritionDay:Date = Date()
+    var nextNutritionDay:Date = Date()
 
-    var SwarmPickedUp:Date = Date()
+    var swarmPickedUp:Date = Date()
     
     init(_ QueenChange: Date, _ RoyalCellInserted: Date, _ QueenInserted: Date, _ OrphanHive: Bool, _ LoomInside: Int, _ HiveDiagram: Bool, _ LastNourishedDay: Date, _ NextNutritionDay: Date, _ SwarmPickedUp: Date , _ HiveName: String, _ HiveWheight: String){
 
-            self.HiveName = HiveName
+            self.hiveName = HiveName
         
-            self.HiveWheight = HiveWheight
+            self.hiveWheight = HiveWheight
         
-            self.QueenChange = QueenChange
+            self.queenChange = QueenChange
 
-            self.RoyalCellInserted = RoyalCellInserted
+            self.royalCellInserted = RoyalCellInserted
 
-            self.QueenInserted = QueenInserted
+            self.queenInserted = QueenInserted
 
-            self.OrphanHive = OrphanHive
+            self.orphanHive = OrphanHive
 
-            self.LoomsInside = LoomInside
+            self.loomsInside = LoomInside
 
-            self.HiveDiagram = HiveDiagram
+            self.hiveDiagram = HiveDiagram
 
-            self.LastNourishedDay = LastNourishedDay
+            self.lastNourishedDay = LastNourishedDay
 
-            self.NextNutritionDay = NextNutritionDay
+            self.nextNutritionDay = NextNutritionDay
 
-            self.SwarmPickedUp = SwarmPickedUp
+            self.swarmPickedUp = SwarmPickedUp
 
         }
     init(){
-        self.HiveName = ""
+        self.hiveName = ""
     
-        self.QueenChange = Date()
+        self.queenChange = Date()
 
-        self.RoyalCellInserted = Date()
+        self.royalCellInserted = Date()
 
-        self.QueenInserted = Date()
+        self.queenInserted = Date()
 
-        self.OrphanHive = false
+        self.orphanHive = false
 
-        self.LoomsInside = 1
+        self.loomsInside = 1
 
-        self.HiveDiagram = false
+        self.hiveDiagram = false
 
-        self.LastNourishedDay = Date()
+        self.lastNourishedDay = Date()
 
-        self.NextNutritionDay = Date()
+        self.nextNutritionDay = Date()
 
-        self.SwarmPickedUp = Date()
+        self.swarmPickedUp = Date()
     }
 
 }
 
-/*class HiveData<Hive>: ObservableObject {
-
-    
-
-    @Published var  Hives: [Hive]
-
-
-
-    init(Hives: [Hive]) {
-
-        self.Hives = Hives
-
-    }
-
-    init(repeating value: Hive, count: Int) {
-
-         Hives = Array(repeating: value, count: count)
-
-      }
-
-
-
-    func addHive(oldHive: Hive){
-      Hives.append(oldHive)
-       }
-    }
-*/

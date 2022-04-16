@@ -7,79 +7,78 @@
 
 import Foundation
 import SwiftUI
-//import ParthenoKit
 
-//var CurrentHive: Hive = Hive()
 
 struct AlternativeHiveDetail: View{
-    var DefaultHive: Hive
-    private var NewView: Bool
-    @State private var QueenChange: Date
-    @State private var RoyalCellInserted: Date
-    @State private var QueenInserted: Date
-    @State private var OrphanHive: Bool
-    @State private var LastNourishedDay:Date
-    @State private var NextNutritionDay:Date
-    @State private var SwarmPickedUp:Date
-    @State private var LoomsInside: Int
-    @State private var HiveDiagram: Bool
-    @State private var HiveWheight: String
-    @State private var HiveName:String
+    var defaultHive: Hive
+    private var newView: Bool
+    @State private var queenChange: Date
+    @State private var royalCellInserted: Date
+    @State private var queenInserted: Date
+    @State private var orphanHive: Bool
+    @State private var lastNourishedDay:Date
+    @State private var nextNutritionDay:Date
+    @State private var swarmPickedUp:Date
+    @State private var loomsInside: Int
+    @State private var hiveDiagram: Bool
+    @State private var hiveWheight: String
+    @State private var hiveName:String
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var HivesList: HiveList
-    init(InputHive: Hive,MyPersonalList: HiveList){
+    @ObservedObject var globalList: ObservableList
+    init(InputHive: Hive,MyPersonalList: ObservableList){
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
         UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
         UITableView.appearance().separatorColor = UIColor.black
-        DefaultHive = InputHive
+        defaultHive = InputHive
         
-        _QueenChange = State(initialValue: InputHive.QueenChange)
-        _HiveName = State(initialValue: InputHive.HiveName)
-        _HiveWheight = State(initialValue: InputHive.HiveWheight)
-        _RoyalCellInserted = State(initialValue: InputHive.RoyalCellInserted)
-        _QueenInserted = State(initialValue: InputHive.QueenInserted)
-        _OrphanHive = State(initialValue: InputHive.OrphanHive)
-        _LastNourishedDay = State(initialValue: InputHive.LastNourishedDay)
-        _NextNutritionDay = State(initialValue: InputHive.NextNutritionDay)
-        _SwarmPickedUp = State(initialValue: InputHive.SwarmPickedUp)
-        _LoomsInside = State(initialValue: InputHive.LoomsInside)
-        _HiveDiagram = State(initialValue: InputHive.HiveDiagram)
+        _queenChange = State(initialValue: InputHive.queenChange)
+        _hiveName = State(initialValue: InputHive.hiveName)
+        _hiveWheight = State(initialValue: InputHive.hiveWheight)
+        _royalCellInserted = State(initialValue: InputHive.royalCellInserted)
+        _queenInserted = State(initialValue: InputHive.queenInserted)
+        _orphanHive = State(initialValue: InputHive.orphanHive)
+        _lastNourishedDay = State(initialValue: InputHive.lastNourishedDay)
+        _nextNutritionDay = State(initialValue: InputHive.nextNutritionDay)
+        _swarmPickedUp = State(initialValue: InputHive.swarmPickedUp)
+        _loomsInside = State(initialValue: InputHive.loomsInside)
+        _hiveDiagram = State(initialValue: InputHive.hiveDiagram)
         
-        HivesList = MyPersonalList
-        NewView = false
+        globalList = MyPersonalList
+        newView = false
         }
-    init(MyPersonalList: HiveList){
+    
+    init(MyPersonalList: ObservableList){
         UITableView.appearance().backgroundColor = .clear
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
         UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
         UITableView.appearance().separatorColor = UIColor.black
-        DefaultHive = Hive()
+        defaultHive = Hive()
         
-        _QueenChange = State(initialValue: DefaultHive.QueenChange)
-        _HiveName = State(initialValue: DefaultHive.HiveName)
-        _HiveWheight = State(initialValue: DefaultHive.HiveWheight)
-        _RoyalCellInserted = State(initialValue: DefaultHive.RoyalCellInserted)
-        _QueenInserted = State(initialValue: DefaultHive.QueenInserted)
-        _OrphanHive = State(initialValue: DefaultHive.OrphanHive)
-        _LastNourishedDay = State(initialValue: DefaultHive.LastNourishedDay)
-        _NextNutritionDay = State(initialValue: DefaultHive.NextNutritionDay)
-        _SwarmPickedUp = State(initialValue: DefaultHive.SwarmPickedUp)
-        _LoomsInside = State(initialValue: DefaultHive.LoomsInside)
-        _HiveDiagram = State(initialValue: DefaultHive.HiveDiagram)
+        _queenChange = State(initialValue: defaultHive.queenChange)
+        _hiveName = State(initialValue: defaultHive.hiveName)
+        _hiveWheight = State(initialValue: defaultHive.hiveWheight)
+        _royalCellInserted = State(initialValue: defaultHive.royalCellInserted)
+        _queenInserted = State(initialValue: defaultHive.queenInserted)
+        _orphanHive = State(initialValue: defaultHive.orphanHive)
+        _lastNourishedDay = State(initialValue: defaultHive.lastNourishedDay)
+        _nextNutritionDay = State(initialValue: defaultHive.nextNutritionDay)
+        _swarmPickedUp = State(initialValue: defaultHive.swarmPickedUp)
+        _loomsInside = State(initialValue: defaultHive.loomsInside)
+        _hiveDiagram = State(initialValue: defaultHive.hiveDiagram)
         
-        HivesList = MyPersonalList
-        NewView = true
+        globalList = MyPersonalList
+        newView = true
         }
     
     @State private var navigateBack = false
     var body: some View{
         NavigationView{
         Form{
-            GeneralInformationHiveView(LoomsInside: $LoomsInside, HiveDiagram: $HiveDiagram,HiveName: $HiveName,HiveWheight: $HiveWheight)
-            HiveHealthView(FirstDate: $LastNourishedDay, SecondDate: $NextNutritionDay, ThirdDate: $SwarmPickedUp)
-            QueenBeeDetailsView(QueenChange: $QueenChange, RoyalCellInserted: $RoyalCellInserted, QueenInserted: $QueenInserted, isHorphan: $OrphanHive)
+            generalInformationHiveView(loomsInside: $loomsInside, hiveDiagram: $hiveDiagram,hiveName: $hiveName,hiveWheight: $hiveWheight)
+            hiveHealthView(firstDate: $lastNourishedDay, secondDate: $nextNutritionDay, thirdDate: $swarmPickedUp)
+            queenBeeDetailsView(queenChange: $queenChange, royalCellInserted: $royalCellInserted, queenInserted: $queenInserted, isHorphan: $orphanHive)
         }.background(BackgroundView())
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){
@@ -93,44 +92,45 @@ struct AlternativeHiveDetail: View{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
                         navigateBack = true
-                        var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName,HiveWheight)
-                        hiveToSave.id = DefaultHive.id
+                        var hiveToSave=Hive(queenChange, royalCellInserted, queenInserted, orphanHive, loomsInside, hiveDiagram, lastNourishedDay, nextNutritionDay, swarmPickedUp, hiveName,hiveWheight)
+                        hiveToSave.id = defaultHive.id
                         var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
-                        if (NewView == false){
-                            let index = HivesList.items.firstIndex(where: {$0.id == DefaultHive.id})
-                            if(index != nil){HivesList.items.remove(at:index!)}
-                            RemoveHives(keyToRemove: DefaultHive.id.uuidString)
-                            saveHive(hiveToSave: hiveToSave, InputKey: DefaultHive.id.uuidString)
+                        if (newView == false){
+                            let index = globalList.items.firstIndex(where: {$0.id == defaultHive.id})
+                            if(index != nil){globalList.items.remove(at:index!)}
+                            RemoveHives(keyToRemove: defaultHive.id.uuidString)
+                            saveHive(hiveToSave: hiveToSave, inputKey: defaultHive.id.uuidString)
                         }else{
-                            saveHive(hiveToSave: hiveToSave, InputKey: DefaultHive.id.uuidString)}
-                        HivesList.items.insert(hiveToSave, at: 0)
+                            saveHive(hiveToSave: hiveToSave, inputKey: defaultHive.id.uuidString)}
+                        globalList.items.insert(hiveToSave, at: 0)
                         RemoveHives(keyToRemove: "ArrayOfHives")
-                        newArrayHives = HivesList.items
-                        saveArrayOfHives(myArray: newArrayHives, keyToFind: "ArrayOfHives")
+                        newArrayHives = globalList.items
+                        SaveArrayOfHives(myArray: newArrayHives, keyToFind: "ArrayOfHives")
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
-                    }.disabled(HiveName.isEmpty || ((HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count == 2) && NewView == false) || (HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count == 1 && NewView == true))
+                    }.disabled(hiveName.isEmpty || ((globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 2) && newView == false) || (globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1 && newView == true))
                 }
-            }).navigationTitle(HiveName)
+            }).navigationTitle(hiveName)
             .navigationBarTitleDisplayMode(.inline)
         }
-    }}
+    }
+}
 
-struct GeneralInformationHiveView: View {
-    @Binding var LoomsInside: Int
-    @Binding var HiveDiagram: Bool
-    @Binding var HiveName: String
-    @Binding var HiveWheight: String
+struct generalInformationHiveView: View {
+    @Binding var loomsInside: Int
+    @Binding var hiveDiagram: Bool
+    @Binding var hiveName: String
+    @Binding var hiveWheight: String
     var body: some View {
         Section(header:HStack{
             Image(systemName: "archivebox.fill")
             Text("General information")
         }){
-            AlternativeTextInput(stringToDisplay: "Hive Name", valueNeeded: $HiveName)
-            AlternativeTextInput(stringToDisplay: "Hive Wheight", valueNeeded: $HiveWheight)
-            customPicker(StringToDisplay: "Looms inside", pickerValue: $LoomsInside)
-            Toggle(isOn: $HiveDiagram){
+            alternativeTextInput(stringToDisplay: "Hive Name", valueNeeded: $hiveName)
+            alternativeTextInput(stringToDisplay: "Hive Wheight", valueNeeded: $hiveWheight)
+            CustomPicker(stringToDisplay: "Looms inside", pickerValue: $loomsInside)
+            Toggle(isOn: $hiveDiagram){
                 Text("Hive Diagram")
             }
             .padding(.vertical)
@@ -139,37 +139,37 @@ struct GeneralInformationHiveView: View {
     }
 }
 
-struct QueenBeeDetailsView: View {
-    @Binding var QueenChange:Date
-    @Binding var RoyalCellInserted:Date
-    @Binding var QueenInserted:Date
+struct queenBeeDetailsView: View {
+    @Binding var queenChange:Date
+    @Binding var royalCellInserted:Date
+    @Binding var queenInserted:Date
     @Binding var isHorphan:Bool
     var body: some View {
         Section(header:HStack{
             Image(systemName: "crown.fill")
             Text("Queen bee details")
         }){
-            CustomToggle(toggleVar: $isHorphan,StringToDisplay: "Orphan: ")
-            CustomDatePicker(dateToTrack: $RoyalCellInserted, StringToDisplay: "Royal cell inserted")
-            CustomDatePicker(dateToTrack: $QueenChange,StringToDisplay: "Need to be changed in")
-            CustomDatePicker(dateToTrack: $QueenInserted,StringToDisplay: "Queen inserted in")
+            CustomToggle(toggleVar: $isHorphan,stringToDisplay: "Orphan: ")
+            CustomDatePicker(dateToTrack: $royalCellInserted, stringToDisplay: "Royal cell inserted")
+            CustomDatePicker(dateToTrack: $queenChange,stringToDisplay: "Need to be changed in")
+            CustomDatePicker(dateToTrack: $queenInserted,stringToDisplay: "Queen inserted in")
         }
     }
     
 }
 
-struct HiveHealthView: View {
-    @Binding var FirstDate:Date
-    @Binding var SecondDate:Date
-    @Binding var ThirdDate:Date
+struct hiveHealthView: View {
+    @Binding var firstDate:Date
+    @Binding var secondDate:Date
+    @Binding var thirdDate:Date
     var body: some View {
         Section(header:HStack{
             Image(systemName: "heart.fill")
             Text("Hive Health")
         }){
-            CustomDatePicker(dateToTrack: $FirstDate, StringToDisplay: "Last nourished day")
-            CustomDatePicker(dateToTrack: $SecondDate, StringToDisplay: "Next nutrition day")
-            CustomDatePicker(dateToTrack: $ThirdDate, StringToDisplay: "Swarm picked up")
+            CustomDatePicker(dateToTrack: $firstDate, stringToDisplay: "Last nourished day")
+            CustomDatePicker(dateToTrack: $secondDate, stringToDisplay: "Next nutrition day")
+            CustomDatePicker(dateToTrack: $thirdDate, stringToDisplay: "Swarm picked up")
         }
     }
 }

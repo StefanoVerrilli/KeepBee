@@ -7,15 +7,15 @@
 
 import SwiftUI
 struct Tabbar: View {
-    @StateObject var Hives: HiveList = HiveList()
+    @StateObject var hives: ObservableList = ObservableList()
     var body: some View {
         TabView {
-            RecordingView(HivesArray: Hives).environmentObject(SwiftUISpeech(ArrayOfHives: Hives))
+            RecordingView(hivesArray: hives).environmentObject(SwiftUISpeech(ArrayOfHives: hives))
             .tabItem {
                 Image(systemName: "mic")
                 Text("Record")
             }
-            ContentView(ArrayToModify: Hives)
+            ContentView(ArrayToModify: hives)
                 .tabItem {
                     Image(systemName: "archivebox")
                     Text("Hives")
@@ -29,12 +29,12 @@ struct Tabbar: View {
             if #available(iOS 15.0, *) {
                 UITabBar.appearance().scrollEdgeAppearance = appearance}
     }
-    }
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Tabbar()
+}
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            Tabbar()
+        }
     }
 }
-}   
 
 

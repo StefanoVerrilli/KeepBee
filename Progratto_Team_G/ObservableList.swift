@@ -8,7 +8,7 @@
 import Foundation
 
 
-class HiveList: ObservableObject{
+class ObservableList: ObservableObject{
     init(){
         self.items = LoadArrayOfHives(keyToFind: "ArrayOfHives")
     }

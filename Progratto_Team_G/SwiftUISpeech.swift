@@ -11,7 +11,7 @@ import Foundation
 
 public class SwiftUISpeech: ObservableObject{
         //Requests auth from User
-    init(ArrayOfHives : HiveList){
+    init(ArrayOfHives : ObservableList){
         Hives = ArrayOfHives
         SFSpeechRecognizer.requestAuthorization{ authStatus in
             OperationQueue.main.addOperation {
@@ -135,8 +135,8 @@ public class SwiftUISpeech: ObservableObject{
     
     /* Variables **/
     @Published var isRecording:Bool = false
-    @ObservedObject var Hives: HiveList
-    @Published var button = SpeechButton(Hives: HiveList())
+    @ObservedObject var Hives: ObservableList
+    @Published var button = SpeechButton(Hives: ObservableList())
     
     //private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "it-IT"))

@@ -10,9 +10,9 @@ import SwiftUI
 
 struct CustomDatePicker: View {
     @Binding var dateToTrack: Date
-    public var StringToDisplay: String
+    public var stringToDisplay: String
     var body: some View {
-        DatePicker(StringToDisplay,selection: $dateToTrack,displayedComponents: .date)
+        DatePicker(stringToDisplay,selection: $dateToTrack,displayedComponents: .date)
             .listRowBackground(Color("CustomOrange"))
             .padding(.vertical)
             .datePickerStyle(.compact)
@@ -22,20 +22,20 @@ struct CustomDatePicker: View {
 
 struct CustomToggle: View {
     @Binding var toggleVar: Bool
-    public var StringToDisplay: String
+    public var stringToDisplay: String
     var body: some View {
         Toggle(isOn: $toggleVar){
-            Text(StringToDisplay)
+            Text(stringToDisplay)
         }.padding(.vertical)
             .listRowBackground(Color("CustomOrange"))
     }
 }
 
-struct customPicker: View {
-    public var StringToDisplay: String
+struct CustomPicker: View {
+    public var stringToDisplay: String
     @Binding var pickerValue: Int
     var body: some View {
-        Picker(StringToDisplay, selection: $pickerValue) {
+        Picker(stringToDisplay, selection: $pickerValue) {
             ForEach(0..<10){
                 Text("\($0)")
             }
@@ -54,7 +54,7 @@ struct customTextInput: View{
     }
 }
 
-struct AlternativeTextInput: View{
+struct alternativeTextInput: View{
     public var stringToDisplay: String
     @Binding var valueNeeded : String
     var body: some View{
