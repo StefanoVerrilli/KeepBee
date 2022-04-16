@@ -8,13 +8,14 @@
 import Foundation
 
 func DetectDatesInString(StringToCheck:String)-> Date?{
-    let daysRegex = "[a-z]{2,3} [0-9]{1,2} giorni"
+    let daysRegex = "[a-z]{2,3} [0-9]{1,2} giorn[a-z]{1}"
     let regex = "[0-9]{1,2} [a-z]{1,10} [0-9]{4}"
-    var DistanceDate:Int = 10000
-    var Distancedays:Int = 10000
-    var Datesubstring: Substring = " "
-    var Dayssubstring: Substring = " "
-    let MonthsArray = ["january","february","march","april","may","june","july","august","september","october","november","december"]
+    var DistanceDate:Int = Int.max
+    var Distancedays:Int = Int.max
+    var Datesubstring: Substring?
+    var Dayssubstring: Substring?
+    var LocalizedCalendar = Calendar.autoupdatingCurrent
+    LocalizedCalendar.locale = Locale(identifier: "it_IT_Posix")
     let MonthFound: [String]
     if let range = StringToCheck.range(of:regex,options: .regularExpression){
         Datesubstring = StringToCheck[range.lowerBound..<range.upperBound]
@@ -31,14 +32,15 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
     if Distancedays < DistanceDate{
         let CurrentDate = Date()
         var dateComponent = DateComponents()
-        dateComponent.day = Int(Dayssubstring.components(separatedBy: " ")[1])
+        dateComponent.day = Int(Dayssubstring!.components(separatedBy: " ")[1])
         let AddedDate = Calendar.current.date(byAdding: dateComponent,to: CurrentDate)
         return AddedDate!
     }else{
-        MonthFound = FindWord(StringToCheck: String(Datesubstring), WhereToFind: MonthsArray)
-        if !MonthFound.isEmpty{
-            let DateInNums = Datesubstring.replacingOccurrences(of: MonthFound[0], with: String(DataHandler(MonthName: MonthFound[0])))
-            return StringToDate(StringToConvert: DateInNums)
+        //MonthFound = FindWord(StringToCheck: String(Datesubstring!), WhereToFind: LocalizedCalendar.monthSymbols)
+        if let DateFound = DataHandler(MonthName: String(Datesubstring!)){
+            //let DateInNums = Datesubstring!.replacingOccurrences(of: MonthFound[0], with: String(DataHandler(MonthName: MonthFound[0])))
+            print(DateFound)
+            return StringToDate(StringToConvert: DateFound)
         }else{
             return nil
          }
@@ -54,7 +56,7 @@ func StringToDate(StringToConvert: String)-> Date{
     let calender = Calendar.current
     var DateComponent = DateComponents()
     DateComponent.calendar = calender
-    let Items = StringToConvert.components(separatedBy: " ")
+    let Items = StringToConvert.components(separatedBy: "-")
     DateComponent.day = Int(Items[0])
     DateComponent.month = Int(Items[1])
     DateComponent.year = Int(Items[2])
@@ -88,33 +90,15 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
     }
 }
 
-func DataHandler(MonthName: String)-> Int{
-    switch(MonthName){
-case "january":
-        return 01
-case "february":
-        return 02
-case "march":
-        return 03
-case "april":
-        return 04
-case "may":
-        return 05
-case "june":
-        return 06
-case "july":
-        return 07
-case "august":
-        return 08
-case "september":
-        return 09
-case "october":
-        return 10
-case "november":
-        return 11
-case "december":
-        return 12
-    default:
-        return 0
+func DataHandler(MonthName: String)-> String?{
+    let myformatter = DateFormatter()
+    myformatter.locale = Locale(identifier: "it_IT_POSIX")
+    myformatter.dateFormat = "dd-MM-yyyy"
+    myformatter.timeZone = TimeZone.current
+    let DateToConvert = myformatter.date(from: MonthName)
+    if DateToConvert != nil{
+        return myformatter.string(from: DateToConvert!)
+    }else{
+        return nil
     }
 }
