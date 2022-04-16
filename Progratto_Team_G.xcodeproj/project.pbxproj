@@ -17,6 +17,7 @@
 		7B375BD828085F7D00533674 /* ObservableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD728085F7D00533674 /* ObservableList.swift */; };
 		7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFC2802E851003ED7C2 /* backgroundView.swift */; };
 		7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */; };
+		7B7A07A0280AF92400381248 /* ShakeMotionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */; };
 		7B7C60F628058BF800691347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C60F528058BF800691347 /* Components.swift */; };
 		7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FC9762801A64B00178BE4 /* RecordingView.swift */; };
 		7BB1DF6228018DDE0045E3E1 /* DetailedHiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */; };
@@ -59,6 +60,7 @@
 		7B375BD728085F7D00533674 /* ObservableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableList.swift; sourceTree = "<group>"; };
 		7B54BAFC2802E851003ED7C2 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeHiveDetail.swift; sourceTree = "<group>"; };
+		7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeMotionDetection.swift; sourceTree = "<group>"; };
 		7B7C60F528058BF800691347 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		7B7FC9762801A64B00178BE4 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		7BB1DF6128018DDD0045E3E1 /* DetailedHiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHiveView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				58E864C92805CCAA0072B5C6 /* Hive.swift */,
 				7B375BD5280803A000533674 /* LoadFiles.swift */,
 				7B375BD728085F7D00533674 /* ObservableList.swift */,
+				7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */,
 			);
 			path = Progratto_Team_G;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */,
 				7B375BD828085F7D00533674 /* ObservableList.swift in Sources */,
 				7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */,
+				7B7A07A0280AF92400381248 /* ShakeMotionDetection.swift in Sources */,
 				58D56FDA2805A82B00A65387 /* SwiftUISpeech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

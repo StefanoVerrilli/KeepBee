@@ -11,10 +11,10 @@ import Foundation
 
 struct SpeechButton: View {
     init(Hives : HiveList){
-        HivesArray = Hives
-    }
+        HivesArray = Hives}
     @State var isPressed:Bool = false
     @State var actionPop:Bool = false
+    @State var OnScreen: Bool = true
     @ObservedObject var HivesArray: HiveList = HiveList()
     @EnvironmentObject var swiftUISpeech:SwiftUISpeech
     var body: some View {
@@ -35,7 +35,11 @@ struct SpeechButton: View {
             }
         }.actionSheet(isPresented: $actionPop){
             ActionSheet(title: Text("ERROR: - 1"), message: Text("Access Denied by User"), buttons: [ActionSheet.Button.destructive(Text("Reinstall the Appp"))])// Error catch if the auth failed or denied
-        }
+        }.onShake {
+            if OnScreen{
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.3, blendDuration: 0.3)){self.swiftUISpeech.isRecording.toggle()}
+                self.swiftUISpeech.isRecording ? self.swiftUISpeech.startRecording() : self.swiftUISpeech.stopRecording()}
+        }.onAppear(perform: {OnScreen = true}).onDisappear{OnScreen = false}
     }
 }
     
