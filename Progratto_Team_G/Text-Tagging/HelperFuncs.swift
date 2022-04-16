@@ -16,7 +16,7 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
     var Dayssubstring: Substring?
     var LocalizedCalendar = Calendar.autoupdatingCurrent
     LocalizedCalendar.locale = Locale(identifier: "it_IT_Posix")
-    let MonthFound: [String]
+    //let MonthFound: [String]
     if let range = StringToCheck.range(of:regex,options: .regularExpression){
         Datesubstring = StringToCheck[range.lowerBound..<range.upperBound]
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)

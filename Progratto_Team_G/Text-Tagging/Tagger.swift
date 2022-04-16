@@ -12,7 +12,8 @@ func StringMatching(stringToCheck: String) -> [String]{
     return keywordFound
 }
 
-func Tagger(stringToCheck: String) -> Hive?{
+func Tagger(stringToCheck: String,HivesArray: HiveList) -> Hive?{
+    hivesNames = HivesArray.items
     let CorrectedString = LiteralNumsHandler(StringToConvert: stringToCheck)
     let Keywords = StringMatching(stringToCheck: CorrectedString)
     print(CorrectedString)

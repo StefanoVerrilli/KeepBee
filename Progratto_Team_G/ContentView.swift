@@ -20,7 +20,7 @@ struct ContentView: View{
     @ObservedObject var HivesArray: HiveList
     var body: some View {
        NavigationView{
-            VStack(spacing:0){
+           VStack(alignment:.leading,spacing:0){
                 HStack{
                     Text("Track your hives")
                         .font(.system(size: 32, weight: .bold))
@@ -41,15 +41,16 @@ struct ContentView: View{
                     .frame(maxWidth:.infinity,alignment: .leading)
                     .font(.system(size:26))
                 }.padding(.leading)
-                List{
+               ScrollView{
+                LazyVStack{
                     ForEach(HivesArray.items){ hive in
                         Button(action: {
                             self.SelectedHive = hive
                         }, label:{ListItem(title: hive.HiveName)}).listRowBackground(Color.clear)
                     }
-                }.padding(.leading,-10).sheet(item: self.$SelectedHive){hive in
+                }.padding().sheet(item: self.$SelectedHive){hive in
                     AlternativeHiveDetail(InputHive: hive, MyPersonalList: HivesArray)
-                }
+                }}
             }.background(BackgroundView())
        }.navigationViewStyle(.stack)
 
