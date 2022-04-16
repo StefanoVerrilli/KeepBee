@@ -42,11 +42,3 @@ struct SpeechButton: View {
         }.onAppear(perform: {OnScreen = true}).onDisappear{OnScreen = false}
     }
 }
-    
-
-/*struct ButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpeechButton().environmentObject(SwiftUISpeech())
-    }
-}
-*/
