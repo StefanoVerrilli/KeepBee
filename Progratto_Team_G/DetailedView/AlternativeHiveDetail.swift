@@ -12,7 +12,7 @@ import SwiftUI
 //var CurrentHive: Hive = Hive()
 
 struct AlternativeHiveDetail: View{
-    var CurrentHive: Hive
+    var DefaultHive: Hive
     private var NewView: Bool
     @State private var QueenChange: Date
     @State private var RoyalCellInserted: Date
@@ -33,7 +33,7 @@ struct AlternativeHiveDetail: View{
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
         UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
         UITableView.appearance().separatorColor = UIColor.black
-        CurrentHive = InputHive
+        DefaultHive = InputHive
         
         _QueenChange = State(initialValue: InputHive.QueenChange)
         _HiveName = State(initialValue: InputHive.HiveName)
@@ -55,19 +55,19 @@ struct AlternativeHiveDetail: View{
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
         UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
         UITableView.appearance().separatorColor = UIColor.black
-        CurrentHive = Hive()
+        DefaultHive = Hive()
         
-        _QueenChange = State(initialValue: CurrentHive.QueenChange)
-        _HiveName = State(initialValue: CurrentHive.HiveName)
-        _HiveWheight = State(initialValue: CurrentHive.HiveWheight)
-        _RoyalCellInserted = State(initialValue: CurrentHive.RoyalCellInserted)
-        _QueenInserted = State(initialValue: CurrentHive.QueenInserted)
-        _OrphanHive = State(initialValue: CurrentHive.OrphanHive)
-        _LastNourishedDay = State(initialValue: CurrentHive.LastNourishedDay)
-        _NextNutritionDay = State(initialValue: CurrentHive.NextNutritionDay)
-        _SwarmPickedUp = State(initialValue: CurrentHive.SwarmPickedUp)
-        _LoomsInside = State(initialValue: CurrentHive.LoomsInside)
-        _HiveDiagram = State(initialValue: CurrentHive.HiveDiagram)
+        _QueenChange = State(initialValue: DefaultHive.QueenChange)
+        _HiveName = State(initialValue: DefaultHive.HiveName)
+        _HiveWheight = State(initialValue: DefaultHive.HiveWheight)
+        _RoyalCellInserted = State(initialValue: DefaultHive.RoyalCellInserted)
+        _QueenInserted = State(initialValue: DefaultHive.QueenInserted)
+        _OrphanHive = State(initialValue: DefaultHive.OrphanHive)
+        _LastNourishedDay = State(initialValue: DefaultHive.LastNourishedDay)
+        _NextNutritionDay = State(initialValue: DefaultHive.NextNutritionDay)
+        _SwarmPickedUp = State(initialValue: DefaultHive.SwarmPickedUp)
+        _LoomsInside = State(initialValue: DefaultHive.LoomsInside)
+        _HiveDiagram = State(initialValue: DefaultHive.HiveDiagram)
         
         HivesList = MyPersonalList
         NewView = true
@@ -94,15 +94,15 @@ struct AlternativeHiveDetail: View{
                     Button{
                         navigateBack = true
                         var hiveToSave=Hive(QueenChange, RoyalCellInserted, QueenInserted, OrphanHive, LoomsInside, HiveDiagram, LastNourishedDay, NextNutritionDay, SwarmPickedUp, HiveName,HiveWheight)
-                        hiveToSave.id = CurrentHive.id
+                        hiveToSave.id = DefaultHive.id
                         var newArrayHives = LoadArrayOfHives(keyToFind: "ArrayOfHives")
                         if (NewView == false){
-                            let index = HivesList.items.firstIndex(where: {$0.id == CurrentHive.id})
+                            let index = HivesList.items.firstIndex(where: {$0.id == DefaultHive.id})
                             if(index != nil){HivesList.items.remove(at:index!)}
-                            RemoveHives(keyToRemove: CurrentHive.id.uuidString)
-                            saveHive(hiveToSave: hiveToSave, InputKey: CurrentHive.id.uuidString)
+                            RemoveHives(keyToRemove: DefaultHive.id.uuidString)
+                            saveHive(hiveToSave: hiveToSave, InputKey: DefaultHive.id.uuidString)
                         }else{
-                            saveHive(hiveToSave: hiveToSave, InputKey: CurrentHive.id.uuidString)}
+                            saveHive(hiveToSave: hiveToSave, InputKey: DefaultHive.id.uuidString)}
                         HivesList.items.insert(hiveToSave, at: 0)
                         RemoveHives(keyToRemove: "ArrayOfHives")
                         newArrayHives = HivesList.items
@@ -110,7 +110,7 @@ struct AlternativeHiveDetail: View{
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
-                    }.disabled(HiveName.isEmpty || (HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count != 0) )
+                    }.disabled(HiveName.isEmpty || ((HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count == 2) && NewView == false) || (HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count == 1 && NewView == true))
                 }
             }).navigationTitle(HiveName)
             .navigationBarTitleDisplayMode(.inline)

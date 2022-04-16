@@ -37,13 +37,16 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
         return AddedDate!
     }else{
         //MonthFound = FindWord(StringToCheck: String(Datesubstring!), WhereToFind: LocalizedCalendar.monthSymbols)
+        if Datesubstring != nil{
         if let DateFound = DataHandler(MonthName: String(Datesubstring!)){
             //let DateInNums = Datesubstring!.replacingOccurrences(of: MonthFound[0], with: String(DataHandler(MonthName: MonthFound[0])))
             print(DateFound)
             return StringToDate(StringToConvert: DateFound)
         }else{
             return nil
-         }
+        }}else{
+            return nil
+        }
     }
 }
 
