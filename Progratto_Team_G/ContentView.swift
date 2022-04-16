@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View{
-    init(ArrayToModify: HiveList) {
+    init(ArrayToModify: ObservableList) {
         UINavigationBar.appearance().backgroundColor = .none
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = UIColor(Color.clear)
@@ -17,7 +17,7 @@ struct ContentView: View{
     }
     @State private var showDetailedView = false
     @State private var SelectedHive : Hive? = nil
-    @ObservedObject var HivesArray: HiveList
+    @ObservedObject var HivesArray: ObservableList
     var body: some View {
        NavigationView{
            VStack(alignment:.leading,spacing:0){
@@ -46,7 +46,7 @@ struct ContentView: View{
                     ForEach(HivesArray.items){ hive in
                         Button(action: {
                             self.SelectedHive = hive
-                        }, label:{ListItem(title: hive.HiveName)}).listRowBackground(Color.clear)
+                        }, label:{ListItem(title: hive.hiveName)}).listRowBackground(Color.clear)
                     }
                 }.padding().sheet(item: self.$SelectedHive){hive in
                     AlternativeHiveDetail(InputHive: hive, MyPersonalList: HivesArray)

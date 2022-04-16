@@ -11,7 +11,7 @@ import Speech
 
 struct RecordingView: View{
     @EnvironmentObject var swiftUISpeech:SwiftUISpeech
-    @ObservedObject var HivesArray: HiveList
+    @ObservedObject var hivesArray: ObservableList
     var body:some View{
              VStack(spacing:100){
                  VStack{
@@ -22,7 +22,7 @@ struct RecordingView: View{
                          .frame(alignment:.leading)
                          Spacer()
                      }
-                  Text("Press the mic to record")
+                  Text("Press the microphone or\nshake the phone to record")
                       .multilineTextAlignment(.leading)
                       .frame(maxWidth:.infinity,alignment: .leading)
                       .font(.system(size:26))
@@ -30,11 +30,6 @@ struct RecordingView: View{
                  HStack{
                      swiftUISpeech.getButton()
                  }.padding(.vertical)
-                 HStack{
-                     Text("\(swiftUISpeech.outputText)")// prints results to screen
-                         .font(.title)
-                         .bold()
-                 }
                  Spacer()
              }.background(BackgroundView())
     }
