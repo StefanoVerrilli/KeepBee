@@ -13,7 +13,7 @@ import SwiftUI
 
 struct AlternativeHiveDetail: View{
     var CurrentHive: Hive
-    @State private var NewView: Bool = false
+    private var NewView: Bool
     @State private var QueenChange: Date
     @State private var RoyalCellInserted: Date
     @State private var QueenInserted: Date
@@ -48,6 +48,7 @@ struct AlternativeHiveDetail: View{
         _HiveDiagram = State(initialValue: InputHive.HiveDiagram)
         
         HivesList = MyPersonalList
+        NewView = false
         }
     init(MyPersonalList: HiveList){
         UITableView.appearance().backgroundColor = .clear
@@ -109,7 +110,7 @@ struct AlternativeHiveDetail: View{
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
-                    }.disabled(HiveName.isEmpty || (HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count == 1 && NewView == true))
+                    }.disabled(HiveName.isEmpty || (HivesList.items.filter{HiveName.range(of: $0.HiveName,options: .caseInsensitive) != nil}.count != 0) )
                 }
             }).navigationTitle(HiveName)
             .navigationBarTitleDisplayMode(.inline)

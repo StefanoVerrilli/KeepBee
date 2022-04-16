@@ -16,13 +16,10 @@ func Tagger(stringToCheck: String,HivesArray: HiveList) -> Hive?{
     hivesNames = HivesArray.items
     let CorrectedString = LiteralNumsHandler(StringToConvert: stringToCheck)
     let Keywords = StringMatching(stringToCheck: CorrectedString)
-    print(CorrectedString)
-    print(Keywords)
     if Keywords.isEmpty{return nil}
     for word in Keywords{
         CaseClassifier(CompleteString: CorrectedString, ParticularCase: word)
     }
-    print(hiveToFill)
     return hiveToFill
 }
 
