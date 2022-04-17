@@ -144,8 +144,8 @@ struct queenBeeDetailsView: View {
         }){
             CustomToggle(toggleVar: $isHorphan,stringToDisplay: "Orphan: ")
             CustomDatePicker(dateToTrack: $royalCellInserted, stringToDisplay: "Royal cell inserted")
-            CustomDatePicker(dateToTrack: $queenChange,stringToDisplay: "Need to be changed in")
-            CustomDatePicker(dateToTrack: $queenInserted,stringToDisplay: "Queen inserted in")
+            CustomDatePicker(dateToTrack: $queenChange,stringToDisplay: "Need to be changed")
+            CustomDatePicker(dateToTrack: $queenInserted,stringToDisplay: "Queen inserted")
         }
     }
     
