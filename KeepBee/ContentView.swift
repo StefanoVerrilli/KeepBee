@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Progratto_Team_G
-//
-//  Created by Stefano Verrilli on 08/04/22.
-//
-
 import SwiftUI
 
 struct ContentView: View{

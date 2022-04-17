@@ -1,10 +1,3 @@
-//
-//  LoadFiles.swift
-//  Progratto_Team_G
-//
-//  Created by Stefano Verrilli on 14/04/22.
-//
-
 import Foundation
 
 //Those functions are made to store and read Hives

@@ -20,7 +20,7 @@
 		7B7A07A0280AF92400381248 /* ShakeMotionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */; };
 		7B7C60F628058BF800691347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C60F528058BF800691347 /* Components.swift */; };
 		7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FC9762801A64B00178BE4 /* RecordingView.swift */; };
-		7BC772372800B05700547E6C /* Progratto_Team_GApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */; };
+		7BC772372800B05700547E6C /* KeepBee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772362800B05700547E6C /* KeepBee.swift */; };
 		7BC772392800B05700547E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772382800B05700547E6C /* ContentView.swift */; };
 		7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723A2800B05800547E6C /* Assets.xcassets */; };
 		7BC7723E2800B05800547E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723D2800B05800547E6C /* Preview Assets.xcassets */; };
@@ -43,7 +43,7 @@
 		7B7C60F528058BF800691347 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		7B7FC9762801A64B00178BE4 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		7BC772332800B05700547E6C /* KeepBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GApp.swift; sourceTree = "<group>"; };
+		7BC772362800B05700547E6C /* KeepBee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepBee.swift; sourceTree = "<group>"; };
 		7BC772382800B05700547E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7BC7723A2800B05800547E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC7723D2800B05800547E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				7B7C60F328058B8700691347 /* DetailedView */,
 				7B54BAFC2802E851003ED7C2 /* backgroundView.swift */,
 				7B7FC9762801A64B00178BE4 /* RecordingView.swift */,
-				7BC772362800B05700547E6C /* Progratto_Team_GApp.swift */,
+				7BC772362800B05700547E6C /* KeepBee.swift */,
 				7BC772382800B05700547E6C /* ContentView.swift */,
 				E63051CF28049632006A265F /* Tabbar.swift */,
 				7BC7723A2800B05800547E6C /* Assets.xcassets */,
@@ -214,7 +214,7 @@
 				58D56FD82805A70900A65387 /* ButtonView.swift in Sources */,
 				7BC772392800B05700547E6C /* ContentView.swift in Sources */,
 				7B31EC0C28095D5400D59358 /* VoiceInformationSubmit.swift in Sources */,
-				7BC772372800B05700547E6C /* Progratto_Team_GApp.swift in Sources */,
+				7BC772372800B05700547E6C /* KeepBee.swift in Sources */,
 				58E864CA2805CCAA0072B5C6 /* Hive.swift in Sources */,
 				7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */,
 				7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */,

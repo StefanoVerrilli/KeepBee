@@ -1,10 +1,3 @@
-//
-//  SwiftUISpeech.swift
-//  Progratto_Team_G
-//
-//  Created by Gianfranco on 12/04/22.
-//
-
 import Speech
 import SwiftUI
 import Foundation

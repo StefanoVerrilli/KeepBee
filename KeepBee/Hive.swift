@@ -1,13 +1,4 @@
-//
-//  Hive.swift
-//  Progratto_Team_G
-//
-//  Created by Gianfranco on 12/04/22.
-//
-
 import Foundation
-
-
 
 struct Hive:Identifiable,Codable{
     

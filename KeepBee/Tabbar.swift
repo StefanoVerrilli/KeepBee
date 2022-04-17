@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Tabbar
-//
-//  Created by Chiara Criscuolo on 09/04/22.
-//
-
 import SwiftUI
 struct Tabbar: View {
     @StateObject var hives: ObservableList = ObservableList()

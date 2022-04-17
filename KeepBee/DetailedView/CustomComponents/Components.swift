@@ -1,10 +1,3 @@
-//
-//  Components.swift
-//  Progratto_Team_G
-//
-//  Created by Stefano Verrilli on 12/04/22.
-//
-
 import Foundation
 import SwiftUI
 
