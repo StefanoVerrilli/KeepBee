@@ -2,7 +2,7 @@ import Foundation
 
 var hiveToFill = Hive()
 var hivesNames = LoadHivesKey(keyToFind: "HivesKey")
-let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina da sostituire","cella reale","kg","peso","pesa","diagramma"]
+let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina inserita","regina da sostituire","cella reale","kg","peso","pesa","diagramma","sciame"]
 
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive]) != nil}
@@ -36,8 +36,7 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         {
             hiveToFill.hiveDiagram = false
         }else{
-            hiveToFill.hiveDiagram = true
-        }
+            hiveToFill.hiveDiagram = true}
     case "telai":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
@@ -59,11 +58,21 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck: String(substring))
         if result != nil{hiveToFill.queenChange = result!}
+    case "regina inserita":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck: String(substring))
+        if result != nil{hiveToFill.queenInserted = result!}
     case "cella reale":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck: String(substring))
         if result != nil{hiveToFill.royalCellInserted = result!}
+    case "sciame":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck: String(substring))
+        if result != nil{hiveToFill.swarmPickedUp = result!}
     case "pesa","peso","kg":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
