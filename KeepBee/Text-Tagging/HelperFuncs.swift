@@ -7,15 +7,17 @@
 
 import Foundation
 
+let CurrentLang = "it_IT_Posix"
+
 func DetectDatesInString(StringToCheck:String)-> Date?{
-    let daysRegex = "[a-z]{2,3} [0-9]{1,2} giorn[a-z]{1}"
+    let daysRegex = "[0-9]{1,2} giorn[a-z]{1}"
     let regex = "[0-9]{1,2} [a-z]{1,10} [0-9]{4}"
     var DistanceDate:Int = Int.max
     var Distancedays:Int = Int.max
     var Datesubstring: Substring?
     var Dayssubstring: Substring?
     var LocalizedCalendar = Calendar.autoupdatingCurrent
-    LocalizedCalendar.locale = Locale(identifier: "it_IT_Posix")
+    LocalizedCalendar.locale = Locale(identifier: CurrentLang)
     //let MonthFound: [String]
     if let range = StringToCheck.range(of:regex,options: .regularExpression){
         Datesubstring = StringToCheck[range.lowerBound..<range.upperBound]
@@ -32,14 +34,12 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
     if Distancedays < DistanceDate{
         let CurrentDate = Date()
         var dateComponent = DateComponents()
-        dateComponent.day = Int(Dayssubstring!.components(separatedBy: " ")[1])
+        dateComponent.day = Int(Dayssubstring!.components(separatedBy: " ")[0])
         let AddedDate = Calendar.current.date(byAdding: dateComponent,to: CurrentDate)
         return AddedDate!
     }else{
-        //MonthFound = FindWord(StringToCheck: String(Datesubstring!), WhereToFind: LocalizedCalendar.monthSymbols)
         if Datesubstring != nil{
         if let DateFound = DataHandler(MonthName: String(Datesubstring!)){
-            //let DateInNums = Datesubstring!.replacingOccurrences(of: MonthFound[0], with: String(DataHandler(MonthName: MonthFound[0])))
             print(DateFound)
             return StringToDate(StringToConvert: DateFound)
         }else{
@@ -95,7 +95,7 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 
 func DataHandler(MonthName: String)-> String?{
     let myformatter = DateFormatter()
-    myformatter.locale = Locale(identifier: "it_IT_POSIX")
+    myformatter.locale = Locale(identifier: CurrentLang)
     myformatter.dateFormat = "dd-MM-yyyy"
     myformatter.timeZone = TimeZone.current
     let DateToConvert = myformatter.date(from: MonthName)
@@ -104,4 +104,22 @@ func DataHandler(MonthName: String)-> String?{
     }else{
         return nil
     }
+}
+
+func LiteralNumsHandler(StringToConvert: String)->String{
+    var TraslatedString: String = ""
+    let nf = NumberFormatter()
+    nf.numberStyle = .spellOut
+    nf.locale = Locale(identifier: CurrentLang)
+    for word in StringToConvert.components(separatedBy: " "){
+        let result = nf.number(from: word)?.stringValue
+        if result != nil{
+            TraslatedString.append(result!)
+            TraslatedString.append(" ")
+        }else{
+            TraslatedString.append(word)
+            TraslatedString.append(" ")
+        }
+    }
+    return TraslatedString
 }

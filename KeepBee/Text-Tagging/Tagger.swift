@@ -47,7 +47,9 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
-        if result != nil{hiveToFill.nextNutritionDay = result!}
+        if result != nil{
+            print(result)
+            hiveToFill.nextNutritionDay = result!}
     case "nutrita","nutrizione":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
@@ -75,20 +77,3 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
     }
 }
 
-func LiteralNumsHandler(StringToConvert: String)->String{
-    var TraslatedString: String = ""
-    let nf = NumberFormatter()
-    nf.numberStyle = .spellOut
-    nf.locale = Locale(identifier: "it_IT")
-    for word in StringToConvert.components(separatedBy: " "){
-        let result = nf.number(from: word)?.stringValue
-        if result != nil{
-            TraslatedString.append(result!)
-            TraslatedString.append(" ")
-        }else{
-            TraslatedString.append(word)
-            TraslatedString.append(" ")
-        }
-    }
-    return TraslatedString
-}
