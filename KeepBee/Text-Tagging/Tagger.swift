@@ -32,7 +32,8 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
     case "diagramma":
         let regex = "(?<=non)[^\(ParticularCase)]+"
         let range = CompleteString.range(of: regex,options: [.caseInsensitive,.backwards,.regularExpression])?.lowerBound
-        if range != nil{
+        if range != nil
+        {
             hiveToFill.hiveDiagram = false
         }else{
             hiveToFill.hiveDiagram = true
@@ -47,9 +48,7 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
-        if result != nil{
-            print(result)
-            hiveToFill.nextNutritionDay = result!}
+        if result != nil{hiveToFill.nextNutritionDay = result!}
     case "nutrita","nutrizione":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]

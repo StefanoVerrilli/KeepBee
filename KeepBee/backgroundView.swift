@@ -10,10 +10,9 @@ import SwiftUI
 
 struct BackgroundView: View{
     var body: some View{
-    Image("background-1")
+            Image("background-1")
             .resizable()
             .scaledToFill()
-            .edgesIgnoringSafeArea(.all)
-        
+            .ignoresSafeArea()
     }
 }

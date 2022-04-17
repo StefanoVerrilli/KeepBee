@@ -18,7 +18,6 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
     var Dayssubstring: Substring?
     var LocalizedCalendar = Calendar.autoupdatingCurrent
     LocalizedCalendar.locale = Locale(identifier: CurrentLang)
-    //let MonthFound: [String]
     if let range = StringToCheck.range(of:regex,options: .regularExpression){
         Datesubstring = StringToCheck[range.lowerBound..<range.upperBound]
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)
@@ -69,8 +68,8 @@ func StringToDate(StringToConvert: String)-> Date{
 
 
 func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: String,regex: String)-> Int?{
-    var Distance: Int = 10000
-    var ReversedDistance:Int = 10000
+    var Distance: Int = Int.max
+    var ReversedDistance:Int = Int.max
     var substringReversed: Substring = ""
     var Mysubstring: Substring = ""
     if let Calcrange = StringToCheck.range(of: regex,options: .regularExpression){

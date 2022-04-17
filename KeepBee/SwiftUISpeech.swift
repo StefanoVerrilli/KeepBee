@@ -47,7 +47,6 @@ public class SwiftUISpeech: ObservableObject{
         
         // restarts the text
         outputText = "";
-        
         // Configure the audio session for the app.
         let audioSession = AVAudioSession.sharedInstance()
         let inputNode = audioEngine.inputNode
