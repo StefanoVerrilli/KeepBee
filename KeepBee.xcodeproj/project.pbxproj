@@ -25,28 +25,8 @@
 		7BC772392800B05700547E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772382800B05700547E6C /* ContentView.swift */; };
 		7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723A2800B05800547E6C /* Assets.xcassets */; };
 		7BC7723E2800B05800547E6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723D2800B05800547E6C /* Preview Assets.xcassets */; };
-		7BC772482800B05900547E6C /* Progratto_Team_GTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */; };
-		7BC772522800B05900547E6C /* Progratto_Team_GUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */; };
-		7BC772542800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */; };
 		E63051D028049632006A265F /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63051CF28049632006A265F /* Tabbar.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7BC772442800B05900547E6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7BC7722B2800B05700547E6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7BC772322800B05700547E6C;
-			remoteInfo = Progratto_Team_G;
-		};
-		7BC7724E2800B05900547E6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7BC7722B2800B05700547E6C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7BC772322800B05700547E6C;
-			remoteInfo = Progratto_Team_G;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		58D56FD72805A70900A65387 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -69,30 +49,11 @@
 		7BC772382800B05700547E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7BC7723A2800B05800547E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC7723D2800B05800547E6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7BC772432800B05900547E6C /* KeepBeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepBeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GTests.swift; sourceTree = "<group>"; };
-		7BC7724D2800B05900547E6C /* KeepBeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepBeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITests.swift; sourceTree = "<group>"; };
-		7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progratto_Team_GUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E63051CF28049632006A265F /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7BC772302800B05700547E6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC772402800B05900547E6C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC7724A2800B05900547E6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -134,8 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				7BC772352800B05700547E6C /* KeepBee */,
-				7BC772462800B05900547E6C /* Progratto_Team_GTests */,
-				7BC772502800B05900547E6C /* Progratto_Team_GUITests */,
 				7BC772342800B05700547E6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,8 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				7BC772332800B05700547E6C /* KeepBee.app */,
-				7BC772432800B05900547E6C /* KeepBeeTests.xctest */,
-				7BC7724D2800B05900547E6C /* KeepBeeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,23 +139,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		7BC772462800B05900547E6C /* Progratto_Team_GTests */ = {
-			isa = PBXGroup;
-			children = (
-				7BC772472800B05900547E6C /* Progratto_Team_GTests.swift */,
-			);
-			path = Progratto_Team_GTests;
-			sourceTree = "<group>";
-		};
-		7BC772502800B05900547E6C /* Progratto_Team_GUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7BC772512800B05900547E6C /* Progratto_Team_GUITests.swift */,
-				7BC772532800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift */,
-			);
-			path = Progratto_Team_GUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,42 +159,6 @@
 			productReference = 7BC772332800B05700547E6C /* KeepBee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7BC772422800B05900547E6C /* KeepBeeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC7725A2800B05900547E6C /* Build configuration list for PBXNativeTarget "KeepBeeTests" */;
-			buildPhases = (
-				7BC7723F2800B05900547E6C /* Sources */,
-				7BC772402800B05900547E6C /* Frameworks */,
-				7BC772412800B05900547E6C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7BC772452800B05900547E6C /* PBXTargetDependency */,
-			);
-			name = KeepBeeTests;
-			productName = Progratto_Team_GTests;
-			productReference = 7BC772432800B05900547E6C /* KeepBeeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7BC7724C2800B05900547E6C /* KeepBeeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC7725D2800B05900547E6C /* Build configuration list for PBXNativeTarget "KeepBeeUITests" */;
-			buildPhases = (
-				7BC772492800B05900547E6C /* Sources */,
-				7BC7724A2800B05900547E6C /* Frameworks */,
-				7BC7724B2800B05900547E6C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7BC7724F2800B05900547E6C /* PBXTargetDependency */,
-			);
-			name = KeepBeeUITests;
-			productName = Progratto_Team_GUITests;
-			productReference = 7BC7724D2800B05900547E6C /* KeepBeeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,14 +171,6 @@
 				TargetAttributes = {
 					7BC772322800B05700547E6C = {
 						CreatedOnToolsVersion = 13.0;
-					};
-					7BC772422800B05900547E6C = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 7BC772322800B05700547E6C;
-					};
-					7BC7724C2800B05900547E6C = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 7BC772322800B05700547E6C;
 					};
 				};
 			};
@@ -292,8 +188,6 @@
 			projectRoot = "";
 			targets = (
 				7BC772322800B05700547E6C /* KeepBee */,
-				7BC772422800B05900547E6C /* KeepBeeTests */,
-				7BC7724C2800B05900547E6C /* KeepBeeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -305,20 +199,6 @@
 			files = (
 				7BC7723E2800B05800547E6C /* Preview Assets.xcassets in Resources */,
 				7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC772412800B05900547E6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC7724B2800B05900547E6C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,37 +229,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BC7723F2800B05900547E6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BC772482800B05900547E6C /* Progratto_Team_GTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BC772492800B05900547E6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BC772542800B05900547E6C /* Progratto_Team_GUITestsLaunchTests.swift in Sources */,
-				7BC772522800B05900547E6C /* Progratto_Team_GUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7BC772452800B05900547E6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7BC772322800B05700547E6C /* KeepBee */;
-			targetProxy = 7BC772442800B05900547E6C /* PBXContainerItemProxy */;
-		};
-		7BC7724F2800B05900547E6C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7BC772322800B05700547E6C /* KeepBee */;
-			targetProxy = 7BC7724E2800B05900547E6C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7BC772552800B05900547E6C /* Debug */ = {
@@ -564,98 +414,6 @@
 			};
 			name = Release;
 		};
-		7BC7725B2800B05900547E6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepBee.app/KeepBee";
-			};
-			name = Debug;
-		};
-		7BC7725C2800B05900547E6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepBee.app/KeepBee";
-			};
-			name = Release;
-		};
-		7BC7725E2800B05900547E6C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Progratto_Team_G;
-			};
-			name = Debug;
-		};
-		7BC7725F2800B05900547E6C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.Parthenope.Progetto.Progratto-Team-GUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Progratto_Team_G;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -673,24 +431,6 @@
 			buildConfigurations = (
 				7BC772582800B05900547E6C /* Debug */,
 				7BC772592800B05900547E6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7BC7725A2800B05900547E6C /* Build configuration list for PBXNativeTarget "KeepBeeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BC7725B2800B05900547E6C /* Debug */,
-				7BC7725C2800B05900547E6C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7BC7725D2800B05900547E6C /* Build configuration list for PBXNativeTarget "KeepBeeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BC7725E2800B05900547E6C /* Debug */,
-				7BC7725F2800B05900547E6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
