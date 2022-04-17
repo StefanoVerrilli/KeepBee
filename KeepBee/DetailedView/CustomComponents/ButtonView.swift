@@ -23,17 +23,16 @@ struct SpeechButton: View {
             if(self.swiftUISpeech.getSpeechStatus() == "Denied - Close the App"){// checks status of auth if no auth pop up error
                 self.actionPop.toggle()
             }else{
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.3, blendDuration: 0.3)){self.swiftUISpeech.isRecording.toggle()}// button animation
+                withAnimation(.easeInOut){self.swiftUISpeech.isRecording.toggle()}
                 self.swiftUISpeech.isRecording ? self.swiftUISpeech.startRecording() : self.swiftUISpeech.stopRecording()
             }
         }){
             ZStack{
                 Image(systemName:"circle.fill")
-                    .resizable()
-                    .animation(Animation.linear(duration: 1).repeatForever(),value: self.swiftUISpeech.isRecording)
-                    .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: .black, radius: 4, x: 0, y: 0)
+                    .scaleEffect(self.swiftUISpeech.isRecording ? 1.1 : 1.0)
+                    .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: Color.black, radius: 4, x: 0, y: 0)
                     Image(systemName:"mic.fill")
-                    .font(.system(size:110)).foregroundColor(self.swiftUISpeech.isRecording ? Color("") : Color.white).shadow(color: .black, radius: 0, x: 0, y: 0)
+                    .font(.system(size:110)).foregroundColor(self.swiftUISpeech.isRecording ? Color("CustomRed") : Color.white).shadow(color: .black, radius: 0, x: 0, y: 0)
             }
         }.actionSheet(isPresented: $actionPop){
             ActionSheet(title: Text("ERROR: - 1"), message: Text("Access Denied by User"), buttons: [ActionSheet.Button.destructive(Text("Reinstall the Appp"))])// Error catch if the auth failed or denied
@@ -41,8 +40,7 @@ struct SpeechButton: View {
             if(self.swiftUISpeech.getSpeechStatus() == "Denied - Close the App"){
                 self.actionPop.toggle()
             }else{
-                self.swiftUISpeech.isRecording.toggle()
-                //withAnimation(.spring(response: 0.4, dampingFraction: 0.3, blendDuration: 0.3)){self.swiftUISpeech.isRecording.toggle()}
+                withAnimation(.easeInOut){self.swiftUISpeech.isRecording.toggle()}
                 self.swiftUISpeech.isRecording ? self.swiftUISpeech.startRecording() : self.swiftUISpeech.stopRecording()
             }
         }.onAppear(perform: {onScreen = true}).onDisappear{onScreen = false}
