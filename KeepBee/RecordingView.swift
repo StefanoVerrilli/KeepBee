@@ -20,12 +20,14 @@ struct RecordingView: View{
                          .font(.system(size: 32, weight: .bold))
                          .multilineTextAlignment(.leading)
                          .frame(alignment:.leading)
+                         .foregroundColor(Color("CustomBlack"))
                          Spacer()
                      }
                   Text("Press the microphone or\nshake the phone to record")
                       .multilineTextAlignment(.leading)
                       .frame(maxWidth:.infinity,alignment: .leading)
                       .font(.system(size:26))
+                      .foregroundColor(Color("CustomBlack"))
                  }.padding(.leading).padding(.top)
                  HStack{
                      swiftUISpeech.getButton()

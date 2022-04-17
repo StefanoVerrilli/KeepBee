@@ -26,6 +26,7 @@ struct ContentView: View{
                         .font(.system(size: 32, weight: .bold))
                         .multilineTextAlignment(.leading)
                         .frame(alignment:.leading)
+                        .foregroundColor(Color("CustomBlack"))
                         Spacer()
                             Button(action: {
                                 showDetailedView = true}, label:{Image("customplus").resizable().padding().background(Color("CustomOrange")).cornerRadius(90).frame(width:55,height: 55)}).listRowBackground(Color.clear)
@@ -40,6 +41,7 @@ struct ContentView: View{
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth:.infinity,alignment: .leading)
                     .font(.system(size:26))
+                    .foregroundColor(Color("CustomBlack"))
                 }.padding(.leading)
                ScrollView{
                 LazyVStack{
