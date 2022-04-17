@@ -9,6 +9,7 @@ struct CustomDatePicker: View {
             .listRowBackground(Color("CustomOrange"))
             .padding(.vertical)
             .datePickerStyle(.compact)
+            .colorMultiply(Color("CustomBlack"))
     }
 }
 
@@ -21,6 +22,8 @@ struct CustomToggle: View {
             Text(stringToDisplay)
         }.padding(.vertical)
             .listRowBackground(Color("CustomOrange"))
+            .foregroundColor(Color("CustomBlack"))
+            .accentColor(Color("CustomBlack"))
     }
 }
 
@@ -28,22 +31,15 @@ struct CustomPicker: View {
     public var stringToDisplay: String
     @Binding var pickerValue: Int
     var body: some View {
-        Picker(stringToDisplay, selection: $pickerValue) {
-            ForEach(0..<10){
-                Text("\($0)")
-            }
-        }.padding(.vertical).listRowBackground(Color("CustomOrange")).foregroundColor(Color.black)
-    }
-}
-
-struct customTextInput: View{
-    public var stringToDisplay: String
-    @Binding var valueNeeded: String
-    var body: some View{
-        TextField("Insert Hive Name", text: $valueNeeded)
-            .padding(.vertical)
-            .listRowBackground(Color("CustomOrange"))
-            .foregroundColor(Color.black)
+        HStack{
+            Text(stringToDisplay)
+            Spacer()
+            Picker(stringToDisplay, selection: $pickerValue) {
+                ForEach(0..<10){
+                    Text("\($0)")
+                }
+            }.pickerStyle(.menu).colorMultiply(Color("CustomBlack"))
+        }.padding(.vertical).listRowBackground(Color("CustomOrange"))
     }
 }
 
@@ -54,9 +50,10 @@ struct alternativeTextInput: View{
         HStack{
             Text(stringToDisplay)
             Spacer()
-            TextField(stringToDisplay,text: $valueNeeded).multilineTextAlignment(.trailing).autocapitalization(.none)
+            TextField(stringToDisplay,text: $valueNeeded).multilineTextAlignment(.trailing).autocapitalization(.none).colorMultiply(Color("CustomBlack"))
         }.padding(.vertical)
             .listRowBackground(Color("CustomOrange"))
-            .foregroundColor(Color.black)
+            .foregroundColor(Color("CustomBlack"))
+            .accentColor(Color("CustomBlack"))
     }
 }

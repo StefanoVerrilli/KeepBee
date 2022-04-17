@@ -23,7 +23,7 @@ struct SpeechButton: View {
             ZStack{
                 Image(systemName:"circle.fill")
                     .scaleEffect(self.swiftUISpeech.isRecording ? 1.1 : 1.0)
-                    .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: Color.black, radius: 4, x: 0, y: 0)
+                    .font(.system(size:220)).foregroundColor(Color(UIColor(red: 237/255, green: 194/255, blue: 93/255, alpha: 1))).shadow(color: Color("CustomBlack"), radius: 4, x: 0, y: 0)
                     Image(systemName:"mic.fill")
                     .font(.system(size:110)).foregroundColor(self.swiftUISpeech.isRecording ? Color("CustomRed") : Color.white).shadow(color: .black, radius: 0, x: 0, y: 0)
             }

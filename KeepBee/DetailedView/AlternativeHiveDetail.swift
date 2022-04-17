@@ -20,10 +20,16 @@ struct AlternativeHiveDetail: View{
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var globalList: ObservableList
     init(InputHive: Hive,MyPersonalList: ObservableList){
-        UITableView.appearance().backgroundColor = .clear
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.titleTextAttributes = [.foregroundColor : UIColor(Color("CustomBlack"))]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor : UIColor(Color("CustomBlack"))]
+        navBarAppearance.backgroundColor = UIColor(Color("CustomOrange"))
+        navBarAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
-        UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
-        UITableView.appearance().separatorColor = UIColor.black
+        UINavigationBar.appearance().tintColor = UIColor(Color("CustomBlack"))
+        
         defaultHive = InputHive
         
         _queenChange = State(initialValue: InputHive.queenChange)
@@ -43,10 +49,16 @@ struct AlternativeHiveDetail: View{
         }
     
     init(MyPersonalList: ObservableList){
-        UITableView.appearance().backgroundColor = .clear
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.titleTextAttributes = [.foregroundColor : UIColor(Color("CustomBlack"))]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor : UIColor(Color("CustomBlack"))]
+        navBarAppearance.backgroundColor = UIColor(Color("CustomOrange"))
+        navBarAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
         UINavigationBar.appearance().barTintColor = UIColor(Color("CustomOrange"))
-        UINavigationBar.appearance().backgroundColor = UIColor(Color("CustomOrange"))
-        UITableView.appearance().separatorColor = UIColor.black
+        UINavigationBar.appearance().tintColor = UIColor(Color("CustomBlack"))
+        
         defaultHive = Hive()
         
         _queenChange = State(initialValue: defaultHive.queenChange)
@@ -79,7 +91,7 @@ struct AlternativeHiveDetail: View{
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("cancel",systemImage: "xmark").labelStyle(.iconOnly)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("CustomBlack"))
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
@@ -101,10 +113,10 @@ struct AlternativeHiveDetail: View{
                         SaveHivesKey(myArray: newArrayHives, keyToFind: "HivesKey")
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color.black)
-                    }.disabled(hiveName.isEmpty || ((globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 2) && newView == false) || (globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1 && newView == true))
+                        Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color("CustomBlack"))
+                    }.disabled(hiveName.isEmpty || (globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1 && newView == true))
                 }
-            }).navigationTitle(hiveName)
+            }).navigationTitle(hiveName).foregroundColor(Color("CustomBlack"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -117,17 +129,13 @@ struct generalInformationHiveView: View {
     @Binding var hiveWheight: String
     var body: some View {
         Section(header:HStack{
-            Image(systemName: "archivebox.fill")
-            Text("General information")
+            Image(systemName: "archivebox.fill").foregroundColor(Color("CustomBlack"))
+            Text("General information").foregroundColor(Color("CustomBlack"))
         }){
             alternativeTextInput(stringToDisplay: "Hive Name", valueNeeded: $hiveName)
             alternativeTextInput(stringToDisplay: "Hive Wheight", valueNeeded: $hiveWheight)
             CustomPicker(stringToDisplay: "Looms inside", pickerValue: $loomsInside)
-            Toggle(isOn: $hiveDiagram){
-                Text("Hive Diagram")
-            }
-            .padding(.vertical)
-            .listRowBackground(Color("CustomOrange"))
+            CustomToggle(toggleVar: $hiveDiagram, stringToDisplay: "Hive Diagram")
         }
     }
 }
@@ -139,8 +147,8 @@ struct queenBeeDetailsView: View {
     @Binding var isHorphan:Bool
     var body: some View {
         Section(header:HStack{
-            Image(systemName: "crown.fill")
-            Text("Queen bee details")
+            Image(systemName: "crown.fill").foregroundColor(Color("CustomBlack"))
+            Text("Queen bee details").foregroundColor(Color("CustomBlack"))
         }){
             CustomToggle(toggleVar: $isHorphan,stringToDisplay: "Orphan: ")
             CustomDatePicker(dateToTrack: $royalCellInserted, stringToDisplay: "Royal cell inserted")
@@ -157,13 +165,13 @@ struct hiveHealthView: View {
     @Binding var thirdDate:Date
     var body: some View {
         Section(header:HStack{
-            Image(systemName: "heart.fill")
-            Text("Hive Health")
+            Image(systemName: "heart.fill").foregroundColor(Color("CustomBlack"))
+            Text("Hive Health").foregroundColor(Color("CustomBlack"))
         }){
             CustomDatePicker(dateToTrack: $firstDate, stringToDisplay: "Last nourished day")
             CustomDatePicker(dateToTrack: $secondDate, stringToDisplay: "Next nutrition day")
             CustomDatePicker(dateToTrack: $thirdDate, stringToDisplay: "Swarm picked up")
-        }
+        }.accentColor(Color("CustomBlack"))
     }
 }
 
