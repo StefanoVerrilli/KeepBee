@@ -103,12 +103,12 @@ struct AlternativeHiveDetail: View{
                         if (newView == false){
                             let index = globalList.items.firstIndex(where: {$0.id == defaultHive.id})
                             if(index != nil){globalList.items.remove(at:index!)}
-                            RemoveHives(keyToRemove: defaultHive.id.uuidString)
+                            //RemoveHives(keyToRemove: defaultHive.id.uuidString)
                             saveHive(hiveToSave: hiveToSave, inputKey: defaultHive.id.uuidString)
                         }else{
                             saveHive(hiveToSave: hiveToSave, inputKey: defaultHive.id.uuidString)}
                         globalList.items.insert(hiveToSave, at: 0)
-                        RemoveHives(keyToRemove: "HivesKey")
+                        //RemoveHives(keyToRemove: "HivesKey")
                         newArrayHives = globalList.items
                         SaveHivesKey(myArray: newArrayHives, keyToFind: "HivesKey")
                         self.presentationMode.wrappedValue.dismiss()

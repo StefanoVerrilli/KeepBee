@@ -71,22 +71,47 @@
 			path = "Text-Tagging";
 			sourceTree = "<group>";
 		};
-		7B7C60F328058B8700691347 /* DetailedView */ = {
-			isa = PBXGroup;
-			children = (
-				7B7C60F428058BCC00691347 /* CustomComponents */,
-				7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */,
-			);
-			path = DetailedView;
-			sourceTree = "<group>";
-		};
 		7B7C60F428058BCC00691347 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
-				58D56FD72805A70900A65387 /* ButtonView.swift */,
 				7B7C60F528058BF800691347 /* Components.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		7B81F4BA280D457D000654B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7BC772362800B05700547E6C /* KeepBee.swift */,
+				E63051CF28049632006A265F /* Tabbar.swift */,
+				7B7FC9762801A64B00178BE4 /* RecordingView.swift */,
+				58D56FD72805A70900A65387 /* ButtonView.swift */,
+				7BC772382800B05700547E6C /* ContentView.swift */,
+				7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */,
+				7B7C60F428058BCC00691347 /* CustomComponents */,
+				7B54BAFC2802E851003ED7C2 /* backgroundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B81F4BC280D45E6000654B6 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				7B375BD5280803A000533674 /* LoadFiles.swift */,
+				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
+				7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */,
+				7B31EC0428094AA400D59358 /* Text-Tagging */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		7B81F4BD280D4637000654B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B375BD728085F7D00533674 /* ObservableList.swift */,
+				58E864C92805CCAA0072B5C6 /* Hive.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7BC7722A2800B05700547E6C = {
@@ -109,21 +134,12 @@
 		7BC772352800B05700547E6C /* KeepBee */ = {
 			isa = PBXGroup;
 			children = (
-				7B31EC0428094AA400D59358 /* Text-Tagging */,
+				7B81F4BD280D4637000654B6 /* Models */,
+				7B81F4BC280D45E6000654B6 /* Logic */,
+				7B81F4BA280D457D000654B6 /* Views */,
 				58E864C22805C0C90072B5C6 /* KeepBee-Info.plist */,
-				7B7C60F328058B8700691347 /* DetailedView */,
-				7B54BAFC2802E851003ED7C2 /* backgroundView.swift */,
-				7B7FC9762801A64B00178BE4 /* RecordingView.swift */,
-				7BC772362800B05700547E6C /* KeepBee.swift */,
-				7BC772382800B05700547E6C /* ContentView.swift */,
-				E63051CF28049632006A265F /* Tabbar.swift */,
 				7BC7723A2800B05800547E6C /* Assets.xcassets */,
 				7BC7723C2800B05800547E6C /* Preview Content */,
-				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
-				58E864C92805CCAA0072B5C6 /* Hive.swift */,
-				7B375BD5280803A000533674 /* LoadFiles.swift */,
-				7B375BD728085F7D00533674 /* ObservableList.swift */,
-				7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */,
 			);
 			path = KeepBee;
 			sourceTree = "<group>";

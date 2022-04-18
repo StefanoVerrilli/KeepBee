@@ -2,7 +2,7 @@ import Foundation
 
 var hiveToFill = Hive()
 var hivesNames = LoadHivesKey(keyToFind: "HivesKey")
-let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina inserita","regina da sostituire","cella reale","kg","peso","pesa","diagramma","sciame"]
+let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina inserita","regina da sostituire","cella reale","kg","peso","pesa","diagramma","sciame","nutrito"]
 
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive]) != nil}
@@ -48,7 +48,7 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
         if result != nil{hiveToFill.nextNutritionDay = result!}
-    case "nutrita","nutrizione":
+    case "nutrita","nutrizione","nutrito":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
