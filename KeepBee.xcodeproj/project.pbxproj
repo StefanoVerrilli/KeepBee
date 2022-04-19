@@ -20,6 +20,8 @@
 		7B7A07A0280AF92400381248 /* ShakeMotionDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */; };
 		7B7C60F628058BF800691347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7C60F528058BF800691347 /* Components.swift */; };
 		7B7FC9772801A64B00178BE4 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FC9762801A64B00178BE4 /* RecordingView.swift */; };
+		7B81F4BF280D47FE000654B6 /* ParthenopeKitLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */; };
+		7B81F4C8280D5189000654B6 /* ParthenoKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B81F4C7280D5189000654B6 /* ParthenoKit.xcframework */; };
 		7BC772372800B05700547E6C /* KeepBee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772362800B05700547E6C /* KeepBee.swift */; };
 		7BC772392800B05700547E6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC772382800B05700547E6C /* ContentView.swift */; };
 		7BC7723B2800B05800547E6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7723A2800B05800547E6C /* Assets.xcassets */; };
@@ -42,6 +44,9 @@
 		7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeMotionDetection.swift; sourceTree = "<group>"; };
 		7B7C60F528058BF800691347 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		7B7FC9762801A64B00178BE4 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParthenopeKitLoad.swift; sourceTree = "<group>"; };
+		7B81F4C4280D4C5D000654B6 /* ParthenoKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ParthenoKit.xcframework; sourceTree = "<group>"; };
+		7B81F4C7280D5189000654B6 /* ParthenoKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ParthenoKit.xcframework; path = ../../../../Downloads/ParthenokitDemo/ParthenoKit.xcframework; sourceTree = "<group>"; };
 		7BC772332800B05700547E6C /* KeepBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC772362800B05700547E6C /* KeepBee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepBee.swift; sourceTree = "<group>"; };
 		7BC772382800B05700547E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B81F4C8280D5189000654B6 /* ParthenoKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
 				7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */,
 				7B31EC0428094AA400D59358 /* Text-Tagging */,
+				7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -112,6 +119,14 @@
 				58E864C92805CCAA0072B5C6 /* Hive.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7B81F4C6280D4F67000654B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B81F4C7280D5189000654B6 /* ParthenoKit.xcframework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		7BC7722A2800B05700547E6C = {
@@ -134,6 +149,7 @@
 		7BC772352800B05700547E6C /* KeepBee */ = {
 			isa = PBXGroup;
 			children = (
+				7B81F4C6280D4F67000654B6 /* Frameworks */,
 				7B81F4BD280D4637000654B6 /* Models */,
 				7B81F4BC280D45E6000654B6 /* Logic */,
 				7B81F4BA280D457D000654B6 /* Views */,
@@ -147,6 +163,7 @@
 		7BC7723C2800B05800547E6C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				7B81F4C4280D4C5D000654B6 /* ParthenoKit.xcframework */,
 				7BC7723D2800B05800547E6C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -228,6 +245,7 @@
 				7B7C60F628058BF800691347 /* Components.swift in Sources */,
 				7B31EC0628094ADE00D59358 /* Tagger.swift in Sources */,
 				58D56FD82805A70900A65387 /* ButtonView.swift in Sources */,
+				7B81F4BF280D47FE000654B6 /* ParthenopeKitLoad.swift in Sources */,
 				7BC772392800B05700547E6C /* ContentView.swift in Sources */,
 				7B31EC0C28095D5400D59358 /* VoiceInformationSubmit.swift in Sources */,
 				7BC772372800B05700547E6C /* KeepBee.swift in Sources */,
