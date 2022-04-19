@@ -84,11 +84,18 @@ struct AlternativeHiveDetail: View{
             generalInformationHiveView(loomsInside: $loomsInside, hiveDiagram: $hiveDiagram,hiveName: $hiveName,hiveWheight: $hiveWheight)
             hiveHealthView(firstDate: $lastNourishedDay, secondDate: $nextNutritionDay, thirdDate: $swarmPickedUp)
             queenBeeDetailsView(queenChange: $queenChange, royalCellInserted: $royalCellInserted, queenInserted: $queenInserted, isHorphan: $orphanHive)
-        }.background(BackgroundView())
+        }.background(BackgroundView()).alert(isPresented: $navigateBack){
+            Alert(
+                title: Text("Are you sure you want to delete this?"),
+                message: Text("Selecting discard you will lose all those changes"),
+                primaryButton: .destructive(Text("Discard Changes")){self.presentationMode.wrappedValue.dismiss()
+                },secondaryButton: .cancel())
+        }
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading){
                     Button{
-                        self.presentationMode.wrappedValue.dismiss()
+                        let hiveToSave=Hive(queenChange, royalCellInserted, queenInserted, orphanHive, loomsInside, hiveDiagram, lastNourishedDay, nextNutritionDay, swarmPickedUp, hiveName,hiveWheight)
+                        defaultHive != hiveToSave ? navigateBack.toggle() : self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("cancel",systemImage: "xmark").labelStyle(.iconOnly)
                             .foregroundColor(Color("CustomBlack"))
@@ -96,7 +103,6 @@ struct AlternativeHiveDetail: View{
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button{
-                        navigateBack = true
                         var hiveToSave=Hive(queenChange, royalCellInserted, queenInserted, orphanHive, loomsInside, hiveDiagram, lastNourishedDay, nextNutritionDay, swarmPickedUp, hiveName,hiveWheight)
                         hiveToSave.id = defaultHive.id
                         if (newView == false){
