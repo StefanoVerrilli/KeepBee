@@ -2,7 +2,8 @@ import Foundation
 
 var hiveToFill = Hive()
 var hivesNames = LoadArrayOfHives()
-let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina inserita","regina da sostituire","cella reale","kg","peso","pesa","diagramma","sciame","nutrito"]
+//let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","regina inserita","regina da sostituire","cella reale","kg","peso","pesa","diagramma","sciame","nutrito"]
+let keyWordToFind = ["looms","loom","nourished","fed","is orphan","not an orhphan","queen","royal cell","kg","weighs","weight","diagram","swarm"]
 
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive]) != nil}
@@ -23,7 +24,7 @@ func Tagger(stringToCheck: String,HivesArray: ObservableList) -> Hive?{
     return hiveToFill
 }
 
-func CaseClassifier(CompleteString : String,ParticularCase: String){
+/*func CaseClassifier(CompleteString : String,ParticularCase: String){
     switch(ParticularCase){
     case "è orfana":
         hiveToFill.orphanHive = true
@@ -76,7 +77,6 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
     case "pesa","peso","kg":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
-        print(substring)
         let regex = "[0-9]{1,3}"
         let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase,regex: regex)
         if result != nil{hiveToFill.hiveWheight = String(result!)}
@@ -84,4 +84,71 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         print("found some problems")
     }
 }
+*/
 
+
+func CaseClassifier(CompleteString : String,ParticularCase: String){
+    switch(ParticularCase){
+    case "is an orphan":
+        hiveToFill.orphanHive = true
+    case "not an orphan","isn't an orphan":
+        hiveToFill.orphanHive = false
+    case "diagram":
+        let regex = "(?<=doesn't)[^\(ParticularCase)]+"
+        let range = CompleteString.range(of: regex,options: [.caseInsensitive,.backwards,.regularExpression])?.lowerBound
+        if range != nil
+        {
+            hiveToFill.hiveDiagram = false
+        }else{
+            hiveToFill.hiveDiagram = true}
+    case "looms","loom":
+        let regexLoom = "loom(s)?"
+        let range = CompleteString.range(of: regexLoom,options: [.backwards,.caseInsensitive,.regularExpression])?.lowerBound
+        let substring = CompleteString[range!...]
+        let regex = "[0-9]{1,2}"
+        let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase,regex: regex)
+        if result != nil{hiveToFill.loomsInside = result!}
+    case "to be fed","to be nourished":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck:String(substring))
+        if result != nil{hiveToFill.nextNutritionDay = result!}
+    case "fed","nourished":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck:String(substring))
+        if result != nil{hiveToFill.lastNourishedDay = result!}
+    case "queen":
+        var regex = "(?<=\(ParticularCase))[^changed]+"
+        print(CompleteString)
+        var range = CompleteString.range(of: regex,options: [.backwards,.caseInsensitive,.regularExpression])?.lowerBound
+        if range != nil{
+            let substring = CompleteString[range!...]
+            let result = DetectDatesInString(StringToCheck: String(substring))
+            if result != nil{hiveToFill.queenChange = result!}}
+        regex = "(?<=\(ParticularCase))[^inserted]+"
+        range = CompleteString.range(of: regex,options: [.backwards,.caseInsensitive,.regularExpression])?.lowerBound
+        if range != nil{
+            let substringInsert = CompleteString[range!...]
+            let resultInsert = DetectDatesInString(StringToCheck: String(substringInsert))
+            if resultInsert != nil{hiveToFill.queenInserted = resultInsert!}}
+    case "royal cell":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck: String(substring))
+        if result != nil{hiveToFill.royalCellInserted = result!}
+    case "swarm":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let result = DetectDatesInString(StringToCheck: String(substring))
+        if result != nil{hiveToFill.swarmPickedUp = result!}
+    case "weighs","weight","kg":
+        let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
+        let substring = CompleteString[range!...]
+        let regex = "[0-9]{1,3}"
+        let result = DetectNumsInString(StringToCheck: String(substring), CompleteString: CompleteString, KeyWord: ParticularCase,regex: regex)
+        if result != nil{hiveToFill.hiveWheight = String(result!)}
+    default:
+        print("found some problems")
+    }
+}

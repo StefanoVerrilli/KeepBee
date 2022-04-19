@@ -1,32 +1,33 @@
 import Foundation
 
-let CurrentLang = "it_IT_Posix"
+//let CurrentLang = "it_IT_Posix"
+let CurrentLang = "en_US_Posix"
 
 func DetectDatesInString(StringToCheck:String)-> Date?{
-    let daysRegex = "[0-9]{1,2} giorn[a-z]{1}"
-    let regex = "[0-9]{1,2} [a-z]{1,10}( [0-9]{4})?"
+    let daysRegex = "[0-9]{1,2} day([a-z]{1})?"
+    let regex = "[0-9]{1,2}(th)? [a-z]{1,10} [0-9]{4}"
     var DistanceDate:Int = Int.max
     var Distancedays:Int = Int.max
     var Datesubstring: Substring?
     var Dayssubstring: Substring?
     var LocalizedCalendar = Calendar.autoupdatingCurrent
     LocalizedCalendar.locale = Locale(identifier: CurrentLang)
-    if let range = StringToCheck.range(of:regex,options: .regularExpression){
+    if let range = StringToCheck.range(of:regex,options: [.regularExpression,.caseInsensitive]){
         Datesubstring = StringToCheck[range.lowerBound..<range.upperBound]
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)
         DistanceDate = StringToCheck.distance(from: index, to: range.lowerBound)
         }
     
-    if let rangeDays = StringToCheck.range(of: daysRegex,options: .regularExpression){
+    if let rangeDays = StringToCheck.range(of: daysRegex,options: [.regularExpression,.caseInsensitive]){
         Dayssubstring = StringToCheck[rangeDays.lowerBound..<rangeDays.upperBound]
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)
         Distancedays = StringToCheck.distance(from: index, to: rangeDays.lowerBound)
          }
-    
     if Distancedays < DistanceDate{
         let CurrentDate = Date()
         var dateComponent = DateComponents()
-        dateComponent.day = Int(Dayssubstring!.components(separatedBy: " ")[0])
+        if Dayssubstring != nil{
+            dateComponent.day = Int(Dayssubstring!.components(separatedBy: " ")[0])}
         let AddedDate = Calendar.current.date(byAdding: dateComponent,to: CurrentDate)
         return AddedDate!
     }else{
@@ -85,17 +86,17 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 }
 
 func DataHandler(StringToConvert: String)-> String?{
-    var StringToCheck = StringToConvert
-    if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
+    /*if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
         StringToCheck.append(" ")
         StringToCheck.append(String(Calendar.current.component(.year, from: Date())))
-    }
+    }*/
     let myformatter = DateFormatter()
     myformatter.locale = Locale(identifier: CurrentLang)
     myformatter.dateFormat = "dd-MM-yyyy"
     myformatter.timeZone = TimeZone.current
-    let DateToConvert = myformatter.date(from: StringToCheck)
+    let DateToConvert = myformatter.date(from: StringToConvert)
     if DateToConvert != nil{
+        print(myformatter.string(from: DateToConvert!))
         return myformatter.string(from: DateToConvert!)
     }else{
         return nil
