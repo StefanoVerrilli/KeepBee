@@ -103,9 +103,9 @@ struct AlternativeHiveDetail: View{
                             if hiveToSave == defaultHive{self.presentationMode.wrappedValue.dismiss()}
                             let index = globalList.items.firstIndex(where: {$0.id == defaultHive.id})
                             if(index != nil){globalList.items.remove(at:index!)}
-                            SaveFiles(HiveToSave: hiveToSave, KeyToInsert: defaultHive.id.uuidString)
+                            SaveHive(HiveToSave: hiveToSave, KeyToInsert: defaultHive.id.uuidString)
                         }else{
-                            SaveFiles(HiveToSave: hiveToSave, KeyToInsert: defaultHive.id.uuidString)
+                            SaveHive(HiveToSave: hiveToSave, KeyToInsert: defaultHive.id.uuidString)
                         }
                         globalList.items.insert(hiveToSave, at: 0)
                         SaveArrayOfHives(HivesToSave: globalList.items)

@@ -1,10 +1,3 @@
-//
-//  ParthenopeKitLoad.swift
-//  KeepBee
-//
-//  Created by Stefano Verrilli on 18/04/22.
-//
-
 import Foundation
 import ParthenoKit
 
@@ -12,7 +5,7 @@ var p: ParthenoKit = ParthenoKit()
 let TeamKey = "TeamG2122S678CR"
 let HivesKey = "HivesKey"
 
-func SaveFiles(HiveToSave: Hive,KeyToInsert: String){
+func SaveHive(HiveToSave: Hive,KeyToInsert: String){
     if let jsonData = try? JSONEncoder().encode(HiveToSave){
         let jsonString = String(data: jsonData, encoding: .utf8)
         p.writeSync(team: TeamKey, tag: "", key: KeyToInsert, value: jsonString)
@@ -20,7 +13,7 @@ func SaveFiles(HiveToSave: Hive,KeyToInsert: String){
     
 }
 
-func LoadFiles(keyToFind: String) -> Hive{
+func LoadHive(keyToFind: String) -> Hive{
     if let HiveAsString = p.readSync(team: TeamKey, tag: "", key: keyToFind).first?.value.replacingOccurrences(of: "\\", with: ""){
         do{
             let HiveData = HiveAsString.data(using: .utf8)
@@ -59,9 +52,9 @@ func LoadArrayOfHives()-> [Hive]{
 
 func ReloadFiles(keyToChange: String,newHive: Hive) -> Hive{
     var copyOfnewHive = newHive
-    let oldHive = LoadFiles(keyToFind: newHive.id.uuidString)
+    let oldHive = LoadHive(keyToFind: newHive.id.uuidString)
     copyOfnewHive.id = oldHive.id
-    SaveFiles(HiveToSave: copyOfnewHive, KeyToInsert: keyToChange)
+    SaveHive(HiveToSave: copyOfnewHive, KeyToInsert: keyToChange)
     return copyOfnewHive
 }
 

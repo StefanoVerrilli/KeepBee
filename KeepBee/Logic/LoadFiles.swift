@@ -2,7 +2,7 @@ import Foundation
 
 //Those functions are made to store and read Hives
 
-func saveHive(hiveToSave: Hive,inputKey: String){
+/*func saveHive(hiveToSave: Hive,inputKey: String){
     do{
         let encoder = JSONEncoder()
         let result = try encoder.encode(hiveToSave)
@@ -62,3 +62,4 @@ func ReloadNewArray(hiveToAppend: Hive,GlobalHivesArray : ObservableList){
 func RemoveHives(keyToRemove:String){
     UserDefaults.standard.removeObject(forKey: keyToRemove)
 }
+*/

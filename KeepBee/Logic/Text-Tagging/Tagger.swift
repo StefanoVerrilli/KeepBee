@@ -7,7 +7,7 @@ let keyWordToFind = ["telai","nutrita","nutrire","è orfana","non è orfana","re
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive]) != nil}
     if targetHive.count != 1{return []}
-    hiveToFill = LoadFiles(keyToFind: targetHive.first!.id.uuidString)
+    hiveToFill = LoadHive(keyToFind: targetHive.first!.id.uuidString)
     let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "(?<![\\w\\d])\($0)(?![\\w\\d])",options: [.regularExpression,.caseInsensitive]) != nil}
     return keywordFound
 }

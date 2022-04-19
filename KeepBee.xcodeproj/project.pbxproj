@@ -13,7 +13,6 @@
 		7B31EC0628094ADE00D59358 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B31EC0528094ADE00D59358 /* Tagger.swift */; };
 		7B31EC0A280955E300D59358 /* HelperFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B31EC09280955E300D59358 /* HelperFuncs.swift */; };
 		7B31EC0C28095D5400D59358 /* VoiceInformationSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B31EC0B28095D5400D59358 /* VoiceInformationSubmit.swift */; };
-		7B375BD6280803A000533674 /* LoadFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD5280803A000533674 /* LoadFiles.swift */; };
 		7B375BD828085F7D00533674 /* ObservableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B375BD728085F7D00533674 /* ObservableList.swift */; };
 		7B54BAFD2802E851003ED7C2 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFC2802E851003ED7C2 /* backgroundView.swift */; };
 		7B54BAFF28035065003ED7C2 /* AlternativeHiveDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */; };
@@ -37,7 +36,6 @@
 		7B31EC0528094ADE00D59358 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
 		7B31EC09280955E300D59358 /* HelperFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFuncs.swift; sourceTree = "<group>"; };
 		7B31EC0B28095D5400D59358 /* VoiceInformationSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInformationSubmit.swift; sourceTree = "<group>"; };
-		7B375BD5280803A000533674 /* LoadFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFiles.swift; sourceTree = "<group>"; };
 		7B375BD728085F7D00533674 /* ObservableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableList.swift; sourceTree = "<group>"; };
 		7B54BAFC2802E851003ED7C2 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		7B54BAFE28035065003ED7C2 /* AlternativeHiveDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeHiveDetail.swift; sourceTree = "<group>"; };
@@ -103,11 +101,10 @@
 		7B81F4BC280D45E6000654B6 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				7B375BD5280803A000533674 /* LoadFiles.swift */,
+				7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */,
 				58D56FD92805A82B00A65387 /* SwiftUISpeech.swift */,
 				7B7A079F280AF92400381248 /* ShakeMotionDetection.swift */,
 				7B31EC0428094AA400D59358 /* Text-Tagging */,
-				7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -241,7 +238,6 @@
 			files = (
 				E63051D028049632006A265F /* Tabbar.swift in Sources */,
 				7B31EC0A280955E300D59358 /* HelperFuncs.swift in Sources */,
-				7B375BD6280803A000533674 /* LoadFiles.swift in Sources */,
 				7B7C60F628058BF800691347 /* Components.swift in Sources */,
 				7B31EC0628094ADE00D59358 /* Tagger.swift in Sources */,
 				58D56FD82805A70900A65387 /* ButtonView.swift in Sources */,
