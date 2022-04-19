@@ -44,7 +44,7 @@
 		7B7FC9762801A64B00178BE4 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		7B81F4BE280D47FE000654B6 /* ParthenopeKitLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParthenopeKitLoad.swift; sourceTree = "<group>"; };
 		7B81F4C4280D4C5D000654B6 /* ParthenoKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ParthenoKit.xcframework; sourceTree = "<group>"; };
-		7B81F4C7280D5189000654B6 /* ParthenoKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ParthenoKit.xcframework; path = ../../../../Downloads/ParthenokitDemo/ParthenoKit.xcframework; sourceTree = "<group>"; };
+		7B81F4C7280D5189000654B6 /* ParthenoKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ParthenoKit.xcframework; path = KeepBee/Frameworks/ParthenoKit.xcframework; sourceTree = SOURCE_ROOT; };
 		7BC772332800B05700547E6C /* KeepBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC772362800B05700547E6C /* KeepBee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepBee.swift; sourceTree = "<group>"; };
 		7BC772382800B05700547E6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
