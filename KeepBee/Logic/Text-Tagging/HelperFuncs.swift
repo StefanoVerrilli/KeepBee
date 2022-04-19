@@ -4,7 +4,7 @@ let CurrentLang = "it_IT_Posix"
 
 func DetectDatesInString(StringToCheck:String)-> Date?{
     let daysRegex = "[0-9]{1,2} giorn[a-z]{1}"
-    let regex = "[0-9]{1,2} [a-z]{1,10}"
+    let regex = "[0-9]{1,2} [a-z]{1,10}( [0-9]{4})?"
     var DistanceDate:Int = Int.max
     var Distancedays:Int = Int.max
     var Datesubstring: Substring?
@@ -86,11 +86,9 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 
 func DataHandler(StringToConvert: String)-> String?{
     var StringToCheck = StringToConvert
-    print(StringToCheck)
-    if StringToConvert.components(separatedBy: " ").count == 2 {
-        StringToCheck.append("-")
+    if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
+        StringToCheck.append(" ")
         StringToCheck.append(String(Calendar.current.component(.year, from: Date())))
-        
     }
     let myformatter = DateFormatter()
     myformatter.locale = Locale(identifier: CurrentLang)
