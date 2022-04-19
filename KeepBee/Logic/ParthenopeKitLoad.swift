@@ -10,6 +10,7 @@ import ParthenoKit
 
 var p: ParthenoKit = ParthenoKit()
 let TeamKey = "TeamG2122S678CR"
+let HivesKey = "HivesKey"
 
 func SaveFiles(HiveToSave: Hive,KeyToInsert: String){
     if let jsonData = try? JSONEncoder().encode(HiveToSave){
@@ -20,7 +21,7 @@ func SaveFiles(HiveToSave: Hive,KeyToInsert: String){
 }
 
 func LoadFiles(keyToFind: String) -> Hive{
-    if let HiveAsString = p.readSync(team: TeamKey, tag: "", key: keyToFind).first?.value{
+    if let HiveAsString = p.readSync(team: TeamKey, tag: "", key: keyToFind).first?.value.replacingOccurrences(of: "\\", with: ""){
         do{
             let HiveData = HiveAsString.data(using: .utf8)
             let decoder = JSONDecoder()
@@ -33,15 +34,15 @@ func LoadFiles(keyToFind: String) -> Hive{
     return Hive(Date(), Date(), Date(), false, 1, false, Date(), Date(), Date(), "","")
 }
 
-func SaveArrayOfHives(HivesToSave: [Hive],keyToInsert: String){
+func SaveArrayOfHives(HivesToSave: [Hive]){
     if let HivesJsonData = try? JSONEncoder().encode(HivesToSave),
        let jsonString = String(data: HivesJsonData, encoding: .utf8){
-        p.writeSync(team: TeamKey, tag: "", key: keyToInsert, value: jsonString)
+        p.writeSync(team: TeamKey, tag: "", key: HivesKey, value: jsonString)
     }
 }
 
-func LoadArrayOfHives(keyToInsert: String)-> [Hive]{
-    var HivesAsString = p.readSync(team: TeamKey, tag: "", key: keyToInsert).values.first
+func LoadArrayOfHives()-> [Hive]{
+    var HivesAsString = p.readSync(team: TeamKey, tag: "", key: HivesKey).values.first
     if HivesAsString != nil {HivesAsString = HivesAsString?.replacingOccurrences(of: "\\", with: "")}else{return []}
     if let HivesData = HivesAsString?.data(using:.utf8){
         do{
@@ -53,4 +54,22 @@ func LoadArrayOfHives(keyToInsert: String)-> [Hive]{
         }
     }
     return []
+}
+
+
+func ReloadFiles(keyToChange: String,newHive: Hive) -> Hive{
+    var copyOfnewHive = newHive
+    let oldHive = LoadFiles(keyToFind: newHive.id.uuidString)
+    copyOfnewHive.id = oldHive.id
+    SaveFiles(HiveToSave: copyOfnewHive, KeyToInsert: keyToChange)
+    return copyOfnewHive
+}
+
+func ReloadFilesArray(hiveToAppend: Hive,GlobalHivesArray : ObservableList){
+    var oldArray = LoadArrayOfHives()
+    let index = oldArray.firstIndex(where: {$0.id == hiveToAppend.id})
+    if(index != nil){oldArray.remove(at:index!)}
+    oldArray.insert(hiveToAppend, at: 0)
+    GlobalHivesArray.items = oldArray
+    SaveArrayOfHives(HivesToSave: oldArray)
 }

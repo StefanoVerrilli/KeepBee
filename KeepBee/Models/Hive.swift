@@ -1,6 +1,6 @@
 import Foundation
 
-struct Hive:Identifiable,Codable{
+struct Hive:Identifiable,Codable,Equatable{
     
 
     var id = UUID()
@@ -73,6 +73,21 @@ struct Hive:Identifiable,Codable{
 
         self.swarmPickedUp = Date()
     }
+    
+    public static func ==(lhive: Hive, rhive: Hive) -> Bool{
+            return
+        lhive.hiveName == rhive.hiveName &&
+        lhive.hiveWheight == rhive.hiveWheight &&
+        lhive.queenInserted == rhive.queenInserted &&
+        lhive.swarmPickedUp == rhive.swarmPickedUp &&
+        lhive.hiveDiagram == rhive.hiveDiagram &&
+        lhive.orphanHive == rhive.orphanHive &&
+        lhive.lastNourishedDay == rhive.lastNourishedDay &&
+        lhive.loomsInside == rhive.loomsInside &&
+        lhive.nextNutritionDay == rhive.nextNutritionDay &&
+        lhive.queenChange == rhive.queenChange &&
+        lhive.royalCellInserted == rhive.royalCellInserted
+        }
 
 }
 
