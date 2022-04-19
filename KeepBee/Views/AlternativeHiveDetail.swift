@@ -105,7 +105,7 @@ struct AlternativeHiveDetail: View{
                     Button{
                         var hiveToSave=Hive(queenChange, royalCellInserted, queenInserted, orphanHive, loomsInside, hiveDiagram, lastNourishedDay, nextNutritionDay, swarmPickedUp, hiveName,hiveWheight)
                         hiveToSave.id = defaultHive.id
-                        if (newView == false){
+                        if (!newView){
                             if hiveToSave == defaultHive{self.presentationMode.wrappedValue.dismiss()}
                             let index = globalList.items.firstIndex(where: {$0.id == defaultHive.id})
                             if(index != nil){globalList.items.remove(at:index!)}
@@ -118,7 +118,7 @@ struct AlternativeHiveDetail: View{
                         self.presentationMode.wrappedValue.dismiss()
                     }label: {
                         Label("Confirm",systemImage: "checkmark").labelStyle(.iconOnly).accentColor(Color("CustomBlack"))
-                    }.disabled(hiveName.isEmpty || (globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1 && newView == true))
+                    }.disabled(hiveName.isEmpty || (globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1 && newView) || (hiveName != defaultHive.hiveName && globalList.items.filter{hiveName.range(of: $0.hiveName,options: .caseInsensitive) != nil}.count == 1))
                 }
             }).navigationTitle(hiveName).foregroundColor(Color("CustomBlack"))
             .navigationBarTitleDisplayMode(.inline)

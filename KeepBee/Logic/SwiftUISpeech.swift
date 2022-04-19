@@ -70,7 +70,6 @@ public class SwiftUISpeech: ObservableObject{
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
         recognitionRequest.shouldReportPartialResults = true
-        
         // Create a recognition task for the speech recognition session.
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest){ result, error in
             if (result != nil){
@@ -131,7 +130,7 @@ public class SwiftUISpeech: ObservableObject{
     @Published var button = SpeechButton(Hives: ObservableList())
     
     //private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-EN"))
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private let authStat = SFSpeechRecognizer.authorizationStatus()
     private var recognitionTask: SFSpeechRecognitionTask?

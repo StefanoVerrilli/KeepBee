@@ -85,9 +85,3 @@ struct ListItem: View {
     }
 }
 
-struct MaskView: View {
-    var body: some View {
-        Button(action: {print("button tap")}, label:{ListItem(title: "Hive n.1")}).listRowBackground(Color.clear)
-    }
-}
-

@@ -96,7 +96,6 @@ func DataHandler(StringToConvert: String)-> String?{
     myformatter.timeZone = TimeZone.current
     let DateToConvert = myformatter.date(from: StringToConvert)
     if DateToConvert != nil{
-        print(myformatter.string(from: DateToConvert!))
         return myformatter.string(from: DateToConvert!)
     }else{
         return nil
