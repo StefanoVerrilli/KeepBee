@@ -4,7 +4,7 @@ let CurrentLang = "en_US_Posix"
 
 func DetectDatesInString(StringToCheck:String)-> Date?{
     let daysRegex = "[0-9]{1,2} day([a-z]{1})?"
-    let regex = "[0-9]{1,2}(th)? [a-z]{1,10} [0-9]{4}"
+    let regex = "[0-9]{1,2}(th)? [a-z]{1,10}( [0-9]{4})?"
     var DistanceDate:Int = Int.max
     var Distancedays:Int = Int.max
     var Datesubstring: Substring?
@@ -22,7 +22,9 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)
         Distancedays = StringToCheck.distance(from: index, to: rangeDays.lowerBound)
          }
-    if Distancedays < DistanceDate{
+    print(Distancedays)
+    print(DistanceDate)
+    if Distancedays <= DistanceDate{
         let CurrentDate = Date()
         var dateComponent = DateComponents()
         if Dayssubstring != nil{
@@ -85,11 +87,16 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 }
 
 func DataHandler(StringToConvert: String)-> String?{
+    var StringToCheck = StringToConvert
+        if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
+            StringToCheck.append(" ")
+            StringToCheck.append(String(Calendar.current.component(.year, from: Date())))
+        }
     let myformatter = DateFormatter()
     myformatter.locale = Locale(identifier: CurrentLang)
     myformatter.dateFormat = "dd-MM-yyyy"
     myformatter.timeZone = TimeZone.current
-    let DateToConvert = myformatter.date(from: StringToConvert)
+    let DateToConvert = myformatter.date(from: StringToCheck)
     if DateToConvert != nil{
         return myformatter.string(from: DateToConvert!)
     }else{
