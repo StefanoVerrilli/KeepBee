@@ -1,6 +1,5 @@
 import Foundation
 
-//let CurrentLang = "it_IT_Posix"
 let CurrentLang = "en_US_Posix"
 
 func DetectDatesInString(StringToCheck:String)-> Date?{
@@ -86,10 +85,6 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 }
 
 func DataHandler(StringToConvert: String)-> String?{
-    /*if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
-        StringToCheck.append(" ")
-        StringToCheck.append(String(Calendar.current.component(.year, from: Date())))
-    }*/
     let myformatter = DateFormatter()
     myformatter.locale = Locale(identifier: CurrentLang)
     myformatter.dateFormat = "dd-MM-yyyy"
