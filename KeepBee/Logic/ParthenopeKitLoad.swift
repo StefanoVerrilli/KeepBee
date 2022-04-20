@@ -3,7 +3,7 @@ import ParthenoKit
 
 var p: ParthenoKit = ParthenoKit()
 let TeamKey = "TeamG2122S678CR"
-let HivesKey = "HivesKey"
+let HivesKey = "MyHivesKey"
 
 func SaveHive(HiveToSave: Hive,KeyToInsert: String){
     if let jsonData = try? JSONEncoder().encode(HiveToSave){

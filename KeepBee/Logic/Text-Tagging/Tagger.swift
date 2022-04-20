@@ -2,13 +2,13 @@ import Foundation
 
 var hiveToFill = Hive()
 var hivesNames = LoadArrayOfHives()
-let keyWordToFind = ["looms","loom","nourished","been fed","is orphan","not an orhphan","queen","royal","kg","weighs","weight","diagram","swarm","is an orphan","is orphan","not an orphan","isn't an orphan","isn't orphan","be fed","be nourished","been said","be said","be sad","been sad","royale","quinn","be fat","been fat"]
+let keyWordToFind = ["looms","loom","nourished","been fed","is orphan","not an orhphan","queen","royal","kg","weighs","weights","weight","diagram","swarm","is an orphan","is orphan","not an orphan","isn't an orphan","isn't orphan","be fed","be nourished","been said","be said","be sad","been sad","royale","quinn","be fat","been fat"]
 
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive,.backwards]) != nil}
     if targetHive.count != 1{return []}
     hiveToFill = LoadHive(keyToFind: targetHive.first!.id.uuidString)
-    let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "\\W*((?i)\($0)(?-i))\\W*" ,options: [.regularExpression,.caseInsensitive,.backwards]) != nil}
+    let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "\($0)" ,options: [.regularExpression,.caseInsensitive,.backwards]) != nil}
     return keywordFound
 }
 
@@ -77,7 +77,7 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck: String(substring))
         if result != nil{hiveToFill.swarmPickedUp = result!}
-    case "weighs","weight","kg":
+    case "weighs","weight","kg","weights":
         let range = CompleteString.range(of: ParticularCase,options: [.backwards,.caseInsensitive])?.lowerBound
         let substring = CompleteString[range!...]
         let regex = "[0-9]{1,3}"
