@@ -70,13 +70,14 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
         Distance = StringToCheck.distance(from: index, to: Calcrange.lowerBound)
     }
     let result = CompleteString.components(separatedBy: " ").map{$0}.reversed().joined(separator: " ")
-    let CutRange = result.range(of: KeyWord)!
-    let Mystring = result[CutRange.lowerBound..<result.endIndex]
+    let CutRange = result.range(of: KeyWord)
+    if CutRange != nil{
+        let Mystring = result[CutRange!.lowerBound..<result.endIndex]
     if  let CalcrangeReverse = Mystring.range(of: regex,options: .regularExpression){
         substringReversed = Mystring[CalcrangeReverse.lowerBound..<CalcrangeReverse.upperBound]
         let index = Mystring.index(Mystring.startIndex, offsetBy: 0)
         ReversedDistance = Mystring.distance(from: index, to: CalcrangeReverse.lowerBound)
-    }
+    }}
     if Distance < ReversedDistance{
         return Int(Mysubstring)
     }else{
