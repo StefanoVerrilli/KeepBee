@@ -137,7 +137,7 @@ struct generalInformationHiveView: View {
             Text("General information").foregroundColor(Color("CustomBlack"))
         }){
             alternativeTextInput(stringToDisplay: "Hive Name", valueNeeded: $hiveName)
-            alternativeTextInput(stringToDisplay: "Hive Wheight", valueNeeded: $hiveWheight)
+            alternativeTextInput(stringToDisplay: "Hive Weight", valueNeeded: $hiveWheight)
             CustomPicker(stringToDisplay: "Looms inside", pickerValue: $loomsInside)
             CustomToggle(toggleVar: $hiveDiagram, stringToDisplay: "Hive Diagram")
         }
@@ -156,7 +156,7 @@ struct queenBeeDetailsView: View {
         }){
             CustomToggle(toggleVar: $isHorphan,stringToDisplay: "Orphan: ")
             CustomDatePicker(dateToTrack: $royalCellInserted, stringToDisplay: "Royal cell inserted")
-            CustomDatePicker(dateToTrack: $queenChange,stringToDisplay: "Need to be changed")
+            CustomDatePicker(dateToTrack: $queenChange,stringToDisplay: "Needs to be changed")
             CustomDatePicker(dateToTrack: $queenInserted,stringToDisplay: "Queen inserted")
         }
     }
