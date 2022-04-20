@@ -2,13 +2,14 @@ import Foundation
 
 var hiveToFill = Hive()
 var hivesNames = LoadArrayOfHives()
-let keyWordToFind = ["looms","loom","nourished","been fed","is orphan","not an orhphan","queen","royal","kg","weighs","weights","weight","diagram","swarm","is an orphan","is orphan","not an orphan","isn't an orphan","isn't orphan","be fed","be nourished","been said","be said","be sad","been sad","royale","quinn","be fat","been fat","lungs","lum's","rooms","lume","blooms"]
+let keyWordToFind = ["looms","loom","been nourished","be fed","is orphan","not an orhphan","queen","royal","kg","weighs","weights","weight","diagram","swarm","is an orphan","is orphan","not an orphan","isn't an orphan","isn't orphan","be nourished","been said","be said","be sad","been sad","royale","quinn","be fat","been fat","lungs","lum's","rooms","lume","blooms","been fed","was fed","was nourished","was said","was sad","was fat"]
 //
 func StringMatching(stringToCheck: String) -> [String]{
-    let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive,.backwards]) != nil}
+    let targetHive = hivesNames.filter{stringToCheck.range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive,.backwards]) != nil}
     if targetHive.count != 1{return []}
     hiveToFill = LoadHive(keyToFind: targetHive.first!.id.uuidString)
-    let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "\($0)" ,options: [.regularExpression,.caseInsensitive,.backwards]) != nil}
+    let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "(?<![\\w\\d])\($0)(?![\\w\\d])" ,options: [.regularExpression,.caseInsensitive,.backwards]) != nil}
+    print(keywordFound)
     return keywordFound
 }
 
@@ -48,7 +49,7 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
         if result != nil{hiveToFill.nextNutritionDay = result!}
-    case "been fed","been nourished","been said","been sad","been fat":
+    case "been fed","been nourished","been said","been sad","been fat","was fed","was nourished","was said","was sad","was fat":
         let range = CompleteString.range(of: "\(ParticularCase)",options: [.backwards,.caseInsensitive,.regularExpression])?.lowerBound
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
