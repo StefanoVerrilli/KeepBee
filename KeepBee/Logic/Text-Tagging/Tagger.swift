@@ -3,7 +3,7 @@ import Foundation
 var hiveToFill = Hive()
 var hivesNames = LoadArrayOfHives()
 let keyWordToFind = ["looms","loom","nourished","been fed","is orphan","not an orhphan","queen","royal","kg","weighs","weights","weight","diagram","swarm","is an orphan","is orphan","not an orphan","isn't an orphan","isn't orphan","be fed","be nourished","been said","be said","be sad","been sad","royale","quinn","be fat","been fat"]
-
+//
 func StringMatching(stringToCheck: String) -> [String]{
     let targetHive = hivesNames.filter{stringToCheck.lowercased().range(of: "(?<![\\w\\d])\($0.hiveName)(?![\\w\\d])",options: [ .regularExpression,.caseInsensitive,.backwards]) != nil}
     if targetHive.count != 1{return []}
