@@ -9,7 +9,6 @@ func StringMatching(stringToCheck: String) -> [String]{
     if targetHive.count != 1{return []}
     hiveToFill = LoadHive(keyToFind: targetHive.first!.id.uuidString)
     let keywordFound = keyWordToFind.filter{stringToCheck.range(of: "\\W*((?i)\($0)(?-i))\\W*" ,options: [.regularExpression,.caseInsensitive,.backwards]) != nil}
-    print(keywordFound)
     return keywordFound
 }
 
@@ -52,7 +51,6 @@ func CaseClassifier(CompleteString : String,ParticularCase: String){
         if result != nil{hiveToFill.nextNutritionDay = result!}
     case "been fed","been nourished","been said","been sad","been fat":
         let range = CompleteString.range(of: "\(ParticularCase)",options: [.backwards,.caseInsensitive,.regularExpression])?.lowerBound
-        print("sono qui")
         let substring = CompleteString[range!...]
         let result = DetectDatesInString(StringToCheck:String(substring))
         if result != nil{hiveToFill.lastNourishedDay = result!}

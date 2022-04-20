@@ -22,8 +22,6 @@ func DetectDatesInString(StringToCheck:String)-> Date?{
         let index = StringToCheck.index(StringToCheck.startIndex, offsetBy: 0)
         Distancedays = StringToCheck.distance(from: index, to: rangeDays.lowerBound)
          }
-    print(Distancedays)
-    print(DistanceDate)
     if Distancedays <= DistanceDate{
         let CurrentDate = Date()
         var dateComponent = DateComponents()
@@ -88,7 +86,13 @@ func DetectNumsInString(StringToCheck:String,CompleteString:String,KeyWord: Stri
 
 func DataHandler(StringToConvert: String)-> String?{
     var StringToCheck = StringToConvert
-        if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
+    if StringToCheck.components(separatedBy: " ")[0].hasSuffix("th"){
+        var correctedDay = StringToCheck.components(separatedBy: " ")[0]
+        let toCorrect = correctedDay
+        correctedDay.removeLast(2)
+        StringToCheck = StringToCheck.replacingOccurrences(of: toCorrect, with: correctedDay)
+    }
+    if StringToConvert.components(separatedBy: " ").count - 1 == 1 {
             StringToCheck.append(" ")
             StringToCheck.append(String(Calendar.current.component(.year, from: Date())))
         }
